@@ -4,8 +4,8 @@ import 'package:mlit_sdk/src/infrastructure/datasources/datasources.dart';
 import 'package:mlit_sdk/src/infrastructure/repositories/repositories.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-export 'src/application/services/services.dart';
 export 'src/domain/entities/entities.dart';
+export 'src/domain/value_objects/value_objects.dart';
 
 class MLITSdk {
   static const String _baseUrl =
