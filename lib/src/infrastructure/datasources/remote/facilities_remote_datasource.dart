@@ -18,13 +18,10 @@ import 'package:mlit_sdk/src/infrastructure/dtos/facilities/welfare_facility_dto
 /// Remote data source for facilities-related API endpoints
 class FacilitiesRemoteDataSource {
   final Dio _dio;
-  final String _apiKey;
 
   FacilitiesRemoteDataSource({
     required Dio client,
-    required String apiKey,
-  })  : _dio = client,
-        _apiKey = apiKey;
+  }) : _dio = client;
 
   /// Fetches medical facilities data from the API
   Future<List<MedicalFacility>> getMedicalFacilities({
@@ -41,9 +38,6 @@ class FacilitiesRemoteDataSource {
           'x': coordinates.longitude,
           'y': coordinates.latitude,
         },
-        options: Options(
-          headers: {'Ocp-Apim-Subscription-Key': _apiKey},
-        ),
       );
 
       return (response.data as List<Map<String, dynamic>>)
@@ -85,9 +79,6 @@ class FacilitiesRemoteDataSource {
             'welfareFacilityMinorClassCode':
                 welfareFacilityMinorClassCode.value,
         },
-        options: Options(
-          headers: {'Ocp-Apim-Subscription-Key': _apiKey},
-        ),
       );
 
       return (response.data as List<Map<String, dynamic>>)
@@ -118,9 +109,6 @@ class FacilitiesRemoteDataSource {
           if (administrativeAreaCode != null)
             'administrativeAreaCode': administrativeAreaCode.value,
         },
-        options: Options(
-          headers: {'Ocp-Apim-Subscription-Key': _apiKey},
-        ),
       );
 
       return (response.data as List<Map<String, dynamic>>)
@@ -148,9 +136,6 @@ class FacilitiesRemoteDataSource {
           'x': coordinates.longitude,
           'y': coordinates.latitude,
         },
-        options: Options(
-          headers: {'Ocp-Apim-Subscription-Key': _apiKey},
-        ),
       );
 
       return (response.data as List<Map<String, dynamic>>)

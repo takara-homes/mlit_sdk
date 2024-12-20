@@ -11,11 +11,6 @@ class RealEstateRemoteDataSource {
 
   const RealEstateRemoteDataSource(this._dio);
 
-  /// Sets up the required API headers for MLIT API
-  void _setApiHeaders(String apiKey) {
-    _dio.options.headers['Ocp-Apim-Subscription-Key'] = apiKey;
-  }
-
   /// Handles API errors with appropriate failure types
   Never _handleError(Object error, RequestOptions requestOptions) {
     if (error is DioException) {
@@ -72,8 +67,6 @@ class RealEstateRemoteDataSource {
     String? language,
   }) async {
     try {
-      _setApiHeaders(apiKey);
-
       final response = await _dio.get(
         ApiEndpoints.realEstateTransaction,
         queryParameters: {
@@ -123,8 +116,6 @@ class RealEstateRemoteDataSource {
     List<String>? landTypeCodes,
   }) async {
     try {
-      _setApiHeaders(apiKey);
-
       final response = await _dio.get(
         ApiEndpoints.realEstatePoints,
         queryParameters: {
@@ -183,8 +174,6 @@ class RealEstateRemoteDataSource {
     required String apiKey,
   }) async {
     try {
-      _setApiHeaders(apiKey);
-
       final response = await _dio.get(
         ApiEndpoints.appraisalReport,
         queryParameters: {
@@ -225,8 +214,6 @@ class RealEstateRemoteDataSource {
     String? language,
   }) async {
     try {
-      _setApiHeaders(apiKey);
-
       final response = await _dio.get(
         ApiEndpoints.prefectureCityList,
         queryParameters: {
