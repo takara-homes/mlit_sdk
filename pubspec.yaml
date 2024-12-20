@@ -1,0 +1,38 @@
+name: mlit_sdk
+description: A Dart SDK for accessing Japan's Ministry of Land, Infrastructure, Transport and Tourism (MLIT) Real Estate Information Library APIs
+version: 0.1.0
+repository: https://github.com/erknvl/mlit_sdk
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  dartz: 0.10.1
+  dio: ^5.7.0
+  equatable: ^2.0.7
+  freezed_annotation: ^2.4.4
+  json_annotation: ^4.9.0
+  lint: ^2.3.0
+  lints: ^5.0.0
+  shared_preferences: ^2.3.3
+
+dev_dependencies:
+  build_runner: ^2.4.13
+  freezed: ^2.5.7
+  json_serializable: ^6.9.0
+  mockito: ^5.4.4
+  test: ^1.25.12
+
+topics:
+  - mlit
+  - real-estate
+  - japan
+  - geo
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
