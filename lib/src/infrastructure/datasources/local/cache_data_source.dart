@@ -27,7 +27,7 @@ class SharedPreferencesDataSource implements LocalDataSource {
 
       final dynamic decodedJson = json.decode(jsonString);
       return Right(decodedJson as T);
-    } catch (e) {
+    } on Object catch (e) {
       return Left(
         CacheFailure(
           message: 'Error retrieving data: $e',
@@ -42,7 +42,7 @@ class SharedPreferencesDataSource implements LocalDataSource {
       final jsonString = json.encode(data);
       await _prefs.setString(key, jsonString);
       return const Right(unit);
-    } catch (e) {
+    } on Object catch (e) {
       return Left(CacheFailure(message: 'Error saving data: $e'));
     }
   }
@@ -52,7 +52,7 @@ class SharedPreferencesDataSource implements LocalDataSource {
     try {
       await _prefs.remove(key);
       return const Right(unit);
-    } catch (e) {
+    } on Object catch (e) {
       return Left(CacheFailure(message: 'Error removing data: $e'));
     }
   }
@@ -62,7 +62,7 @@ class SharedPreferencesDataSource implements LocalDataSource {
     try {
       await _prefs.clear();
       return const Right(unit);
-    } catch (e) {
+    } on Object catch (e) {
       return Left(CacheFailure(message: 'Error clearing data: $e'));
     }
   }

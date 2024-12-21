@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:mlit_sdk/src/domain/failures/api_failure.dart';
 import 'package:mlit_sdk/src/infrastructure/config/api_endpoints.dart';
@@ -59,12 +61,11 @@ class RealEstateRemoteDataSource {
   Future<List<TransactionDto>> getTransactions({
     required String year,
     required String quarter,
-    required String apiKey,
     String? priceClassification,
     String? area,
     String? city,
     String? station,
-    String? language,
+    String? language = 'en',
   }) async {
     try {
       final response = await _dio.get(
@@ -76,10 +77,12 @@ class RealEstateRemoteDataSource {
             'priceClassification': priceClassification,
           if (area != null) 'area': area,
           if (city != null) 'city': city,
-          if (station != null) 'station': station,
+          if (station != null) 'Station': station,
           if (language != null) 'language': language,
         },
       );
+
+      log(response.data.toString(), name: 'MLITRealEstateRemoteDataSource');
 
       if (response.data == null) {
         throw NotFoundFailure(
@@ -87,11 +90,11 @@ class RealEstateRemoteDataSource {
           message: 'No data received from server',
         );
       }
-
       return (response.data as List)
           .map((json) => TransactionDto.fromJson(json as Map<String, dynamic>))
           .toList();
-    } catch (e) {
+    } on Object catch (e) {
+      log(e.toString(), name: 'MLITRealEstateRemoteDataSource');
       _handleError(
         e,
         RequestOptions(
@@ -111,7 +114,6 @@ class RealEstateRemoteDataSource {
     required double y,
     required String from,
     required String to,
-    required String apiKey,
     String? priceClassification,
     List<String>? landTypeCodes,
   }) async {
@@ -154,7 +156,7 @@ class RealEstateRemoteDataSource {
           message: 'Unsupported response format: $responseFormat',
         );
       }
-    } catch (e) {
+    } on Object catch (e) {
       _handleError(
         e,
         RequestOptions(
@@ -171,7 +173,6 @@ class RealEstateRemoteDataSource {
     required String year,
     required String area,
     required String division,
-    required String apiKey,
   }) async {
     try {
       final response = await _dio.get(
@@ -195,7 +196,7 @@ class RealEstateRemoteDataSource {
             (json) => AppraisalReportDto.fromJson(json as Map<String, dynamic>),
           )
           .toList();
-    } catch (e) {
+    } on Object catch (e) {
       _handleError(
         e,
         RequestOptions(
@@ -210,7 +211,6 @@ class RealEstateRemoteDataSource {
   /// Fetches city list data
   Future<Map<String, dynamic>> getCityList({
     required String area,
-    required String apiKey,
     String? language,
   }) async {
     try {
@@ -229,7 +229,7 @@ class RealEstateRemoteDataSource {
       }
 
       return response.data as Map<String, dynamic>;
-    } catch (e) {
+    } on Object catch (e) {
       _handleError(
         e,
         RequestOptions(

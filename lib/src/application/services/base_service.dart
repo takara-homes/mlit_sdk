@@ -13,7 +13,7 @@ abstract class BaseService {
     try {
       final result = await call();
       return Right(result);
-    } catch (e) {
+    } on Object catch (e) {
       return Left(Failure.unexpected(message: e.toString()));
     }
   }

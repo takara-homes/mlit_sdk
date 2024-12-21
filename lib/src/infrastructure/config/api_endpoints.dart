@@ -4,7 +4,7 @@ class ApiEndpoints {
       'https://www.reinfolib.mlit.go.jp/ex-api/external';
 
   // Real Estate Transaction endpoints
-  static const String realEstateTransaction = '$baseUrl/XIT';
+  static const String realEstateTransaction = '$baseUrl/XIT001';
   static const String prefectureCityList = '$baseUrl/XIT2';
   static const String appraisalReport = '$baseUrl/XCT';
   static const String realEstatePoints = '$baseUrl/XPT1';

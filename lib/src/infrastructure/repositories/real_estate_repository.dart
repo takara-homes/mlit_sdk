@@ -61,7 +61,6 @@ class RealEstateRepository
         year: year.toString(),
         area: prefectureCode.value,
         division: landUseClassification.value,
-        apiKey: 'your_api_key',
       );
 
       final saveResult = await _localDataSource.save(cacheKey, reports);
@@ -73,9 +72,10 @@ class RealEstateRepository
       return Left(ApiFailure.fromDioException(e));
     } on SocketException catch (e) {
       return Left(InfrastructureFailure.networkConnection(
-              message: 'Network connection failed', error: e)
-          .toFailure());
-    } catch (e) {
+        message: 'Network connection failed',
+        error: e,
+      ).toFailure());
+    } on Object catch (e) {
       return Left(Failure.unexpected(
           message:
               'An unexpected error occurred while fetching appraisal reports',
@@ -126,7 +126,6 @@ class RealEstateRepository
         y: coordinates.latitude,
         from: year.toString(),
         to: year.toString(),
-        apiKey: 'your_api_key',
         priceClassification: priceType?.value,
         landTypeCodes: landTypes?.map((e) => e.value).toList(),
       );
@@ -142,7 +141,7 @@ class RealEstateRepository
       return Left(InfrastructureFailure.networkConnection(
               message: 'Network connection failed', error: e)
           .toFailure());
-    } catch (e) {
+    } on Object catch (e) {
       return Left(Failure.unexpected(
           message:
               'An unexpected error occurred while fetching land price points',
@@ -158,7 +157,7 @@ class RealEstateRepository
     PrefectureCode? prefectureCode,
     CityCode? cityCode,
     StationCode? stationCode,
-    String? language,
+    String? language = 'en',
   }) async {
     final cacheKey =
         'transactions_${period}_${prefectureCode?.value ?? ""}_${cityCode?.value ?? ""}_${stationCode?.value ?? ""}';
@@ -176,7 +175,6 @@ class RealEstateRepository
       final transactions = await _remoteDataSource.getTransactions(
         year: period.year,
         quarter: period.quarter,
-        apiKey: 'your_api_key',
         priceClassification: priceClassification?.value,
         area: prefectureCode?.value,
         city: cityCode?.value,
@@ -193,9 +191,10 @@ class RealEstateRepository
       return Left(ApiFailure.fromDioException(e));
     } on SocketException catch (e) {
       return Left(InfrastructureFailure.networkConnection(
-              message: 'Network connection failed', error: e)
-          .toFailure());
-    } catch (e) {
+        message: 'Network connection failed',
+        error: e,
+      ).toFailure());
+    } on Object catch (e) {
       return Left(Failure.unexpected(
           message: 'An unexpected error occurred while fetching transactions',
           error: e));

@@ -8,9 +8,6 @@ export 'src/domain/entities/entities.dart';
 export 'src/domain/value_objects/value_objects.dart';
 
 class MLITSdk {
-  static const String _baseUrl =
-      'https://www.reinfolib.mlit.go.jp/ex-api/external';
-
   final AppraisalService appraisalService;
   final LandPriceService landPriceService;
   final TransactionService transactionService;
@@ -30,7 +27,6 @@ class MLITSdk {
     Dio? dio,
   }) async {
     final dioInstance = dio ?? Dio()
-      ..options.baseUrl = _baseUrl
       ..options.headers['Ocp-Apim-Subscription-Key'] = apiKey
       ..options.headers['Accept'] = 'application/json'
       ..options.responseType = ResponseType.json;

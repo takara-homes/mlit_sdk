@@ -29,6 +29,7 @@ class TransactionService extends BaseService {
       cityCode: city,
       stationCode: station,
       priceClassification: priceClassification,
+      language: 'en',
     );
   }
 }

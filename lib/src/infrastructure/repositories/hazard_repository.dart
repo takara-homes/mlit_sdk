@@ -67,7 +67,7 @@ class HazardRepository implements IHazardRepository {
           error: e,
         ).toFailure(),
       );
-    } catch (e) {
+    } on Object catch (e) {
       return Left(Failure.unexpected(
         message:
             'An unexpected error occurred while fetching disaster risk areas',
@@ -117,7 +117,7 @@ class HazardRepository implements IHazardRepository {
           error: e,
         ).toFailure(),
       );
-    } catch (e) {
+    } on Object catch (e) {
       return Left(Failure.unexpected(
         message: 'An unexpected error occurred while fetching landslide areas',
         error: e,
@@ -166,7 +166,7 @@ class HazardRepository implements IHazardRepository {
           error: e,
         ).toFailure(),
       );
-    } catch (e) {
+    } on Object catch (e) {
       return Left(Failure.unexpected(
         message:
             'An unexpected error occurred while fetching steep slope areas',

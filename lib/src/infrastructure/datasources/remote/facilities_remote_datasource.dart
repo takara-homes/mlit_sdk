@@ -45,7 +45,7 @@ class FacilitiesRemoteDataSource {
           .toList();
     } on DioException catch (e) {
       throw ApiFailure.fromDioException(e);
-    } catch (e) {
+    } on Object catch (e) {
       throw UnsupportedError(e.toString());
     }
   }
@@ -86,7 +86,7 @@ class FacilitiesRemoteDataSource {
           .toList();
     } on DioException catch (e) {
       throw ApiFailure.fromDioException(e);
-    } catch (e) {
+    } on Object catch (e) {
       throw UnsupportedError(e.toString());
     }
   }
@@ -116,7 +116,7 @@ class FacilitiesRemoteDataSource {
           .toList();
     } on DioException catch (e) {
       throw ApiFailure.fromDioException(e);
-    } catch (e) {
+    } on Object catch (e) {
       throw UnsupportedError(e.toString());
     }
   }
@@ -143,7 +143,7 @@ class FacilitiesRemoteDataSource {
           .toList();
     } on DioException catch (e) {
       throw ApiFailure.fromDioException(e);
-    } catch (e) {
+    } on Object catch (e) {
       throw UnsupportedError(e.toString());
     }
   }
