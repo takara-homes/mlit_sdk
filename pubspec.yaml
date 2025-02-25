@@ -1,14 +1,15 @@
 name: mlit_sdk
 description: A Fluter SDK for accessing Japan's Ministry of Land, Infrastructure, Transport and Tourism (MLIT) Real Estate Information Library APIs
 version: 1.0.0
+author: Erkin Ovlyagulyyev
 repository: https://github.com/erknvl/mlit_sdk
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.2.7 <4.0.0"
+  flutter: ">=3.2.7"
 
 dependencies:
-  dartz: 0.10.1
+  dartz: ^0.10.1
   dio: ^5.7.0
   equatable: ^2.0.7
   freezed_annotation: ^2.4.4
