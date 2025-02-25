@@ -8,6 +8,7 @@ import 'package:mlit_sdk/src/domain/entities/real_estate/real_estate_transaction
 import 'package:mlit_sdk/src/domain/failures/api_failure.dart';
 import 'package:mlit_sdk/src/domain/failures/failure.dart';
 import 'package:mlit_sdk/src/domain/failures/infrastructure_failures.dart';
+import 'package:mlit_sdk/src/domain/repositories/base_repository.dart';
 import 'package:mlit_sdk/src/domain/repositories/real_estate/i_appraisal_repository.dart';
 import 'package:mlit_sdk/src/domain/repositories/real_estate/i_land_price_repository.dart';
 import 'package:mlit_sdk/src/domain/repositories/real_estate/i_transaction_repository.dart';
@@ -25,17 +26,96 @@ import 'package:mlit_sdk/src/infrastructure/datasources/remote/real_estate_remot
 
 class RealEstateRepository
     implements
+        BaseRepository,
         IAppraisalRepository,
         ILandPriceRepository,
         ITransactionRepository {
   final RealEstateRemoteDataSource _remoteDataSource;
   final LocalDataSource _localDataSource;
 
+  // Caching configuration
+  bool _useCache = true;
+  int? _cacheTtl;
+
+  // Cache key prefixes for different data types
+  static const String _appraisalCachePrefix = 'appraisal_';
+  static const String _landPriceCachePrefix = 'land_price_';
+  static const String _transactionCachePrefix = 'transaction_';
+
   RealEstateRepository({
     required RealEstateRemoteDataSource remoteDataSource,
     required LocalDataSource localDataSource,
+    bool useCache = true,
+    int? defaultCacheTtl,
   })  : _remoteDataSource = remoteDataSource,
-        _localDataSource = localDataSource;
+        _localDataSource = localDataSource,
+        _useCache = useCache,
+        _cacheTtl = defaultCacheTtl;
+
+  // BaseRepository implementation
+  @override
+  bool get useCache => _useCache;
+
+  @override
+  set useCache(bool value) {
+    _useCache = value;
+  }
+
+  @override
+  int? get cacheTtl => _cacheTtl;
+
+  @override
+  set cacheTtl(int? value) {
+    _cacheTtl = value;
+  }
+
+  @override
+  Future<void> clearCache() async {
+    final result = await _localDataSource.clear();
+    result.fold(
+      (failure) => throw failure,
+      (_) => null,
+    );
+  }
+
+  @override
+  Future<void> clearExpiredCache() async {
+    final result = await _localDataSource.clearExpired();
+    result.fold(
+      (failure) => throw failure,
+      (_) => null,
+    );
+  }
+
+  // Helper method to generate cache keys
+  String _generateCacheKey(String prefix, Map<String, dynamic> params) {
+    final sortedParams = Map.fromEntries(
+        params.entries.toList()..sort((a, b) => a.key.compareTo(b.key)));
+    return '$prefix$sortedParams';
+  }
+
+  // Helper method to check if data exists in cache and return it if valid
+  Future<Either<Failure, T?>> _getFromCacheIfValid<T>(String cacheKey) async {
+    if (!_useCache) {
+      return const Right(null);
+    }
+
+    final exists = await _localDataSource.exists(cacheKey);
+    if (!exists) {
+      return const Right(null);
+    }
+
+    return _localDataSource.get<T>(cacheKey);
+  }
+
+  // Helper method to store data in cache
+  Future<void> _saveToCache<T>(String cacheKey, T data) async {
+    if (!_useCache) {
+      return;
+    }
+
+    await _localDataSource.save(cacheKey, data, ttl: _cacheTtl);
+  }
 
   // Appraisal Repository Implementation
   @override
@@ -44,16 +124,26 @@ class RealEstateRepository
     required PrefectureCode prefectureCode,
     required LandType landUseClassification,
   }) async {
-    final cacheKey =
-        'appraisal_reports_${year}_${prefectureCode.value}_${landUseClassification.value}';
+    final cacheKey = _generateCacheKey(_appraisalCachePrefix, {
+      'year': year,
+      'prefecture': prefectureCode.value,
+      'landUse': landUseClassification.value,
+    });
 
     try {
-      if (await _localDataSource.exists(cacheKey)) {
-        final cachedResult =
-            await _localDataSource.get<List<AppraisalReport>>(cacheKey);
+      // Check cache using the helper method
+      final cachedResult =
+          await _getFromCacheIfValid<List<AppraisalReport>>(cacheKey);
+
+      final validCachedData = cachedResult.fold(
+        (failure) => false,
+        (data) => data != null,
+      );
+
+      if (validCachedData) {
         return cachedResult.fold(
           (failure) => Left(failure),
-          Right.new,
+          (data) => Right(data!),
         );
       }
 
@@ -63,11 +153,10 @@ class RealEstateRepository
         division: landUseClassification.value,
       );
 
-      final saveResult = await _localDataSource.save(cacheKey, reports);
-      return saveResult.fold(
-        (failure) => Right(reports.map((e) => e.toDomain()).toList()),
-        (_) => Right(reports.map((e) => e.toDomain()).toList()),
-      );
+      // Save to cache using helper method
+      await _saveToCache(cacheKey, reports);
+
+      return Right(reports.map((e) => e.toDomain()).toList());
     } on DioException catch (e) {
       return Left(ApiFailure.fromDioException(e));
     } on SocketException catch (e) {
@@ -106,16 +195,28 @@ class RealEstateRepository
     PriceType? priceType,
     List<LandType>? landTypes,
   }) async {
-    final cacheKey =
-        'land_price_points_${coordinates}_${zoomLevel.value}_$year';
+    final cacheKey = _generateCacheKey(_landPriceCachePrefix, {
+      'coordinates': coordinates.toString(),
+      'zoomLevel': zoomLevel.value,
+      'year': year,
+      'priceType': priceType?.value,
+      'landTypes': landTypes?.map((e) => e.value).join(','),
+    });
 
     try {
-      if (await _localDataSource.exists(cacheKey)) {
-        final cachedResult =
-            await _localDataSource.get<List<LandPricePoint>>(cacheKey);
+      // Check cache using the helper method
+      final cachedResult =
+          await _getFromCacheIfValid<List<LandPricePoint>>(cacheKey);
+
+      final validCachedData = cachedResult.fold(
+        (failure) => false,
+        (data) => data != null,
+      );
+
+      if (validCachedData) {
         return cachedResult.fold(
           (failure) => Left(failure),
-          Right.new,
+          (data) => Right(data!),
         );
       }
 
@@ -130,11 +231,10 @@ class RealEstateRepository
         landTypeCodes: landTypes?.map((e) => e.value).toList(),
       );
 
-      final saveResult = await _localDataSource.save(cacheKey, points);
-      return saveResult.fold(
-        (failure) => Right(points.map((e) => e.toDomain()).toList()),
-        (_) => Right(points.map((e) => e.toDomain()).toList()),
-      );
+      // Save to cache using helper method
+      await _saveToCache(cacheKey, points);
+
+      return Right(points.map((e) => e.toDomain()).toList());
     } on DioException catch (e) {
       return Left(ApiFailure.fromDioException(e));
     } on SocketException catch (e) {
@@ -159,16 +259,29 @@ class RealEstateRepository
     StationCode? stationCode,
     String? language = 'en',
   }) async {
-    final cacheKey =
-        'transactions_${period}_${prefectureCode?.value ?? ""}_${cityCode?.value ?? ""}_${stationCode?.value ?? ""}';
+    final cacheKey = _generateCacheKey(_transactionCachePrefix, {
+      'period': period.toString(),
+      'prefecture': prefectureCode?.value ?? '',
+      'city': cityCode?.value ?? '',
+      'station': stationCode?.value ?? '',
+      'priceClass': priceClassification?.value ?? '',
+      'language': language ?? 'en',
+    });
 
     try {
-      if (await _localDataSource.exists(cacheKey)) {
-        final cachedResult =
-            await _localDataSource.get<List<RealEstateTransaction>>(cacheKey);
+      // Check cache using the helper method
+      final cachedResult =
+          await _getFromCacheIfValid<List<RealEstateTransaction>>(cacheKey);
+
+      final validCachedData = cachedResult.fold(
+        (failure) => false,
+        (data) => data != null,
+      );
+
+      if (validCachedData) {
         return cachedResult.fold(
           (failure) => Left(failure),
-          Right.new,
+          (data) => Right(data!),
         );
       }
 
@@ -182,11 +295,10 @@ class RealEstateRepository
         language: language,
       );
 
-      final saveResult = await _localDataSource.save(cacheKey, transactions);
-      return saveResult.fold(
-        (failure) => Right(transactions.map((e) => e.toDomain()).toList()),
-        (_) => Right(transactions.map((e) => e.toDomain()).toList()),
-      );
+      // Save to cache using helper method
+      await _saveToCache(cacheKey, transactions);
+
+      return Right(transactions.map((e) => e.toDomain()).toList());
     } on DioException catch (e) {
       return Left(ApiFailure.fromDioException(e));
     } on SocketException catch (e) {

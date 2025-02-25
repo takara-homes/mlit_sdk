@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the AppraisalReport class from the mlit_sdk library, for the Dart programming language.">
+  <title>AppraisalReport class - mlit_sdk library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">mlit_sdk</a></li>
+    <li><a href="../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li class="self-crumb">AppraisalReport class</li>
+  </ol>
+  <div class="self-name">AppraisalReport</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="mlit_sdk&#47;mlit_sdk-library-sidebar.html"
+    data-below-sidebar="mlit_sdk&#47;AppraisalReport-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/appraisal_report.dart#L9"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">AppraisalReport</span> class 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Represents a property appraisal report with detailed valuation information</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+
+
+        
+        
+  <dt>Annotations</dt>
+  <dd>
+    <ul class="annotation-list clazz-relationships">
+        <li>@<a href="https://pub.dev/documentation/freezed_annotation/2.4.4/freezed_annotation/freezed-constant.html">freezed</a></li>
+    </ul>
+  </dd>
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="AppraisalReport" class="callable">
+          <span class="name"><a href="../mlit_sdk/AppraisalReport/AppraisalReport.html">AppraisalReport</a></span><span class="signature">({<span class="parameter" id="-param-priceDate"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">priceDate</span>, </span><span class="parameter" id="-param-standardLandNumber"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">standardLandNumber</span>, </span><span class="parameter" id="-param-address"><span>required</span> <span class="type-annotation"><a href="../mlit_sdk/Address-class.html">Address</a></span> <span class="parameter-name">address</span>, </span><span class="parameter" id="-param-coordinate"><span>required</span> <span class="type-annotation"><a href="../mlit_sdk/Coordinate-class.html">Coordinate</a></span> <span class="parameter-name">coordinate</span>, </span><span class="parameter" id="-param-useClassification"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">useClassification</span>, </span><span class="parameter" id="-param-pricePerSquareMeter"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">pricePerSquareMeter</span>, </span><span class="parameter" id="-param-previousYearPrice"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">previousYearPrice</span>, </span><span class="parameter" id="-param-landArea"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">landArea</span>, </span><span class="parameter" id="-param-totalLandArea"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">totalLandArea</span>, </span><span class="parameter" id="-param-landShape"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">landShape</span>, </span><span class="parameter" id="-param-landShapeRatio"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">landShapeRatio</span>, </span><span class="parameter" id="-param-frontage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">frontage</span>, </span><span class="parameter" id="-param-depth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">depth</span>, </span><span class="parameter" id="-param-direction"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">direction</span>, </span><span class="parameter" id="-param-topography"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">topography</span>, </span><span class="parameter" id="-param-currentLandUse"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">currentLandUse</span>, </span><span class="parameter" id="-param-buildingStructure"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">buildingStructure</span>, </span><span class="parameter" id="-param-floorsAboveGround"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">floorsAboveGround</span>, </span><span class="parameter" id="-param-basementFloors"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">basementFloors</span>, </span><span class="parameter" id="-param-surroundingAreaUse"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">surroundingAreaUse</span>, </span><span class="parameter" id="-param-roadCondition"><span>required</span> <span class="type-annotation"><a href="../mlit_sdk/AppraisalRoadCondition-class.html">AppraisalRoadCondition</a></span> <span class="parameter-name">roadCondition</span>, </span><span class="parameter" id="-param-infrastructure"><span>required</span> <span class="type-annotation"><a href="../mlit_sdk/AppraisalInfrastructure-class.html">AppraisalInfrastructure</a></span> <span class="parameter-name">infrastructure</span>, </span><span class="parameter" id="-param-transportation"><span>required</span> <span class="type-annotation"><a href="../mlit_sdk/AppraisalTransportation-class.html">AppraisalTransportation</a></span> <span class="parameter-name">transportation</span>, </span><span class="parameter" id="-param-regulations"><span>required</span> <span class="type-annotation"><a href="../mlit_sdk/AppraisalRegulations-class.html">AppraisalRegulations</a></span> <span class="parameter-name">regulations</span>, </span><span class="parameter" id="-param-transactionPriceBenchmark"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">transactionPriceBenchmark</span>, </span><span class="parameter" id="-param-netIncomePrice"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">netIncomePrice</span>, </span><span class="parameter" id="-param-costApproachPrice"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">costApproachPrice</span>, </span><span class="parameter" id="-param-publishedPrice"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">publishedPrice</span>, </span><span class="parameter" id="-param-priceVolatility"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">priceVolatility</span></span>})</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">const</div>
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="AppraisalReport.fromMap" class="callable">
+          <span class="name"><a href="../mlit_sdk/AppraisalReport/AppraisalReport.fromMap.html">AppraisalReport.fromMap</a></span><span class="signature">(<span class="parameter" id="fromMap-param-map"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">map</span></span>)</span>
+        </dt>
+        <dd>
+          Creates an AppraisalReport from a map structure
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="address" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/address.html">address</a></span>
+  <span class="signature">&#8594; <a href="../mlit_sdk/Address-class.html">Address</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Property address information
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="basementFloors" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/basementFloors.html">basementFloors</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Number of basement floors
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="buildingStructure" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/buildingStructure.html">buildingStructure</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Building structure details
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="coordinate" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/coordinate.html">coordinate</a></span>
+  <span class="signature">&#8594; <a href="../mlit_sdk/Coordinate-class.html">Coordinate</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Geographic coordinate of the property
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="copyWith" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/copyWith.html">copyWith</a></span>
+  <span class="signature">&#8594; $AppraisalReportCopyWith<span class="signature">&lt;<wbr><span class="type-parameter"><a href="../mlit_sdk/AppraisalReport-class.html">AppraisalReport</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd class="inherited">
+  Create a copy of AppraisalReport
+with the given fields replaced by the non-null parameter values.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="costApproachPrice" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/costApproachPrice.html">costApproachPrice</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Cost approach price
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="currentLandUse" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/currentLandUse.html">currentLandUse</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Current land use status
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="depth" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/depth.html">depth</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Depth measurement in meters
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="direction" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/direction.html">direction</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Direction the property faces
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="floorsAboveGround" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/floorsAboveGround.html">floorsAboveGround</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Number of floors above ground
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="frontage" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/frontage.html">frontage</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Frontage measurement in meters
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="infrastructure" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/infrastructure.html">infrastructure</a></span>
+  <span class="signature">&#8594; <a href="../mlit_sdk/AppraisalInfrastructure-class.html">AppraisalInfrastructure</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Infrastructure availability
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="landArea" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/landArea.html">landArea</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Land area in square meters
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="landShape" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/landShape.html">landShape</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Land shape characteristics
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="landShapeRatio" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/landShapeRatio.html">landShapeRatio</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Land shape ratio (frontage to depth)
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="netIncomePrice" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/netIncomePrice.html">netIncomePrice</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Net income price (for income approach)
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="previousYearPrice" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/previousYearPrice.html">previousYearPrice</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Previous year's price per square meter
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="priceDate" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/priceDate.html">priceDate</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Price date of the appraisal
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="pricePerSquareMeter" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/pricePerSquareMeter.html">pricePerSquareMeter</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Price per square meter in Japanese Yen
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="priceVolatility" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/priceVolatility.html">priceVolatility</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Price volatility percentage
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="publishedPrice" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/publishedPrice.html">publishedPrice</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Published reference price
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="regulations" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/regulations.html">regulations</a></span>
+  <span class="signature">&#8594; <a href="../mlit_sdk/AppraisalRegulations-class.html">AppraisalRegulations</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Zoning and regulations
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="roadCondition" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/roadCondition.html">roadCondition</a></span>
+  <span class="signature">&#8594; <a href="../mlit_sdk/AppraisalRoadCondition-class.html">AppraisalRoadCondition</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Front road conditions
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="standardLandNumber" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/standardLandNumber.html">standardLandNumber</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Standard land number for reference
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="surroundingAreaUse" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/surroundingAreaUse.html">surroundingAreaUse</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Usage of surrounding area
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="topography" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/topography.html">topography</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Topography details
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="totalLandArea" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/totalLandArea.html">totalLandArea</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Land area including private road
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="transactionPriceBenchmark" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/transactionPriceBenchmark.html">transactionPriceBenchmark</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Transaction price benchmark
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="transportation" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/transportation.html">transportation</a></span>
+  <span class="signature">&#8594; <a href="../mlit_sdk/AppraisalTransportation-class.html">AppraisalTransportation</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Transportation details
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="useClassification" class="property inherited">
+  <span class="name"><a href="../mlit_sdk/AppraisalReport/useClassification.html">useClassification</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Land use classification (residential, commercial, etc.)
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">mlit_sdk</a></li>
+    <li><a href="../mlit_sdk/">mlit_sdk</a></li>
+    <li class="self-crumb">AppraisalReport class</li>
+</ol>
+
+    <h5>mlit_sdk library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    mlit_sdk
+      0.1.0
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

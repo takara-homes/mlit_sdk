@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="mlit_sdk API docs, for the Dart programming language.">
+  <title>mlit_sdk - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li class="self-crumb">mlit_sdk package</li>
+  </ol>
+  <div class="self-name">mlit_sdk</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="mlit-sdk">MLIT SDK</h1>
+<p>A Flutter package for accessing Japan's Ministry of Land, Infrastructure, Transport and Tourism (MLIT) Real Estate Information Library APIs.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Real estate transaction price information</li>
+<li>Appraisal report data</li>
+<li>Land price points</li>
+<li>Natural environment and park information</li>
+<li>Educational facilities data</li>
+<li>Medical institutions</li>
+<li>Transportation data</li>
+<li>Disaster risk areas</li>
+<li>Integrated caching system for offline use</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<ol>
+<li>Add the package to your <code>pubspec.yaml</code>:</li>
+</ol>
+<pre class="language-yaml"><code class="language-yaml">dependencies:
+  mlit_sdk: ^1.0.0
+</code></pre>
+<ol start="2">
+<li>Initialize the MLIT SDK:</li>
+</ol>
+<pre class="language-dart"><code class="language-dart">import 'package:mlit_sdk/mlit_sdk.dart';
+
+// Simple initialization
+final mlitSdk = await createMLITSdk(
+  MLITSdkConfig(
+    apiKey: 'your_api_key_here',
+    useCache: true,
+    defaultCacheTtl: 3600, // Cache TTL in seconds (1 hour)
+  ),
+);
+
+// For testing or customized configuration
+final mlitSdk = await createMLITSdk(
+  MLITSdkConfig.withApiClientConfig(
+    apiClientConfig: ApiClientConfig(
+      apiKey: 'your_api_key_here',
+      enableLogging: true,
+    ),
+    useCache: true,
+    defaultCacheTtl: 86400, // 24 hours cache
+  ),
+);
+</code></pre>
+<h2 id="usage-examples">Usage Examples</h2>
+<h3 id="real-estate-transactions">Real Estate Transactions</h3>
+<pre class="language-dart"><code class="language-dart">// Get real estate transaction data
+final result = await mlitSdk.transactionService.getTransactions(
+  period: TransactionPeriod(year: 2024, quarter: 1),
+  prefectureCode: PrefectureCode('13'), // Tokyo
+);
+
+result.fold(
+  (failure) =&gt; print('Error: ${failure.message}'),
+  (transactions) {
+    for (final transaction in transactions) {
+      print('Type: ${transaction.type}');
+      print('Price: ${transaction.price} JPY');
+      print('Area: ${transaction.area} m²');
+      print('Location: ${transaction.address}');
+    }
+  },
+);
+</code></pre>
+<h3 id="land-price-points">Land Price Points</h3>
+<pre class="language-dart"><code class="language-dart">// Get land price points
+final result = await mlitSdk.landPriceService.getLandPricePoints(
+  zoomLevel: ZoomLevel(14),
+  coordinates: Coordinates(
+    latitude: 35.6812, 
+    longitude: 139.7671,
+  ),
+  year: 2023,
+);
+
+result.fold(
+  (failure) =&gt; print('Error: ${failure.message}'),
+  (points) {
+    for (final point in points) {
+      print('Price: ${point.price} JPY');
+      print('Type: ${point.landType}');
+      print('Address: ${point.address}');
+    }
+  },
+);
+</code></pre>
+<h3 id="caching-control">Caching Control</h3>
+<p>The SDK includes built-in caching for all API responses:</p>
+<pre class="language-dart"><code class="language-dart">// Toggle caching on/off at runtime
+mlitSdk.setCaching(enabled: true, cacheTtl: 7200); // 2 hours cache
+
+// Clear all cached data
+await mlitSdk.clearCache();
+
+// Clear only expired cached data
+await mlitSdk.clearExpiredCache();
+</code></pre>
+<h2 id="api-reference">API Reference</h2>
+<h3 id="services">Services</h3>
+<p>The SDK provides access to MLIT data through specialized services:</p>
+<h4 id="real-estate-services">Real Estate Services</h4>
+<ul>
+<li><code>appraisalService</code> - Access real estate appraisal reports</li>
+<li><code>landPriceService</code> - Access official land price data</li>
+<li><code>transactionService</code> - Access real estate transaction data</li>
+</ul>
+<h4 id="facility--geographic-services">Facility &amp; Geographic Services</h4>
+<ul>
+<li><code>facilitiesService</code> - Access information about various facilities</li>
+<li><code>hazardService</code> - Access hazard and risk areas</li>
+</ul>
+<h3 id="sdk-configuration">SDK Configuration</h3>
+<p>The SDK can be configured with various options:</p>
+<pre class="language-dart"><code class="language-dart">MLITSdkConfig({
+  required String apiKey,   // Your MLIT API key
+  Dio? dioOverride,         // Optional custom Dio instance
+  bool useCache = true,     // Enable/disable caching
+  int? defaultCacheTtl,     // Default cache TTL in seconds
+  bool enableLogging = false, // Enable API request logging
+});
+</code></pre>
+<h3 id="error-handling">Error Handling</h3>
+<p>All service methods return <code>Either&lt;Failure, T&gt;</code> from the <code>dartz</code> package for functional error handling:</p>
+<pre class="language-dart"><code class="language-dart">final result = await mlitSdk.facilitiesService.getEducationalFacilities(/* params */);
+
+result.fold(
+  (failure) {
+    // Handle different failure types
+    if (failure is ApiFailure) {
+      print('API Error: ${failure.message}');
+    } else if (failure is InfrastructureFailure) {
+      print('Network Error: ${failure.message}');
+    } else {
+      print('Unexpected Error: ${failure.message}');
+    }
+  },
+  (facilities) {
+    // Handle successful data
+    print('Found ${facilities.length} facilities');
+  },
+);
+</code></pre>
+<h2 id="documentation">Documentation</h2>
+<p>The SDK includes comprehensive API documentation that can be generated using <code>dartdoc</code>:</p>
+<pre class="language-bash"><code class="language-bash"># Navigate to the package directory
+cd packages/mlit_sdk
+
+# Generate documentation
+dart pub global activate dartdoc
+dart pub global run dartdoc
+
+# The documentation will be available in the doc/api directory
+# You can view it by opening doc/api/index.html in a browser
+</code></pre>
+<p>The generated documentation includes:</p>
+<ul>
+<li>Complete API reference for all classes and methods</li>
+<li>Category-based organization of components</li>
+<li>Code examples and usage patterns</li>
+<li>Comprehensive explanations of caching behavior and error handling</li>
+</ul>
+<h3 id="customizing-documentation">Customizing Documentation</h3>
+<p>The documentation generation is configured through the <code>dartdoc_options.yaml</code> file, which provides:</p>
+<ul>
+<li>Custom categorization of SDK components</li>
+<li>Detailed markdown descriptions for each category</li>
+<li>Customized header and footer for the documentation</li>
+<li>Configuration for error and warning reporting</li>
+</ul>
+<p>If you encounter any issues with documentation generation, ensure that:</p>
+<ol>
+<li>All required markdown files exist in the <code>doc/</code> directory</li>
+<li>The <code>dartdoc_options.yaml</code> file has the correct format</li>
+<li>Your Dart SDK is up to date</li>
+</ol>
+<h2 id="license">License</h2>
+<p>MIT License - see LICENSE file for details.</p>
+<h2 id="change-log">Change Log</h2>
+<h3 id="100">1.0.0</h3>
+<ul>
+<li>Initial release with support for main MLIT APIs</li>
+<li>Caching system for offline use</li>
+<li>Functional error handling with Either pattern</li>
+<li>Complete documentation and examples</li>
+</ul>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="mlit_sdk">
+  <span class="name"><a href="mlit_sdk/">mlit_sdk</a></span> 
+
+</dt>
+<dd>MLIT SDK for Flutter
+</dd>
+
+        </dl>
+      </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li class="self-crumb">mlit_sdk package</li>
+</ol>
+
+    <h5 class="hidden-xs"><span class="package-name">mlit_sdk</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="mlit_sdk/">mlit_sdk</a></li>
+</ol>
+
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+</main>
+<footer>
+  <span class="no-break">
+    mlit_sdk
+      0.1.0
+  </span>
+  
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

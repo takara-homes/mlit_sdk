@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the LandPricePoint.fromMap constructor from Class LandPricePoint from the mlit_sdk library, for the Dart programming language.">
+  <title>LandPricePoint.fromMap constructor - LandPricePoint - mlit_sdk library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/LandPricePoint-class.html">LandPricePoint</a></li>
+    <li class="self-crumb">LandPricePoint.fromMap factory constructor</li>
+  </ol>
+  <div class="self-name">LandPricePoint.fromMap</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="mlit_sdk&#47;LandPricePoint-class-sidebar.html"
+      data-below-sidebar="">
+      <div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/land_price_point.dart#L96"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-constructor">LandPricePoint.fromMap</span> constructor 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+      <span class="name ">LandPricePoint.fromMap</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="fromMap-param-map"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">map</span></span></li>
+</ol>)
+    </section>
+    
+<section class="desc markdown">
+  <p>Creates a LandPricePoint from a map structure</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">factory LandPricePoint.fromMap(Map&lt;String, dynamic&gt; map) {
+  return LandPricePoint(
+    pointId: map[&#39;point_id&#39;] as String,
+    targetYear: int.parse(map[&#39;target_year_name_ja&#39;].toString()),
+    type: LandPriceType.fromString(map[&#39;land_price_type&#39;] as String),
+    coordinate: Coordinate(
+      latitude: double.parse(map[&#39;latitude&#39;].toString()),
+      longitude: double.parse(map[&#39;longitude&#39;].toString()),
+    ),
+    prefectureCode: map[&#39;prefecture_code&#39;] as String,
+    prefectureNameJa: map[&#39;prefecture_name_ja&#39;] as String,
+    cityCode: map[&#39;city_code&#39;] as String,
+    useCategoryNameJa: map[&#39;use_category_name_ja&#39;] as String,
+    standardLotNumber: map[&#39;standard_lot_number_ja&#39;] as String,
+    currentYearPrice: int.parse(map[&#39;u_current_years_price_ja&#39;].toString()),
+    lastYearPrice: int.tryParse(map[&#39;last_years_price&#39;]?.toString() ?? &#39;&#39;),
+    yearOnYearChangeRate:
+        double.tryParse(map[&#39;year_on_year_change_rate&#39;]?.toString() ?? &#39;&#39;),
+    cadastralArea: double.tryParse(map[&#39;u_cadastral_en&#39;]?.toString() ?? &#39;&#39;),
+    buildingStructure: map[&#39;building_structure_name_en&#39;] as String?,
+    groundFloors:
+        int.tryParse(map[&#39;u_ground_hierarchy_en&#39;]?.toString() ?? &#39;&#39;),
+    undergroundFloors:
+        int.tryParse(map[&#39;u_underground_hierarchy_en&#39;]?.toString() ?? &#39;&#39;),
+    frontRoadDetails: map[&#39;front_road_name_ja&#39;] as String?,
+    frontRoadDirection: map[&#39;front_road_azimuth_name&#39;] as String?,
+    frontRoadWidth:
+        double.tryParse(map[&#39;front_road_width&#39;]?.toString() ?? &#39;&#39;),
+    hasGasSupply: map[&#39;gas_supply_availability&#39;] == &#39;1&#39;,
+    hasWaterSupply: map[&#39;water_supply_availability&#39;] == &#39;1&#39;,
+    hasSewerSupply: map[&#39;sewer_supply_availability&#39;] == &#39;1&#39;,
+    nearestStationName: map[&#39;nearest_station_name&#39;] as String?,
+    distanceToStation: double.tryParse(
+        map[&#39;u_road_distance_to_nearest_station_name_ja&#39;]?.toString() ?? &#39;&#39;,),
+    currentUseStatus: map[&#39;usage_status_name_ja&#39;] as String?,
+    buildingCoverageRatio: double.tryParse(
+        map[&#39;u_regulations_building_coverage_ratio_ja&#39;]?.toString() ?? &#39;&#39;,),
+    floorAreaRatio: double.tryParse(
+        map[&#39;u_regulations_floor_area_ratio_ja&#39;]?.toString() ?? &#39;&#39;,),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/LandPricePoint-class.html">LandPricePoint</a></li>
+    <li class="self-crumb">LandPricePoint.fromMap factory constructor</li>
+</ol>
+
+    <h5>LandPricePoint class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    mlit_sdk
+      0.1.0
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:mlit_sdk/src/domain/failures/api_failure.dart';
 import 'package:mlit_sdk/src/infrastructure/config/api_endpoints.dart';
@@ -82,19 +80,17 @@ class RealEstateRemoteDataSource {
         },
       );
 
-      log(response.data.toString(), name: 'MLITRealEstateRemoteDataSource');
-
       if (response.data == null) {
         throw NotFoundFailure(
           requestOptions: response.requestOptions,
           message: 'No data received from server',
         );
       }
-      return (response.data as List)
+      final data = response.data as Map<String, dynamic>;
+      return (data['data'] as List)
           .map((json) => TransactionDto.fromJson(json as Map<String, dynamic>))
           .toList();
     } on Object catch (e) {
-      log(e.toString(), name: 'MLITRealEstateRemoteDataSource');
       _handleError(
         e,
         RequestOptions(
