@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,177 +10,142 @@ part of 'transaction_period.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TransactionPeriod _$TransactionPeriodFromJson(Map<String, dynamic> json) {
-  return _TransactionPeriod.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TransactionPeriod {
-  String get year => throw _privateConstructorUsedError;
-  String get quarter => throw _privateConstructorUsedError;
+
+ String get year; String get quarter;
+/// Create a copy of TransactionPeriod
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TransactionPeriodCopyWith<TransactionPeriod> get copyWith => _$TransactionPeriodCopyWithImpl<TransactionPeriod>(this as TransactionPeriod, _$identity);
 
   /// Serializes this TransactionPeriod to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of TransactionPeriod
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $TransactionPeriodCopyWith<TransactionPeriod> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TransactionPeriod&&(identical(other.year, year) || other.year == year)&&(identical(other.quarter, quarter) || other.quarter == quarter));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,year,quarter);
+
+@override
+String toString() {
+  return 'TransactionPeriod(year: $year, quarter: $quarter)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $TransactionPeriodCopyWith<$Res> {
-  factory $TransactionPeriodCopyWith(
-          TransactionPeriod value, $Res Function(TransactionPeriod) then) =
-      _$TransactionPeriodCopyWithImpl<$Res, TransactionPeriod>;
-  @useResult
-  $Res call({String year, String quarter});
-}
+abstract mixin class $TransactionPeriodCopyWith<$Res>  {
+  factory $TransactionPeriodCopyWith(TransactionPeriod value, $Res Function(TransactionPeriod) _then) = _$TransactionPeriodCopyWithImpl;
+@useResult
+$Res call({
+ String year, String quarter
+});
 
+
+
+
+}
 /// @nodoc
-class _$TransactionPeriodCopyWithImpl<$Res, $Val extends TransactionPeriod>
+class _$TransactionPeriodCopyWithImpl<$Res>
     implements $TransactionPeriodCopyWith<$Res> {
-  _$TransactionPeriodCopyWithImpl(this._value, this._then);
+  _$TransactionPeriodCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final TransactionPeriod _self;
+  final $Res Function(TransactionPeriod) _then;
 
-  /// Create a copy of TransactionPeriod
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? year = null,
-    Object? quarter = null,
-  }) {
-    return _then(_value.copyWith(
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
-              as String,
-      quarter: null == quarter
-          ? _value.quarter
-          : quarter // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of TransactionPeriod
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? year = null,Object? quarter = null,}) {
+  return _then(_self.copyWith(
+year: null == year ? _self.year : year // ignore: cast_nullable_to_non_nullable
+as String,quarter: null == quarter ? _self.quarter : quarter // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$TransactionPeriodImplCopyWith<$Res>
-    implements $TransactionPeriodCopyWith<$Res> {
-  factory _$$TransactionPeriodImplCopyWith(_$TransactionPeriodImpl value,
-          $Res Function(_$TransactionPeriodImpl) then) =
-      __$$TransactionPeriodImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String year, String quarter});
 }
 
-/// @nodoc
-class __$$TransactionPeriodImplCopyWithImpl<$Res>
-    extends _$TransactionPeriodCopyWithImpl<$Res, _$TransactionPeriodImpl>
-    implements _$$TransactionPeriodImplCopyWith<$Res> {
-  __$$TransactionPeriodImplCopyWithImpl(_$TransactionPeriodImpl _value,
-      $Res Function(_$TransactionPeriodImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionPeriod
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? year = null,
-    Object? quarter = null,
-  }) {
-    return _then(_$TransactionPeriodImpl(
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
-              as String,
-      quarter: null == quarter
-          ? _value.quarter
-          : quarter // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$TransactionPeriodImpl extends _TransactionPeriod {
-  const _$TransactionPeriodImpl({required this.year, required this.quarter})
-      : super._();
 
-  factory _$TransactionPeriodImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TransactionPeriodImplFromJson(json);
+class _TransactionPeriod extends TransactionPeriod {
+  const _TransactionPeriod({required this.year, required this.quarter}): super._();
+  factory _TransactionPeriod.fromJson(Map<String, dynamic> json) => _$TransactionPeriodFromJson(json);
 
-  @override
-  final String year;
-  @override
-  final String quarter;
+@override final  String year;
+@override final  String quarter;
 
-  @override
-  String toString() {
-    return 'TransactionPeriod(year: $year, quarter: $quarter)';
-  }
+/// Create a copy of TransactionPeriod
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TransactionPeriodCopyWith<_TransactionPeriod> get copyWith => __$TransactionPeriodCopyWithImpl<_TransactionPeriod>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionPeriodImpl &&
-            (identical(other.year, year) || other.year == year) &&
-            (identical(other.quarter, quarter) || other.quarter == quarter));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, year, quarter);
-
-  /// Create a copy of TransactionPeriod
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TransactionPeriodImplCopyWith<_$TransactionPeriodImpl> get copyWith =>
-      __$$TransactionPeriodImplCopyWithImpl<_$TransactionPeriodImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TransactionPeriodImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$TransactionPeriodToJson(this, );
 }
 
-abstract class _TransactionPeriod extends TransactionPeriod {
-  const factory _TransactionPeriod(
-      {required final String year,
-      required final String quarter}) = _$TransactionPeriodImpl;
-  const _TransactionPeriod._() : super._();
-
-  factory _TransactionPeriod.fromJson(Map<String, dynamic> json) =
-      _$TransactionPeriodImpl.fromJson;
-
-  @override
-  String get year;
-  @override
-  String get quarter;
-
-  /// Create a copy of TransactionPeriod
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransactionPeriodImplCopyWith<_$TransactionPeriodImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionPeriod&&(identical(other.year, year) || other.year == year)&&(identical(other.quarter, quarter) || other.quarter == quarter));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,year,quarter);
+
+@override
+String toString() {
+  return 'TransactionPeriod(year: $year, quarter: $quarter)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$TransactionPeriodCopyWith<$Res> implements $TransactionPeriodCopyWith<$Res> {
+  factory _$TransactionPeriodCopyWith(_TransactionPeriod value, $Res Function(_TransactionPeriod) _then) = __$TransactionPeriodCopyWithImpl;
+@override @useResult
+$Res call({
+ String year, String quarter
+});
+
+
+
+
+}
+/// @nodoc
+class __$TransactionPeriodCopyWithImpl<$Res>
+    implements _$TransactionPeriodCopyWith<$Res> {
+  __$TransactionPeriodCopyWithImpl(this._self, this._then);
+
+  final _TransactionPeriod _self;
+  final $Res Function(_TransactionPeriod) _then;
+
+/// Create a copy of TransactionPeriod
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? year = null,Object? quarter = null,}) {
+  return _then(_TransactionPeriod(
+year: null == year ? _self.year : year // ignore: cast_nullable_to_non_nullable
+as String,quarter: null == quarter ? _self.quarter : quarter // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

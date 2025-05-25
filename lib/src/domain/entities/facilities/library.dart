@@ -3,8 +3,7 @@ import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 part 'library.freezed.dart';
 
 @freezed
-class Library with _$Library {
-
+abstract class Library with _$Library {
   const factory Library({
     /// Administrative area code
     required String administrativeAreaCode,
@@ -89,17 +88,19 @@ class Library with _$Library {
     if (servicesList == null) return [];
 
     return servicesList
-        .map((service) => LibraryService.values.firstWhere(
-              (s) => s.toString().split('.').last == service,
-              orElse: () => LibraryService.other,
-            ),)
+        .map(
+          (service) => LibraryService.values.firstWhere(
+            (s) => s.toString().split('.').last == service,
+            orElse: () => LibraryService.other,
+          ),
+        )
         .toList();
   }
 }
 
 /// Represents the library's operating schedule
 @freezed
-class LibrarySchedule with _$LibrarySchedule {
+abstract class LibrarySchedule with _$LibrarySchedule {
   const factory LibrarySchedule({
     required String weekdayHours,
     String? weekendHours,
@@ -119,7 +120,7 @@ class LibrarySchedule with _$LibrarySchedule {
 
 /// Represents the library's collection information
 @freezed
-class LibraryCollection with _$LibraryCollection {
+abstract class LibraryCollection with _$LibraryCollection {
   const factory LibraryCollection({
     required int totalVolumes,
     Map<String, int>? volumesByCategory,
@@ -130,10 +131,8 @@ class LibraryCollection with _$LibraryCollection {
   factory LibraryCollection.fromMap(Map<String, dynamic> map) {
     return LibraryCollection(
       totalVolumes: map['total_volumes'] as int,
-      volumesByCategory:
-          (map['volumes_by_category'] as Map<String, dynamic>?)?.map(
-        (k, v) => MapEntry(k, v as int),
-      ),
+      volumesByCategory: (map['volumes_by_category'] as Map<String, dynamic>?)
+          ?.map((k, v) => MapEntry(k, v as int)),
       periodicalsCount: map['periodicals_count'] as int?,
       digitalResourcesCount: map['digital_resources_count'] as int?,
     );
@@ -174,5 +173,5 @@ enum LibraryService {
   childrenPrograms,
   digitalLending,
   studyRooms,
-  other;
+  other,
 }

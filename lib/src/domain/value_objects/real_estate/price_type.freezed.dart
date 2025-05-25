@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,135 +10,133 @@ part of 'price_type.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$PriceType {
-  String get value => throw _privateConstructorUsedError;
 
-  /// Create a copy of PriceType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PriceTypeCopyWith<PriceType> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get value;
+/// Create a copy of PriceType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PriceTypeCopyWith<PriceType> get copyWith => _$PriceTypeCopyWithImpl<PriceType>(this as PriceType, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PriceType&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'PriceType(value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PriceTypeCopyWith<$Res> {
-  factory $PriceTypeCopyWith(PriceType value, $Res Function(PriceType) then) =
-      _$PriceTypeCopyWithImpl<$Res, PriceType>;
-  @useResult
-  $Res call({String value});
-}
+abstract mixin class $PriceTypeCopyWith<$Res>  {
+  factory $PriceTypeCopyWith(PriceType value, $Res Function(PriceType) _then) = _$PriceTypeCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
 
+
+
+
+}
 /// @nodoc
-class _$PriceTypeCopyWithImpl<$Res, $Val extends PriceType>
+class _$PriceTypeCopyWithImpl<$Res>
     implements $PriceTypeCopyWith<$Res> {
-  _$PriceTypeCopyWithImpl(this._value, this._then);
+  _$PriceTypeCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PriceType _self;
+  final $Res Function(PriceType) _then;
 
-  /// Create a copy of PriceType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of PriceType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
+  return _then(_self.copyWith(
+value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$PriceTypeImplCopyWith<$Res>
-    implements $PriceTypeCopyWith<$Res> {
-  factory _$$PriceTypeImplCopyWith(
-          _$PriceTypeImpl value, $Res Function(_$PriceTypeImpl) then) =
-      __$$PriceTypeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String value});
 }
 
-/// @nodoc
-class __$$PriceTypeImplCopyWithImpl<$Res>
-    extends _$PriceTypeCopyWithImpl<$Res, _$PriceTypeImpl>
-    implements _$$PriceTypeImplCopyWith<$Res> {
-  __$$PriceTypeImplCopyWithImpl(
-      _$PriceTypeImpl _value, $Res Function(_$PriceTypeImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PriceType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$PriceTypeImpl(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$PriceTypeImpl extends _PriceType {
-  const _$PriceTypeImpl(this.value) : super._();
 
-  @override
-  final String value;
+class _PriceType extends PriceType {
+  const _PriceType(this.value): super._();
+  
 
-  @override
-  String toString() {
-    return 'PriceType(value: $value)';
-  }
+@override final  String value;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PriceTypeImpl &&
-            (identical(other.value, value) || other.value == value));
-  }
+/// Create a copy of PriceType
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PriceTypeCopyWith<_PriceType> get copyWith => __$PriceTypeCopyWithImpl<_PriceType>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
 
-  /// Create a copy of PriceType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PriceTypeImplCopyWith<_$PriceTypeImpl> get copyWith =>
-      __$$PriceTypeImplCopyWithImpl<_$PriceTypeImpl>(this, _$identity);
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PriceType&&(identical(other.value, value) || other.value == value));
 }
 
-abstract class _PriceType extends PriceType {
-  const factory _PriceType(final String value) = _$PriceTypeImpl;
-  const _PriceType._() : super._();
 
-  @override
-  String get value;
+@override
+int get hashCode => Object.hash(runtimeType,value);
 
-  /// Create a copy of PriceType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PriceTypeImplCopyWith<_$PriceTypeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'PriceType(value: $value)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PriceTypeCopyWith<$Res> implements $PriceTypeCopyWith<$Res> {
+  factory _$PriceTypeCopyWith(_PriceType value, $Res Function(_PriceType) _then) = __$PriceTypeCopyWithImpl;
+@override @useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$PriceTypeCopyWithImpl<$Res>
+    implements _$PriceTypeCopyWith<$Res> {
+  __$PriceTypeCopyWithImpl(this._self, this._then);
+
+  final _PriceType _self;
+  final $Res Function(_PriceType) _then;
+
+/// Create a copy of PriceType
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_PriceType(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

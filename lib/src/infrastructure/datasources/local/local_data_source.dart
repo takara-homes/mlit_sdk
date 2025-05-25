@@ -13,11 +13,7 @@ abstract class LocalDataSource {
   /// Saves data to local storage
   ///
   /// [ttl] Time to live in seconds (null means use default)
-  Future<Either<CacheFailure, Unit>> save<T>(
-    String key,
-    T data, {
-    int? ttl,
-  });
+  Future<Either<CacheFailure, Unit>> save<T>(String key, T data, {int? ttl});
 
   /// Removes data from local storage
   Future<Either<CacheFailure, Unit>> remove(String key);

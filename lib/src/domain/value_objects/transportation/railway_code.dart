@@ -4,8 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'railway_code.freezed.dart';
 
 @freezed
-class RailwayCode with _$RailwayCode {
-
+abstract class RailwayCode with _$RailwayCode {
   const factory RailwayCode({
     required String operatorCode,
     required String lineCode,

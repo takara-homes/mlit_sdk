@@ -4,8 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'prefecture_code.freezed.dart';
 
 @freezed
-class PrefectureCode with _$PrefectureCode {
-
+abstract class PrefectureCode with _$PrefectureCode {
   const factory PrefectureCode(String value) = _PrefectureCode;
   const PrefectureCode._();
 

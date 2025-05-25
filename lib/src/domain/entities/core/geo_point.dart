@@ -1,35 +1,42 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 
-part 'geo_point.freezed.dart';
+part 'geo_point.g.dart';
 
 /// Represents a geographic point with additional metadata
-@freezed
-class GeoPoint with _$GeoPoint {
-
-  const factory GeoPoint({
+@JsonSerializable(fieldRename: FieldRename.snake)
+class GeoPoint extends Equatable {
+  const GeoPoint({
     /// Geographic coordinate of the point
-    required Coordinate coordinate,
+    required this.coordinate,
 
     /// Unique identifier for the point
-    required String id,
+    required this.id,
 
     /// Point type classification
-    required GeoPointType type,
+    required this.type,
 
     /// Name or label in Japanese
-    String? nameJa,
+    this.nameJa,
 
     /// Name or label in English
-    String? nameEn,
+    this.nameEn,
 
     /// Additional properties as key-value pairs
-    @Default({}) Map<String, dynamic> properties,
+    Map<String, dynamic>? properties,
 
     /// Accuracy level of the geographic point
-    @Default(GeoPointAccuracy.medium) GeoPointAccuracy accuracy,
-  }) = _GeoPoint;
-  const GeoPoint._();
+    this.accuracy = GeoPointAccuracy.medium,
+  }) : properties = properties ?? const {};
+
+  final Coordinate coordinate;
+  final String id;
+  final GeoPointType type;
+  final String? nameJa;
+  final String? nameEn;
+  final Map<String, dynamic> properties;
+  final GeoPointAccuracy accuracy;
 
   /// Creates a GeoPoint from a map structure
   factory GeoPoint.fromMap(Map<String, dynamic> map) {
@@ -40,10 +47,15 @@ class GeoPoint with _$GeoPoint {
       nameJa: map['name_ja'] as String?,
       nameEn: map['name_en'] as String?,
       properties: Map<String, dynamic>.from(map['properties'] as Map? ?? {}),
-      accuracy:
-          GeoPointAccuracy.fromString(map['accuracy'] as String? ?? 'medium'),
+      accuracy: GeoPointAccuracy.fromString(
+        map['accuracy'] as String? ?? 'medium',
+      ),
     );
   }
+
+  /// Creates a GeoPoint instance from JSON
+  factory GeoPoint.fromJson(Map<String, dynamic> json) =>
+      _$GeoPointFromJson(json);
 
   /// Converts the geo point to a map structure
   Map<String, dynamic> toMap() {
@@ -57,6 +69,9 @@ class GeoPoint with _$GeoPoint {
       'accuracy': accuracy.toString(),
     };
   }
+
+  /// Converts GeoPoint instance to JSON
+  Map<String, dynamic> toJson() => _$GeoPointToJson(this);
 
   /// Returns a GeoJSON Feature representation of the point
   Map<String, dynamic> toGeoJson() {
@@ -76,6 +91,17 @@ class GeoPoint with _$GeoPoint {
       },
     };
   }
+
+  @override
+  List<Object?> get props => [
+    coordinate,
+    id,
+    type,
+    nameJa,
+    nameEn,
+    properties,
+    accuracy,
+  ];
 }
 
 /// Represents the type of geographic point

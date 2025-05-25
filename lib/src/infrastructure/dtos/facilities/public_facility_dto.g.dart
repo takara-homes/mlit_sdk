@@ -6,9 +6,8 @@ part of 'public_facility_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PublicFacilityDtoImpl _$$PublicFacilityDtoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$PublicFacilityDtoImpl(
+PublicFacilityDto _$PublicFacilityDtoFromJson(Map<String, dynamic> json) =>
+    PublicFacilityDto(
       administrativeAreaCode: json['P1'] as String,
       facilityClassificationCode: json['facility_code'] as String,
       facilityClassificationNameJa: json['P4_name_ja'] as String,
@@ -30,8 +29,7 @@ _$PublicFacilityDtoImpl _$$PublicFacilityDtoImplFromJson(
           json['disaster_designation'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$$PublicFacilityDtoImplToJson(
-        _$PublicFacilityDtoImpl instance) =>
+Map<String, dynamic> _$PublicFacilityDtoToJson(PublicFacilityDto instance) =>
     <String, dynamic>{
       'P1': instance.administrativeAreaCode,
       'facility_code': instance.facilityClassificationCode,

@@ -6,16 +6,11 @@ part of 'transaction_period.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TransactionPeriodImpl _$$TransactionPeriodImplFromJson(
-        Map<String, dynamic> json) =>
-    _$TransactionPeriodImpl(
+_TransactionPeriod _$TransactionPeriodFromJson(Map<String, dynamic> json) =>
+    _TransactionPeriod(
       year: json['year'] as String,
       quarter: json['quarter'] as String,
     );
 
-Map<String, dynamic> _$$TransactionPeriodImplToJson(
-        _$TransactionPeriodImpl instance) =>
-    <String, dynamic>{
-      'year': instance.year,
-      'quarter': instance.quarter,
-    };
+Map<String, dynamic> _$TransactionPeriodToJson(_TransactionPeriod instance) =>
+    <String, dynamic>{'year': instance.year, 'quarter': instance.quarter};

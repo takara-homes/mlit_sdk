@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,136 +10,133 @@ part of 'district_code.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$DistrictCode {
-  String get value => throw _privateConstructorUsedError;
 
-  /// Create a copy of DistrictCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $DistrictCodeCopyWith<DistrictCode> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get value;
+/// Create a copy of DistrictCode
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DistrictCodeCopyWith<DistrictCode> get copyWith => _$DistrictCodeCopyWithImpl<DistrictCode>(this as DistrictCode, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DistrictCode&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'DistrictCode(value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $DistrictCodeCopyWith<$Res> {
-  factory $DistrictCodeCopyWith(
-          DistrictCode value, $Res Function(DistrictCode) then) =
-      _$DistrictCodeCopyWithImpl<$Res, DistrictCode>;
-  @useResult
-  $Res call({String value});
-}
+abstract mixin class $DistrictCodeCopyWith<$Res>  {
+  factory $DistrictCodeCopyWith(DistrictCode value, $Res Function(DistrictCode) _then) = _$DistrictCodeCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
 
+
+
+
+}
 /// @nodoc
-class _$DistrictCodeCopyWithImpl<$Res, $Val extends DistrictCode>
+class _$DistrictCodeCopyWithImpl<$Res>
     implements $DistrictCodeCopyWith<$Res> {
-  _$DistrictCodeCopyWithImpl(this._value, this._then);
+  _$DistrictCodeCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final DistrictCode _self;
+  final $Res Function(DistrictCode) _then;
 
-  /// Create a copy of DistrictCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of DistrictCode
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
+  return _then(_self.copyWith(
+value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$DistrictCodeImplCopyWith<$Res>
-    implements $DistrictCodeCopyWith<$Res> {
-  factory _$$DistrictCodeImplCopyWith(
-          _$DistrictCodeImpl value, $Res Function(_$DistrictCodeImpl) then) =
-      __$$DistrictCodeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String value});
 }
 
-/// @nodoc
-class __$$DistrictCodeImplCopyWithImpl<$Res>
-    extends _$DistrictCodeCopyWithImpl<$Res, _$DistrictCodeImpl>
-    implements _$$DistrictCodeImplCopyWith<$Res> {
-  __$$DistrictCodeImplCopyWithImpl(
-      _$DistrictCodeImpl _value, $Res Function(_$DistrictCodeImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DistrictCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$DistrictCodeImpl(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$DistrictCodeImpl extends _DistrictCode {
-  const _$DistrictCodeImpl(this.value) : super._();
 
-  @override
-  final String value;
+class _DistrictCode extends DistrictCode {
+  const _DistrictCode(this.value): super._();
+  
 
-  @override
-  String toString() {
-    return 'DistrictCode(value: $value)';
-  }
+@override final  String value;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DistrictCodeImpl &&
-            (identical(other.value, value) || other.value == value));
-  }
+/// Create a copy of DistrictCode
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DistrictCodeCopyWith<_DistrictCode> get copyWith => __$DistrictCodeCopyWithImpl<_DistrictCode>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
 
-  /// Create a copy of DistrictCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DistrictCodeImplCopyWith<_$DistrictCodeImpl> get copyWith =>
-      __$$DistrictCodeImplCopyWithImpl<_$DistrictCodeImpl>(this, _$identity);
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DistrictCode&&(identical(other.value, value) || other.value == value));
 }
 
-abstract class _DistrictCode extends DistrictCode {
-  const factory _DistrictCode(final String value) = _$DistrictCodeImpl;
-  const _DistrictCode._() : super._();
 
-  @override
-  String get value;
+@override
+int get hashCode => Object.hash(runtimeType,value);
 
-  /// Create a copy of DistrictCode
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DistrictCodeImplCopyWith<_$DistrictCodeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'DistrictCode(value: $value)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DistrictCodeCopyWith<$Res> implements $DistrictCodeCopyWith<$Res> {
+  factory _$DistrictCodeCopyWith(_DistrictCode value, $Res Function(_DistrictCode) _then) = __$DistrictCodeCopyWithImpl;
+@override @useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$DistrictCodeCopyWithImpl<$Res>
+    implements _$DistrictCodeCopyWith<$Res> {
+  __$DistrictCodeCopyWithImpl(this._self, this._then);
+
+  final _DistrictCode _self;
+  final $Res Function(_DistrictCode) _then;
+
+/// Create a copy of DistrictCode
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_DistrictCode(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

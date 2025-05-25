@@ -38,11 +38,11 @@ class CacheEntry {
 
   /// Convert to JSON for storage
   Map<String, dynamic> toJson() => {
-        'data': data,
-        'createdAt': createdAt,
-        'ttl': ttl,
-        'type': type,
-      };
+    'data': data,
+    'createdAt': createdAt,
+    'ttl': ttl,
+    'type': type,
+  };
 
   /// Create from JSON representation
   factory CacheEntry.fromJson(Map<String, dynamic> json) {
@@ -66,10 +66,8 @@ class SharedPreferencesDataSource implements LocalDataSource {
   /// Creates a new SharedPreferencesDataSource
   ///
   /// [prefix] can be used to namespace the cache keys
-  SharedPreferencesDataSource(
-    this._prefs, {
-    String prefix = 'mlit_sdk_cache_',
-  }) : _keyPrefix = prefix;
+  SharedPreferencesDataSource(this._prefs, {String prefix = 'mlit_sdk_cache_'})
+    : _keyPrefix = prefix;
 
   /// Creates a prefixed key for storage
   String _getPrefixedKey(String key) => '$_keyPrefix$key';
@@ -108,9 +106,7 @@ class SharedPreferencesDataSource implements LocalDataSource {
       final jsonString = _prefs.getString(prefixedKey);
 
       if (jsonString == null) {
-        return Left(
-          CacheFailure(message: 'No data found for key: $key'),
-        );
+        return Left(CacheFailure(message: 'No data found for key: $key'));
       }
 
       final jsonMap = json.decode(jsonString) as Map<String, dynamic>;
@@ -120,18 +116,12 @@ class SharedPreferencesDataSource implements LocalDataSource {
         // Clean up expired entry
         await _prefs.remove(prefixedKey);
 
-        return Left(
-          CacheFailure(message: 'Data for key $key has expired'),
-        );
+        return Left(CacheFailure(message: 'Data for key $key has expired'));
       }
 
       return Right(entry.data as T);
     } on Object catch (e) {
-      return Left(
-        CacheFailure(
-          message: 'Error retrieving data: $e',
-        ),
-      );
+      return Left(CacheFailure(message: 'Error retrieving data: $e'));
     }
   }
 

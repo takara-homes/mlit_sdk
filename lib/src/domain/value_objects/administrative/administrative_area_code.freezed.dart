@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,141 +10,133 @@ part of 'administrative_area_code.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$AdministrativeAreaCode {
-  String get value => throw _privateConstructorUsedError;
 
-  /// Create a copy of AdministrativeAreaCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $AdministrativeAreaCodeCopyWith<AdministrativeAreaCode> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get value;
+/// Create a copy of AdministrativeAreaCode
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AdministrativeAreaCodeCopyWith<AdministrativeAreaCode> get copyWith => _$AdministrativeAreaCodeCopyWithImpl<AdministrativeAreaCode>(this as AdministrativeAreaCode, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AdministrativeAreaCode&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'AdministrativeAreaCode(value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AdministrativeAreaCodeCopyWith<$Res> {
-  factory $AdministrativeAreaCodeCopyWith(AdministrativeAreaCode value,
-          $Res Function(AdministrativeAreaCode) then) =
-      _$AdministrativeAreaCodeCopyWithImpl<$Res, AdministrativeAreaCode>;
-  @useResult
-  $Res call({String value});
-}
+abstract mixin class $AdministrativeAreaCodeCopyWith<$Res>  {
+  factory $AdministrativeAreaCodeCopyWith(AdministrativeAreaCode value, $Res Function(AdministrativeAreaCode) _then) = _$AdministrativeAreaCodeCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
 
+
+
+
+}
 /// @nodoc
-class _$AdministrativeAreaCodeCopyWithImpl<$Res,
-        $Val extends AdministrativeAreaCode>
+class _$AdministrativeAreaCodeCopyWithImpl<$Res>
     implements $AdministrativeAreaCodeCopyWith<$Res> {
-  _$AdministrativeAreaCodeCopyWithImpl(this._value, this._then);
+  _$AdministrativeAreaCodeCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AdministrativeAreaCode _self;
+  final $Res Function(AdministrativeAreaCode) _then;
 
-  /// Create a copy of AdministrativeAreaCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of AdministrativeAreaCode
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
+  return _then(_self.copyWith(
+value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$AdministrativeAreaCodeImplCopyWith<$Res>
-    implements $AdministrativeAreaCodeCopyWith<$Res> {
-  factory _$$AdministrativeAreaCodeImplCopyWith(
-          _$AdministrativeAreaCodeImpl value,
-          $Res Function(_$AdministrativeAreaCodeImpl) then) =
-      __$$AdministrativeAreaCodeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String value});
 }
 
-/// @nodoc
-class __$$AdministrativeAreaCodeImplCopyWithImpl<$Res>
-    extends _$AdministrativeAreaCodeCopyWithImpl<$Res,
-        _$AdministrativeAreaCodeImpl>
-    implements _$$AdministrativeAreaCodeImplCopyWith<$Res> {
-  __$$AdministrativeAreaCodeImplCopyWithImpl(
-      _$AdministrativeAreaCodeImpl _value,
-      $Res Function(_$AdministrativeAreaCodeImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AdministrativeAreaCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$AdministrativeAreaCodeImpl(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$AdministrativeAreaCodeImpl implements _AdministrativeAreaCode {
-  const _$AdministrativeAreaCodeImpl(this.value);
 
-  @override
-  final String value;
+class _AdministrativeAreaCode implements AdministrativeAreaCode {
+  const _AdministrativeAreaCode(this.value);
+  
 
-  @override
-  String toString() {
-    return 'AdministrativeAreaCode(value: $value)';
-  }
+@override final  String value;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AdministrativeAreaCodeImpl &&
-            (identical(other.value, value) || other.value == value));
-  }
+/// Create a copy of AdministrativeAreaCode
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AdministrativeAreaCodeCopyWith<_AdministrativeAreaCode> get copyWith => __$AdministrativeAreaCodeCopyWithImpl<_AdministrativeAreaCode>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
 
-  /// Create a copy of AdministrativeAreaCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AdministrativeAreaCodeImplCopyWith<_$AdministrativeAreaCodeImpl>
-      get copyWith => __$$AdministrativeAreaCodeImplCopyWithImpl<
-          _$AdministrativeAreaCodeImpl>(this, _$identity);
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AdministrativeAreaCode&&(identical(other.value, value) || other.value == value));
 }
 
-abstract class _AdministrativeAreaCode implements AdministrativeAreaCode {
-  const factory _AdministrativeAreaCode(final String value) =
-      _$AdministrativeAreaCodeImpl;
 
-  @override
-  String get value;
+@override
+int get hashCode => Object.hash(runtimeType,value);
 
-  /// Create a copy of AdministrativeAreaCode
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AdministrativeAreaCodeImplCopyWith<_$AdministrativeAreaCodeImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'AdministrativeAreaCode(value: $value)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AdministrativeAreaCodeCopyWith<$Res> implements $AdministrativeAreaCodeCopyWith<$Res> {
+  factory _$AdministrativeAreaCodeCopyWith(_AdministrativeAreaCode value, $Res Function(_AdministrativeAreaCode) _then) = __$AdministrativeAreaCodeCopyWithImpl;
+@override @useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$AdministrativeAreaCodeCopyWithImpl<$Res>
+    implements _$AdministrativeAreaCodeCopyWith<$Res> {
+  __$AdministrativeAreaCodeCopyWithImpl(this._self, this._then);
+
+  final _AdministrativeAreaCode _self;
+  final $Res Function(_AdministrativeAreaCode) _then;
+
+/// Create a copy of AdministrativeAreaCode
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_AdministrativeAreaCode(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

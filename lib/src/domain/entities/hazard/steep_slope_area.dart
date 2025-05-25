@@ -5,8 +5,7 @@ part 'steep_slope_area.freezed.dart';
 
 /// Represents a steep slope collapse danger area
 @freezed
-class SteepSlopeArea with _$SteepSlopeArea {
-
+abstract class SteepSlopeArea with _$SteepSlopeArea {
   const factory SteepSlopeArea({
     /// Base hazard information
     required Hazard hazard,

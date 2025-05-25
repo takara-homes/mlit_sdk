@@ -6,8 +6,7 @@ part 'land_price_point.freezed.dart';
 
 /// Represents a land price survey point with detailed pricing information
 @freezed
-class LandPricePoint with _$LandPricePoint {
-
+abstract class LandPricePoint with _$LandPricePoint {
   const factory LandPricePoint({
     /// Unique identifier for the point
     required String pointId,
@@ -109,29 +108,36 @@ class LandPricePoint with _$LandPricePoint {
       standardLotNumber: map['standard_lot_number_ja'] as String,
       currentYearPrice: int.parse(map['u_current_years_price_ja'].toString()),
       lastYearPrice: int.tryParse(map['last_years_price']?.toString() ?? ''),
-      yearOnYearChangeRate:
-          double.tryParse(map['year_on_year_change_rate']?.toString() ?? ''),
+      yearOnYearChangeRate: double.tryParse(
+        map['year_on_year_change_rate']?.toString() ?? '',
+      ),
       cadastralArea: double.tryParse(map['u_cadastral_en']?.toString() ?? ''),
       buildingStructure: map['building_structure_name_en'] as String?,
-      groundFloors:
-          int.tryParse(map['u_ground_hierarchy_en']?.toString() ?? ''),
-      undergroundFloors:
-          int.tryParse(map['u_underground_hierarchy_en']?.toString() ?? ''),
+      groundFloors: int.tryParse(
+        map['u_ground_hierarchy_en']?.toString() ?? '',
+      ),
+      undergroundFloors: int.tryParse(
+        map['u_underground_hierarchy_en']?.toString() ?? '',
+      ),
       frontRoadDetails: map['front_road_name_ja'] as String?,
       frontRoadDirection: map['front_road_azimuth_name'] as String?,
-      frontRoadWidth:
-          double.tryParse(map['front_road_width']?.toString() ?? ''),
+      frontRoadWidth: double.tryParse(
+        map['front_road_width']?.toString() ?? '',
+      ),
       hasGasSupply: map['gas_supply_availability'] == '1',
       hasWaterSupply: map['water_supply_availability'] == '1',
       hasSewerSupply: map['sewer_supply_availability'] == '1',
       nearestStationName: map['nearest_station_name'] as String?,
       distanceToStation: double.tryParse(
-          map['u_road_distance_to_nearest_station_name_ja']?.toString() ?? '',),
+        map['u_road_distance_to_nearest_station_name_ja']?.toString() ?? '',
+      ),
       currentUseStatus: map['usage_status_name_ja'] as String?,
       buildingCoverageRatio: double.tryParse(
-          map['u_regulations_building_coverage_ratio_ja']?.toString() ?? '',),
+        map['u_regulations_building_coverage_ratio_ja']?.toString() ?? '',
+      ),
       floorAreaRatio: double.tryParse(
-          map['u_regulations_floor_area_ratio_ja']?.toString() ?? '',),
+        map['u_regulations_floor_area_ratio_ja']?.toString() ?? '',
+      ),
     );
   }
 

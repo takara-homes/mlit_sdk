@@ -5,8 +5,7 @@ part 'railway.freezed.dart';
 
 /// Represents a railway line and its properties
 @freezed
-class Railway with _$Railway {
-
+abstract class Railway with _$Railway {
   const factory Railway({
     /// Railway company code
     required String companyCode,
@@ -46,7 +45,8 @@ class Railway with _$Railway {
       nameEn: json['name_en'] as String,
       operatorName: json['operator_name'] as String,
       type: RailwayType.fromString(json['type'] as String),
-      stations: (json['stations'] as List?)
+      stations:
+          (json['stations'] as List?)
               ?.map((e) => Station.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],

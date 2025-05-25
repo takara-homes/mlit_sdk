@@ -24,14 +24,13 @@ dartdoc:
   showUndocumentedCategories: true
   linkToSource:
     root: "."
-    uriTemplate: "https://github.com/yourusername/mlit_sdk/blob/main/%f%#L%l%"
+    uriTemplate: "https://github.com/erknvl/mlit_sdk/blob/main/%f%#L%l%"
   exclude:
     - "dart:async"
     - "dart:collection"
     - "dart:convert"
     - "dart:core"
     - "dart:developer"
-    - "dart:io"
     - "dart:isolate"
     - "dart:math"
     - "dart:typed_data"

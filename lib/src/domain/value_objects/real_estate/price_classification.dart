@@ -4,8 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'price_classification.freezed.dart';
 
 @freezed
-class PriceClassification with _$PriceClassification {
-
+abstract class PriceClassification with _$PriceClassification {
   const factory PriceClassification(String value) = _PriceClassification;
   const PriceClassification._();
 

@@ -5,8 +5,7 @@ part 'station.freezed.dart';
 
 /// Represents a railway station with its properties and location
 @freezed
-class Station with _$Station {
-
+abstract class Station with _$Station {
   const factory Station({
     /// Unique station code from MLIT
     required String stationCode,
@@ -53,8 +52,9 @@ class Station with _$Station {
       operatorName: json['operator_name'] as String,
       lineName: json['line_name'] as String,
       type: json['type'] as String,
-      coordinate:
-          Coordinate.fromMap(json['coordinate'] as Map<String, dynamic>),
+      coordinate: Coordinate.fromMap(
+        json['coordinate'] as Map<String, dynamic>,
+      ),
       passengerCount: json['passenger_count'] as int?,
       businessType: json['business_type'] as String?,
       metadata: Map<String, dynamic>.from(json['metadata'] as Map? ?? {}),

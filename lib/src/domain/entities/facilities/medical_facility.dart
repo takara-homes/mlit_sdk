@@ -6,8 +6,7 @@ part 'medical_facility.freezed.dart';
 
 /// Represents a medical facility in Japan
 @freezed
-class MedicalFacility with _$MedicalFacility {
-
+abstract class MedicalFacility with _$MedicalFacility {
   const factory MedicalFacility({
     /// Medical institution classification
     required String institutionClassification,

@@ -1,28 +1,42 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'district.freezed.dart';
+part 'district.g.dart';
 
 /// Represents a district within a city (町丁目)
-@freezed
-class District with _$District {
-
-  const factory District({
+@JsonSerializable(fieldRename: FieldRename.snake)
+class District extends Equatable {
+  const District({
     /// District code
-    required String code,
+    required this.code,
 
     /// City code this district belongs to
-    required String cityCode,
+    required this.cityCode,
 
     /// District name in Japanese
-    required String nameJa,
+    required this.nameJa,
 
     /// District name in English
-    required String nameEn,
+    required this.nameEn,
 
     /// Optional additional location details
-    String? details,
-  }) = _District;
-  const District._();
+    this.details,
+  });
+
+  @JsonKey(name: 'district_code')
+  final String code;
+
+  @JsonKey(name: 'city_code')
+  final String cityCode;
+
+  @JsonKey(name: 'district_name')
+  final String nameJa;
+
+  @JsonKey(name: 'district_name_en')
+  final String nameEn;
+
+  @JsonKey(name: 'details')
+  final String? details;
 
   /// Creates a District instance from a map structure
   factory District.fromMap(Map<String, dynamic> map) {
@@ -35,6 +49,10 @@ class District with _$District {
     );
   }
 
+  /// Creates a District instance from JSON
+  factory District.fromJson(Map<String, dynamic> json) =>
+      _$DistrictFromJson(json);
+
   /// Converts District instance to a map structure
   Map<String, dynamic> toMap() {
     return {
@@ -45,4 +63,10 @@ class District with _$District {
       if (details != null) 'details': details,
     };
   }
+
+  /// Converts District instance to JSON
+  Map<String, dynamic> toJson() => _$DistrictToJson(this);
+
+  @override
+  List<Object?> get props => [code, cityCode, nameJa, nameEn, details];
 }

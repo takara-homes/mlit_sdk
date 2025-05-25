@@ -4,8 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'use_zone_code.freezed.dart';
 
 @freezed
-class UseZoneCode with _$UseZoneCode {
-
+abstract class UseZoneCode with _$UseZoneCode {
   const factory UseZoneCode(String value) = _UseZoneCode;
   const UseZoneCode._();
 

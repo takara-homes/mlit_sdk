@@ -11,11 +11,7 @@ abstract class Failure extends Equatable {
   /// Original error object if available
   final dynamic error;
 
-  const Failure({
-    required this.message,
-    this.code,
-    this.error,
-  });
+  const Failure({required this.message, this.code, this.error});
 
   @override
   List<Object?> get props => [message, code, error];
@@ -55,43 +51,33 @@ abstract class Failure extends Equatable {
 
 // Legacy failure classes for backwards compatibility
 class NetworkFailure extends Failure {
-  const NetworkFailure({
-    required super.message,
-    super.error,
-  }) : super(code: 'NETWORK_ERROR');
+  const NetworkFailure({required super.message, super.error})
+    : super(code: 'NETWORK_ERROR');
 }
 
 class ValidationBaseFailure extends Failure {
-  const ValidationBaseFailure({
-    required super.message,
-    super.error,
-  }) : super(code: 'VALIDATION_ERROR');
+  const ValidationBaseFailure({required super.message, super.error})
+    : super(code: 'VALIDATION_ERROR');
 }
 
 class TimeoutFailure extends Failure {
   final Duration? duration;
 
-  const TimeoutFailure({
-    required super.message,
-    this.duration,
-  }) : super(code: 'TIMEOUT_ERROR');
+  const TimeoutFailure({required super.message, this.duration})
+    : super(code: 'TIMEOUT_ERROR');
 
   @override
   List<Object?> get props => [...super.props, duration];
 }
 
 class CacheFailure extends Failure {
-  const CacheFailure({
-    required super.message,
-    super.error,
-  }) : super(code: 'CACHE_ERROR');
+  const CacheFailure({required super.message, super.error})
+    : super(code: 'CACHE_ERROR');
 }
 
 class ParseFailure extends Failure {
-  const ParseFailure({
-    required super.message,
-    super.error,
-  }) : super(code: 'PARSE_ERROR');
+  const ParseFailure({required super.message, super.error})
+    : super(code: 'PARSE_ERROR');
 }
 
 class ApiBaseFailure extends Failure {
@@ -103,8 +89,6 @@ class ApiBaseFailure extends Failure {
 }
 
 class UnexpectedFailure extends Failure {
-  const UnexpectedFailure({
-    required super.message,
-    super.error,
-  }) : super(code: 'UNEXPECTED_ERROR');
+  const UnexpectedFailure({required super.message, super.error})
+    : super(code: 'UNEXPECTED_ERROR');
 }

@@ -4,7 +4,8 @@ import 'package:mlit_sdk/src/domain/failures/failure.dart';
 part 'infrastructure_failures.freezed.dart';
 
 @freezed
-class InfrastructureFailure extends Failure with _$InfrastructureFailure {
+sealed class InfrastructureFailure extends Failure
+    with _$InfrastructureFailure {
   const InfrastructureFailure._() : super(message: '', code: '');
 
   const factory InfrastructureFailure.networkConnection({
@@ -34,48 +35,67 @@ class InfrastructureFailure extends Failure with _$InfrastructureFailure {
     dynamic error,
   }) = _CertificateVerification;
 
+  @override
+  String get message => switch (this) {
+    _NetworkConnection(:final message) => message,
+    _Timeout(:final message) => message,
+    _CacheOperation(:final message) => message,
+    _DataParsing(:final message) => message,
+    _CertificateVerification(:final message) => message,
+  };
+
+  @override
+  String get code => switch (this) {
+    _NetworkConnection() => 'NETWORK_ERROR',
+    _Timeout() => 'TIMEOUT_ERROR',
+    _CacheOperation() => 'CACHE_ERROR',
+    _DataParsing() => 'PARSE_ERROR',
+    _CertificateVerification() => 'CERTIFICATE_ERROR',
+  };
+
+  @override
+  dynamic get error => switch (this) {
+    _NetworkConnection(:final error) => error,
+    _Timeout(:final duration) => duration,
+    _CacheOperation(:final error) => error,
+    _DataParsing(:final error) => error,
+    _CertificateVerification(:final error) => error,
+  };
+
   Failure toFailure() {
-    return when(
-      networkConnection: (message, error) =>
-          Failure.network(message: message, error: error),
-      timeout: (message, duration) =>
-          Failure.timeout(message: message, duration: duration),
-      cacheOperation: (message, operation, error) =>
-          Failure.cache(message: message, error: error),
-      dataParsing: (message, data, error) =>
-          Failure.parse(message: message, error: error),
-      certificateVerification: (message, error) =>
-          Failure.network(message: message, error: error),
-    );
+    return switch (this) {
+      _NetworkConnection(:final message, :final error) => Failure.network(
+        message: message,
+        error: error,
+      ),
+      _Timeout(:final message, :final duration) => Failure.timeout(
+        message: message,
+        duration: duration,
+      ),
+      _CacheOperation(:final message, :final error) => Failure.cache(
+        message: message,
+        error: error,
+      ),
+      _DataParsing(:final message, :final error) => Failure.parse(
+        message: message,
+        error: error,
+      ),
+      _CertificateVerification(:final message, :final error) => Failure.network(
+        message: message,
+        error: error,
+      ),
+    };
   }
 
   @override
-  String get message => when(
-        networkConnection: (message, _) => message,
-        timeout: (message, _) => message,
-        cacheOperation: (message, _, __) => message,
-        dataParsing: (message, _, __) => message,
-        certificateVerification: (message, _) => message,
-      );
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is InfrastructureFailure &&
+        other.message == message &&
+        other.code == code &&
+        other.error == error;
+  }
 
   @override
-  String? get code => when(
-        networkConnection: (_, __) => 'NETWORK_ERROR',
-        timeout: (_, __) => 'TIMEOUT_ERROR',
-        cacheOperation: (_, __, ___) => 'CACHE_ERROR',
-        dataParsing: (_, __, ___) => 'PARSE_ERROR',
-        certificateVerification: (_, __) => 'CERTIFICATE_ERROR',
-      );
-
-  @override
-  dynamic get error => when(
-        networkConnection: (_, error) => error,
-        timeout: (_, duration) => duration,
-        cacheOperation: (_, operation, error) => error,
-        dataParsing: (_, data, error) => error,
-        certificateVerification: (_, error) => error,
-      );
-
-  @override
-  List<Object?> get props => [message, code, error];
+  int get hashCode => Object.hash(message, code, error);
 }

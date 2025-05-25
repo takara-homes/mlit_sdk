@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,268 +10,173 @@ part of 'landslide_area.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$LandslideArea {
-  /// Base hazard information
-  Hazard get hazard => throw _privateConstructorUsedError;
 
-  /// Group code for administrative grouping
-  String get groupCode => throw _privateConstructorUsedError;
+/// Base hazard information
+ Hazard get hazard;/// Group code for administrative grouping
+ String get groupCode;/// Region name for the landslide area
+ String get regionName;/// Ministry code responsible for the area
+ String get chargeMinistryCode;/// Name of the ministry responsible for the area
+ String get chargeMinistryName;
+/// Create a copy of LandslideArea
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LandslideAreaCopyWith<LandslideArea> get copyWith => _$LandslideAreaCopyWithImpl<LandslideArea>(this as LandslideArea, _$identity);
 
-  /// Region name for the landslide area
-  String get regionName => throw _privateConstructorUsedError;
 
-  /// Ministry code responsible for the area
-  String get chargeMinistryCode => throw _privateConstructorUsedError;
 
-  /// Name of the ministry responsible for the area
-  String get chargeMinistryName => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LandslideArea&&(identical(other.hazard, hazard) || other.hazard == hazard)&&(identical(other.groupCode, groupCode) || other.groupCode == groupCode)&&(identical(other.regionName, regionName) || other.regionName == regionName)&&(identical(other.chargeMinistryCode, chargeMinistryCode) || other.chargeMinistryCode == chargeMinistryCode)&&(identical(other.chargeMinistryName, chargeMinistryName) || other.chargeMinistryName == chargeMinistryName));
+}
 
-  /// Create a copy of LandslideArea
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $LandslideAreaCopyWith<LandslideArea> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+int get hashCode => Object.hash(runtimeType,hazard,groupCode,regionName,chargeMinistryCode,chargeMinistryName);
+
+@override
+String toString() {
+  return 'LandslideArea(hazard: $hazard, groupCode: $groupCode, regionName: $regionName, chargeMinistryCode: $chargeMinistryCode, chargeMinistryName: $chargeMinistryName)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $LandslideAreaCopyWith<$Res> {
-  factory $LandslideAreaCopyWith(
-          LandslideArea value, $Res Function(LandslideArea) then) =
-      _$LandslideAreaCopyWithImpl<$Res, LandslideArea>;
-  @useResult
-  $Res call(
-      {Hazard hazard,
-      String groupCode,
-      String regionName,
-      String chargeMinistryCode,
-      String chargeMinistryName});
+abstract mixin class $LandslideAreaCopyWith<$Res>  {
+  factory $LandslideAreaCopyWith(LandslideArea value, $Res Function(LandslideArea) _then) = _$LandslideAreaCopyWithImpl;
+@useResult
+$Res call({
+ Hazard hazard, String groupCode, String regionName, String chargeMinistryCode, String chargeMinistryName
+});
 
-  $HazardCopyWith<$Res> get hazard;
+
+$HazardCopyWith<$Res> get hazard;
+
 }
-
 /// @nodoc
-class _$LandslideAreaCopyWithImpl<$Res, $Val extends LandslideArea>
+class _$LandslideAreaCopyWithImpl<$Res>
     implements $LandslideAreaCopyWith<$Res> {
-  _$LandslideAreaCopyWithImpl(this._value, this._then);
+  _$LandslideAreaCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final LandslideArea _self;
+  final $Res Function(LandslideArea) _then;
 
-  /// Create a copy of LandslideArea
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hazard = null,
-    Object? groupCode = null,
-    Object? regionName = null,
-    Object? chargeMinistryCode = null,
-    Object? chargeMinistryName = null,
-  }) {
-    return _then(_value.copyWith(
-      hazard: null == hazard
-          ? _value.hazard
-          : hazard // ignore: cast_nullable_to_non_nullable
-              as Hazard,
-      groupCode: null == groupCode
-          ? _value.groupCode
-          : groupCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      regionName: null == regionName
-          ? _value.regionName
-          : regionName // ignore: cast_nullable_to_non_nullable
-              as String,
-      chargeMinistryCode: null == chargeMinistryCode
-          ? _value.chargeMinistryCode
-          : chargeMinistryCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      chargeMinistryName: null == chargeMinistryName
-          ? _value.chargeMinistryName
-          : chargeMinistryName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-
-  /// Create a copy of LandslideArea
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $HazardCopyWith<$Res> get hazard {
-    return $HazardCopyWith<$Res>(_value.hazard, (value) {
-      return _then(_value.copyWith(hazard: value) as $Val);
-    });
-  }
+/// Create a copy of LandslideArea
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? hazard = null,Object? groupCode = null,Object? regionName = null,Object? chargeMinistryCode = null,Object? chargeMinistryName = null,}) {
+  return _then(_self.copyWith(
+hazard: null == hazard ? _self.hazard : hazard // ignore: cast_nullable_to_non_nullable
+as Hazard,groupCode: null == groupCode ? _self.groupCode : groupCode // ignore: cast_nullable_to_non_nullable
+as String,regionName: null == regionName ? _self.regionName : regionName // ignore: cast_nullable_to_non_nullable
+as String,chargeMinistryCode: null == chargeMinistryCode ? _self.chargeMinistryCode : chargeMinistryCode // ignore: cast_nullable_to_non_nullable
+as String,chargeMinistryName: null == chargeMinistryName ? _self.chargeMinistryName : chargeMinistryName // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+/// Create a copy of LandslideArea
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$HazardCopyWith<$Res> get hazard {
+  
+  return $HazardCopyWith<$Res>(_self.hazard, (value) {
+    return _then(_self.copyWith(hazard: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$LandslideAreaImplCopyWith<$Res>
-    implements $LandslideAreaCopyWith<$Res> {
-  factory _$$LandslideAreaImplCopyWith(
-          _$LandslideAreaImpl value, $Res Function(_$LandslideAreaImpl) then) =
-      __$$LandslideAreaImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Hazard hazard,
-      String groupCode,
-      String regionName,
-      String chargeMinistryCode,
-      String chargeMinistryName});
-
-  @override
-  $HazardCopyWith<$Res> get hazard;
-}
-
-/// @nodoc
-class __$$LandslideAreaImplCopyWithImpl<$Res>
-    extends _$LandslideAreaCopyWithImpl<$Res, _$LandslideAreaImpl>
-    implements _$$LandslideAreaImplCopyWith<$Res> {
-  __$$LandslideAreaImplCopyWithImpl(
-      _$LandslideAreaImpl _value, $Res Function(_$LandslideAreaImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LandslideArea
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hazard = null,
-    Object? groupCode = null,
-    Object? regionName = null,
-    Object? chargeMinistryCode = null,
-    Object? chargeMinistryName = null,
-  }) {
-    return _then(_$LandslideAreaImpl(
-      hazard: null == hazard
-          ? _value.hazard
-          : hazard // ignore: cast_nullable_to_non_nullable
-              as Hazard,
-      groupCode: null == groupCode
-          ? _value.groupCode
-          : groupCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      regionName: null == regionName
-          ? _value.regionName
-          : regionName // ignore: cast_nullable_to_non_nullable
-              as String,
-      chargeMinistryCode: null == chargeMinistryCode
-          ? _value.chargeMinistryCode
-          : chargeMinistryCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      chargeMinistryName: null == chargeMinistryName
-          ? _value.chargeMinistryName
-          : chargeMinistryName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$LandslideAreaImpl extends _LandslideArea {
-  const _$LandslideAreaImpl(
-      {required this.hazard,
-      required this.groupCode,
-      required this.regionName,
-      required this.chargeMinistryCode,
-      required this.chargeMinistryName})
-      : super._();
 
-  /// Base hazard information
-  @override
-  final Hazard hazard;
+class _LandslideArea extends LandslideArea {
+  const _LandslideArea({required this.hazard, required this.groupCode, required this.regionName, required this.chargeMinistryCode, required this.chargeMinistryName}): super._();
+  
 
-  /// Group code for administrative grouping
-  @override
-  final String groupCode;
+/// Base hazard information
+@override final  Hazard hazard;
+/// Group code for administrative grouping
+@override final  String groupCode;
+/// Region name for the landslide area
+@override final  String regionName;
+/// Ministry code responsible for the area
+@override final  String chargeMinistryCode;
+/// Name of the ministry responsible for the area
+@override final  String chargeMinistryName;
 
-  /// Region name for the landslide area
-  @override
-  final String regionName;
+/// Create a copy of LandslideArea
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LandslideAreaCopyWith<_LandslideArea> get copyWith => __$LandslideAreaCopyWithImpl<_LandslideArea>(this, _$identity);
 
-  /// Ministry code responsible for the area
-  @override
-  final String chargeMinistryCode;
 
-  /// Name of the ministry responsible for the area
-  @override
-  final String chargeMinistryName;
 
-  @override
-  String toString() {
-    return 'LandslideArea(hazard: $hazard, groupCode: $groupCode, regionName: $regionName, chargeMinistryCode: $chargeMinistryCode, chargeMinistryName: $chargeMinistryName)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LandslideAreaImpl &&
-            (identical(other.hazard, hazard) || other.hazard == hazard) &&
-            (identical(other.groupCode, groupCode) ||
-                other.groupCode == groupCode) &&
-            (identical(other.regionName, regionName) ||
-                other.regionName == regionName) &&
-            (identical(other.chargeMinistryCode, chargeMinistryCode) ||
-                other.chargeMinistryCode == chargeMinistryCode) &&
-            (identical(other.chargeMinistryName, chargeMinistryName) ||
-                other.chargeMinistryName == chargeMinistryName));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, hazard, groupCode, regionName,
-      chargeMinistryCode, chargeMinistryName);
-
-  /// Create a copy of LandslideArea
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LandslideAreaImplCopyWith<_$LandslideAreaImpl> get copyWith =>
-      __$$LandslideAreaImplCopyWithImpl<_$LandslideAreaImpl>(this, _$identity);
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LandslideArea&&(identical(other.hazard, hazard) || other.hazard == hazard)&&(identical(other.groupCode, groupCode) || other.groupCode == groupCode)&&(identical(other.regionName, regionName) || other.regionName == regionName)&&(identical(other.chargeMinistryCode, chargeMinistryCode) || other.chargeMinistryCode == chargeMinistryCode)&&(identical(other.chargeMinistryName, chargeMinistryName) || other.chargeMinistryName == chargeMinistryName));
 }
 
-abstract class _LandslideArea extends LandslideArea {
-  const factory _LandslideArea(
-      {required final Hazard hazard,
-      required final String groupCode,
-      required final String regionName,
-      required final String chargeMinistryCode,
-      required final String chargeMinistryName}) = _$LandslideAreaImpl;
-  const _LandslideArea._() : super._();
 
-  /// Base hazard information
-  @override
-  Hazard get hazard;
+@override
+int get hashCode => Object.hash(runtimeType,hazard,groupCode,regionName,chargeMinistryCode,chargeMinistryName);
 
-  /// Group code for administrative grouping
-  @override
-  String get groupCode;
-
-  /// Region name for the landslide area
-  @override
-  String get regionName;
-
-  /// Ministry code responsible for the area
-  @override
-  String get chargeMinistryCode;
-
-  /// Name of the ministry responsible for the area
-  @override
-  String get chargeMinistryName;
-
-  /// Create a copy of LandslideArea
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LandslideAreaImplCopyWith<_$LandslideAreaImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LandslideArea(hazard: $hazard, groupCode: $groupCode, regionName: $regionName, chargeMinistryCode: $chargeMinistryCode, chargeMinistryName: $chargeMinistryName)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$LandslideAreaCopyWith<$Res> implements $LandslideAreaCopyWith<$Res> {
+  factory _$LandslideAreaCopyWith(_LandslideArea value, $Res Function(_LandslideArea) _then) = __$LandslideAreaCopyWithImpl;
+@override @useResult
+$Res call({
+ Hazard hazard, String groupCode, String regionName, String chargeMinistryCode, String chargeMinistryName
+});
+
+
+@override $HazardCopyWith<$Res> get hazard;
+
+}
+/// @nodoc
+class __$LandslideAreaCopyWithImpl<$Res>
+    implements _$LandslideAreaCopyWith<$Res> {
+  __$LandslideAreaCopyWithImpl(this._self, this._then);
+
+  final _LandslideArea _self;
+  final $Res Function(_LandslideArea) _then;
+
+/// Create a copy of LandslideArea
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? hazard = null,Object? groupCode = null,Object? regionName = null,Object? chargeMinistryCode = null,Object? chargeMinistryName = null,}) {
+  return _then(_LandslideArea(
+hazard: null == hazard ? _self.hazard : hazard // ignore: cast_nullable_to_non_nullable
+as Hazard,groupCode: null == groupCode ? _self.groupCode : groupCode // ignore: cast_nullable_to_non_nullable
+as String,regionName: null == regionName ? _self.regionName : regionName // ignore: cast_nullable_to_non_nullable
+as String,chargeMinistryCode: null == chargeMinistryCode ? _self.chargeMinistryCode : chargeMinistryCode // ignore: cast_nullable_to_non_nullable
+as String,chargeMinistryName: null == chargeMinistryName ? _self.chargeMinistryName : chargeMinistryName // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+/// Create a copy of LandslideArea
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$HazardCopyWith<$Res> get hazard {
+  
+  return $HazardCopyWith<$Res>(_self.hazard, (value) {
+    return _then(_self.copyWith(hazard: value));
+  });
+}
+}
+
+// dart format on

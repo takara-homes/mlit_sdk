@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,136 +10,133 @@ part of 'station_code.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$StationCode {
-  String get value => throw _privateConstructorUsedError;
 
-  /// Create a copy of StationCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $StationCodeCopyWith<StationCode> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get value;
+/// Create a copy of StationCode
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StationCodeCopyWith<StationCode> get copyWith => _$StationCodeCopyWithImpl<StationCode>(this as StationCode, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StationCode&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'StationCode(value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $StationCodeCopyWith<$Res> {
-  factory $StationCodeCopyWith(
-          StationCode value, $Res Function(StationCode) then) =
-      _$StationCodeCopyWithImpl<$Res, StationCode>;
-  @useResult
-  $Res call({String value});
-}
+abstract mixin class $StationCodeCopyWith<$Res>  {
+  factory $StationCodeCopyWith(StationCode value, $Res Function(StationCode) _then) = _$StationCodeCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
 
+
+
+
+}
 /// @nodoc
-class _$StationCodeCopyWithImpl<$Res, $Val extends StationCode>
+class _$StationCodeCopyWithImpl<$Res>
     implements $StationCodeCopyWith<$Res> {
-  _$StationCodeCopyWithImpl(this._value, this._then);
+  _$StationCodeCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StationCode _self;
+  final $Res Function(StationCode) _then;
 
-  /// Create a copy of StationCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of StationCode
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
+  return _then(_self.copyWith(
+value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$StationCodeImplCopyWith<$Res>
-    implements $StationCodeCopyWith<$Res> {
-  factory _$$StationCodeImplCopyWith(
-          _$StationCodeImpl value, $Res Function(_$StationCodeImpl) then) =
-      __$$StationCodeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String value});
 }
 
-/// @nodoc
-class __$$StationCodeImplCopyWithImpl<$Res>
-    extends _$StationCodeCopyWithImpl<$Res, _$StationCodeImpl>
-    implements _$$StationCodeImplCopyWith<$Res> {
-  __$$StationCodeImplCopyWithImpl(
-      _$StationCodeImpl _value, $Res Function(_$StationCodeImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StationCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$StationCodeImpl(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$StationCodeImpl extends _StationCode {
-  const _$StationCodeImpl(this.value) : super._();
 
-  @override
-  final String value;
+class _StationCode extends StationCode {
+  const _StationCode(this.value): super._();
+  
 
-  @override
-  String toString() {
-    return 'StationCode(value: $value)';
-  }
+@override final  String value;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$StationCodeImpl &&
-            (identical(other.value, value) || other.value == value));
-  }
+/// Create a copy of StationCode
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$StationCodeCopyWith<_StationCode> get copyWith => __$StationCodeCopyWithImpl<_StationCode>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
 
-  /// Create a copy of StationCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$StationCodeImplCopyWith<_$StationCodeImpl> get copyWith =>
-      __$$StationCodeImplCopyWithImpl<_$StationCodeImpl>(this, _$identity);
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StationCode&&(identical(other.value, value) || other.value == value));
 }
 
-abstract class _StationCode extends StationCode {
-  const factory _StationCode(final String value) = _$StationCodeImpl;
-  const _StationCode._() : super._();
 
-  @override
-  String get value;
+@override
+int get hashCode => Object.hash(runtimeType,value);
 
-  /// Create a copy of StationCode
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StationCodeImplCopyWith<_$StationCodeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'StationCode(value: $value)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$StationCodeCopyWith<$Res> implements $StationCodeCopyWith<$Res> {
+  factory _$StationCodeCopyWith(_StationCode value, $Res Function(_StationCode) _then) = __$StationCodeCopyWithImpl;
+@override @useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$StationCodeCopyWithImpl<$Res>
+    implements _$StationCodeCopyWith<$Res> {
+  __$StationCodeCopyWithImpl(this._self, this._then);
+
+  final _StationCode _self;
+  final $Res Function(_StationCode) _then;
+
+/// Create a copy of StationCode
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_StationCode(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -5,7 +5,7 @@ part 'validation_failures.freezed.dart';
 
 /// Validation failures for MLIT SDK
 @freezed
-class ValidationFailure with _$ValidationFailure {
+sealed class ValidationFailure with _$ValidationFailure {
   const ValidationFailure._();
 
   /// Invalid coordinate failure
@@ -45,21 +45,49 @@ class ValidationFailure with _$ValidationFailure {
 
   /// Converts to base Failure type
   Failure toFailure() {
-    return when(
-      invalidCoordinate: (message, lat, lon) => Failure.validation(
-          message: message, error: {'latitude': lat, 'longitude': lon}),
-      invalidDateRange: (message, start, end) => Failure.validation(
-          message: message, error: {'startDate': start, 'endDate': end}),
-      invalidCode: (message, code, type) => Failure.validation(
-          message: message, error: {'code': code, 'type': type}),
-      missingParameter: (message, param) =>
-          Failure.validation(message: message, error: {'parameter': param}),
-      invalidParameter: (message, param, actual, expected) =>
-          Failure.validation(message: message, error: {
-        'parameter': param,
-        'actualValue': actual,
-        'expectedFormat': expected,
-      }),
-    );
+    return switch (this) {
+      InvalidCoordinateFailure(
+        :final message,
+        :final latitude,
+        :final longitude,
+      ) =>
+        Failure.validation(
+          message: message,
+          error: {'latitude': latitude, 'longitude': longitude},
+        ),
+      InvalidDateRangeFailure(
+        :final message,
+        :final startDate,
+        :final endDate,
+      ) =>
+        Failure.validation(
+          message: message,
+          error: {'startDate': startDate, 'endDate': endDate},
+        ),
+      InvalidCodeFailure(:final message, :final code, :final type) =>
+        Failure.validation(
+          message: message,
+          error: {'code': code, 'type': type},
+        ),
+      MissingParameterFailure(:final message, :final parameterName) =>
+        Failure.validation(
+          message: message,
+          error: {'parameter': parameterName},
+        ),
+      InvalidParameterFailure(
+        :final message,
+        :final parameterName,
+        :final actualValue,
+        :final expectedFormat,
+      ) =>
+        Failure.validation(
+          message: message,
+          error: {
+            'parameter': parameterName,
+            'actualValue': actualValue,
+            'expectedFormat': expectedFormat,
+          },
+        ),
+    };
   }
 }

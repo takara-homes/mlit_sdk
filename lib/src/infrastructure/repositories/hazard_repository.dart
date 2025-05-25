@@ -1,13 +1,9 @@
-import 'dart:io';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:mlit_sdk/src/domain/entities/hazard/disaster_risk_area.dart';
 import 'package:mlit_sdk/src/domain/entities/hazard/landslide_area.dart';
 import 'package:mlit_sdk/src/domain/entities/hazard/steep_slope_area.dart';
-import 'package:mlit_sdk/src/domain/failures/api_failure.dart';
 import 'package:mlit_sdk/src/domain/failures/failure.dart';
-import 'package:mlit_sdk/src/domain/failures/infrastructure_failures.dart';
 import 'package:mlit_sdk/src/domain/repositories/hazard/i_hazard_repository.dart';
 import 'package:mlit_sdk/src/domain/value_objects/administrative/city_code.dart';
 import 'package:mlit_sdk/src/domain/value_objects/administrative/prefecture_code.dart';
@@ -15,6 +11,7 @@ import 'package:mlit_sdk/src/domain/value_objects/common/coordinates.dart';
 import 'package:mlit_sdk/src/domain/value_objects/common/zoom_level.dart';
 import 'package:mlit_sdk/src/infrastructure/datasources/local/local_data_source.dart';
 import 'package:mlit_sdk/src/infrastructure/datasources/remote/hazard_remote_datasource.dart';
+import 'package:mlit_sdk/src/infrastructure/utils/network_error_handler.dart';
 
 class HazardRepository implements IHazardRepository {
   final HazardRemoteDataSource _remoteDataSource;
@@ -23,8 +20,8 @@ class HazardRepository implements IHazardRepository {
   HazardRepository({
     required HazardRemoteDataSource remoteDataSource,
     required LocalDataSource localDataSource,
-  })  : _remoteDataSource = remoteDataSource,
-        _localDataSource = localDataSource;
+  }) : _remoteDataSource = remoteDataSource,
+       _localDataSource = localDataSource;
 
   @override
   Future<Either<Failure, List<DisasterRiskArea>>> getDisasterRiskAreas({
@@ -38,12 +35,10 @@ class HazardRepository implements IHazardRepository {
 
     try {
       if (await _localDataSource.exists(cacheKey)) {
-        final cachedResult =
-            await _localDataSource.get<List<DisasterRiskArea>>(cacheKey);
-        return cachedResult.fold(
-          (failure) => Left(failure),
-          Right.new,
+        final cachedResult = await _localDataSource.get<List<DisasterRiskArea>>(
+          cacheKey,
         );
+        return cachedResult.fold((failure) => Left(failure), Right.new);
       }
 
       final areas = await _remoteDataSource.getDisasterRiskAreas(
@@ -59,20 +54,12 @@ class HazardRepository implements IHazardRepository {
         (_) => Right(areas),
       );
     } on DioException catch (e) {
-      return Left(ApiFailure.fromDioException(e));
-    } on SocketException catch (e) {
-      return Left(
-        InfrastructureFailure.networkConnection(
-          message: 'Network connection failed',
-          error: e,
-        ).toFailure(),
-      );
+      return handleNetworkError(e, 'Error while fetching disaster risk areas');
     } on Object catch (e) {
-      return Left(Failure.unexpected(
-        message:
-            'An unexpected error occurred while fetching disaster risk areas',
-        error: e,
-      ));
+      return handleNetworkError(
+        e,
+        'An unexpected error occurred while fetching disaster risk areas',
+      );
     }
   }
 
@@ -88,12 +75,10 @@ class HazardRepository implements IHazardRepository {
 
     try {
       if (await _localDataSource.exists(cacheKey)) {
-        final cachedResult =
-            await _localDataSource.get<List<LandslideArea>>(cacheKey);
-        return cachedResult.fold(
-          (failure) => Left(failure),
-          Right.new,
+        final cachedResult = await _localDataSource.get<List<LandslideArea>>(
+          cacheKey,
         );
+        return cachedResult.fold((failure) => Left(failure), Right.new);
       }
 
       final areas = await _remoteDataSource.getLandslideAreas(
@@ -109,19 +94,12 @@ class HazardRepository implements IHazardRepository {
         (_) => Right(areas),
       );
     } on DioException catch (e) {
-      return Left(ApiFailure.fromDioException(e));
-    } on SocketException catch (e) {
-      return Left(
-        InfrastructureFailure.networkConnection(
-          message: 'Network connection failed',
-          error: e,
-        ).toFailure(),
-      );
+      return handleNetworkError(e, 'Error while fetching landslide areas');
     } on Object catch (e) {
-      return Left(Failure.unexpected(
-        message: 'An unexpected error occurred while fetching landslide areas',
-        error: e,
-      ));
+      return handleNetworkError(
+        e,
+        'An unexpected error occurred while fetching landslide areas',
+      );
     }
   }
 
@@ -137,12 +115,10 @@ class HazardRepository implements IHazardRepository {
 
     try {
       if (await _localDataSource.exists(cacheKey)) {
-        final cachedResult =
-            await _localDataSource.get<List<SteepSlopeArea>>(cacheKey);
-        return cachedResult.fold(
-          (failure) => Left(failure),
-          Right.new,
+        final cachedResult = await _localDataSource.get<List<SteepSlopeArea>>(
+          cacheKey,
         );
+        return cachedResult.fold((failure) => Left(failure), Right.new);
       }
 
       final areas = await _remoteDataSource.getSteepSlopeAreas(
@@ -158,20 +134,12 @@ class HazardRepository implements IHazardRepository {
         (_) => Right(areas),
       );
     } on DioException catch (e) {
-      return Left(ApiFailure.fromDioException(e));
-    } on SocketException catch (e) {
-      return Left(
-        InfrastructureFailure.networkConnection(
-          message: 'Network connection failed',
-          error: e,
-        ).toFailure(),
-      );
+      return handleNetworkError(e, 'Error while fetching steep slope areas');
     } on Object catch (e) {
-      return Left(Failure.unexpected(
-        message:
-            'An unexpected error occurred while fetching steep slope areas',
-        error: e,
-      ));
+      return handleNetworkError(
+        e,
+        'An unexpected error occurred while fetching steep slope areas',
+      );
     }
   }
 }

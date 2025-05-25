@@ -5,8 +5,7 @@ part 'landslide_area.freezed.dart';
 
 /// Represents a landslide prevention area
 @freezed
-class LandslideArea with _$LandslideArea {
-
+abstract class LandslideArea with _$LandslideArea {
   const factory LandslideArea({
     /// Base hazard information
     required Hazard hazard,

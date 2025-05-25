@@ -4,8 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'station_code.freezed.dart';
 
 @freezed
-class StationCode with _$StationCode {
-
+abstract class StationCode with _$StationCode {
   const factory StationCode(String value) = _StationCode;
   const StationCode._();
 

@@ -6,9 +6,8 @@ part of 'steep_slope_area_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SteepSlopeAreaDtoImpl _$$SteepSlopeAreaDtoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SteepSlopeAreaDtoImpl(
+SteepSlopeAreaDto _$SteepSlopeAreaDtoFromJson(Map<String, dynamic> json) =>
+    SteepSlopeAreaDto(
       hazardData: json['hazard'] as Map<String, dynamic>,
       groupCode: json['group_code'] as String,
       regionName: json['region_name'] as String,
@@ -16,8 +15,7 @@ _$SteepSlopeAreaDtoImpl _$$SteepSlopeAreaDtoImplFromJson(
       publicNoticeNumber: json['public_notice_number'] as String,
     );
 
-Map<String, dynamic> _$$SteepSlopeAreaDtoImplToJson(
-        _$SteepSlopeAreaDtoImpl instance) =>
+Map<String, dynamic> _$SteepSlopeAreaDtoToJson(SteepSlopeAreaDto instance) =>
     <String, dynamic>{
       'hazard': instance.hazardData,
       'group_code': instance.groupCode,

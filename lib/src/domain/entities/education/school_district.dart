@@ -1,38 +1,61 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:mlit_sdk/src/domain/entities/education/school.dart';
 
-part 'school_district.freezed.dart';
+part 'school_district.g.dart';
 
 /// Represents a school district in Japan
-@freezed
-class SchoolDistrict with _$SchoolDistrict {
-
-  const factory SchoolDistrict({
+@JsonSerializable(fieldRename: FieldRename.snake)
+class SchoolDistrict extends Equatable {
+  const SchoolDistrict({
     /// Administrative area code
-    required String administrativeAreaCode,
+    required this.administrativeAreaCode,
 
     /// Organization responsible for the district
-    required String installationBody,
+    required this.installationBody,
 
     /// School code associated with this district
-    required String schoolCode,
+    required this.schoolCode,
 
     /// District name in English
-    required String nameEn,
+    required this.nameEn,
 
     /// Geographic location description
-    required String location,
+    required this.location,
 
     /// Type of school district
-    required SchoolDistrictType type,
+    required this.type,
 
     /// List of coordinates defining the district boundary
-    required List<List<double>> boundary,
+    required this.boundary,
 
     /// School associated with this district
-    School? school,
-  }) = _SchoolDistrict;
-  const SchoolDistrict._();
+    this.school,
+  });
+
+  @JsonKey(name: 'A1')
+  final String administrativeAreaCode;
+
+  @JsonKey(name: 'A2')
+  final String installationBody;
+
+  @JsonKey(name: 'A3')
+  final String schoolCode;
+
+  @JsonKey(name: 'A4_en')
+  final String nameEn;
+
+  @JsonKey(name: 'A5')
+  final String location;
+
+  @JsonKey(name: 'district_type')
+  final SchoolDistrictType type;
+
+  @JsonKey(name: 'boundary')
+  final List<List<double>> boundary;
+
+  @JsonKey(name: 'school')
+  final School? school;
 
   /// Creates a SchoolDistrict instance from API response map
   factory SchoolDistrict.fromMap(Map<String, dynamic> map) {
@@ -44,15 +67,36 @@ class SchoolDistrict with _$SchoolDistrict {
       location: map['A5'] as String,
       type: SchoolDistrictType.fromCode(map['district_type'] as String),
       boundary: (map['boundary'] as List<dynamic>)
-          .map((list) => (list as List<dynamic>)
-              .map((e) => (e as num).toDouble())
-              .toList(),)
+          .map(
+            (list) => (list as List<dynamic>)
+                .map((e) => (e as num).toDouble())
+                .toList(),
+          )
           .toList(),
       school: map['school'] != null
           ? School.fromMap(map['school'] as Map<String, dynamic>)
           : null,
     );
   }
+
+  /// Converts SchoolDistrict instance to JSON
+  factory SchoolDistrict.fromJson(Map<String, dynamic> json) =>
+      _$SchoolDistrictFromJson(json);
+
+  /// Converts SchoolDistrict to JSON
+  Map<String, dynamic> toJson() => _$SchoolDistrictToJson(this);
+
+  @override
+  List<Object?> get props => [
+    administrativeAreaCode,
+    installationBody,
+    schoolCode,
+    nameEn,
+    location,
+    type,
+    boundary,
+    school,
+  ];
 
   /// Converts SchoolDistrict instance to a map structure
   Map<String, dynamic> toMap() {

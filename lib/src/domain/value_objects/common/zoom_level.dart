@@ -4,8 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'zoom_level.freezed.dart';
 
 @freezed
-class ZoomLevel with _$ZoomLevel {
-
+abstract class ZoomLevel with _$ZoomLevel {
   const factory ZoomLevel(int value) = _ZoomLevel;
   const ZoomLevel._();
 

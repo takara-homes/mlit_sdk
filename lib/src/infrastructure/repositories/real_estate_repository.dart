@@ -1,13 +1,9 @@
-import 'dart:io';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:mlit_sdk/src/domain/entities/real_estate/appraisal_report.dart';
 import 'package:mlit_sdk/src/domain/entities/real_estate/land_price_point.dart';
 import 'package:mlit_sdk/src/domain/entities/real_estate/real_estate_transaction.dart';
-import 'package:mlit_sdk/src/domain/failures/api_failure.dart';
 import 'package:mlit_sdk/src/domain/failures/failure.dart';
-import 'package:mlit_sdk/src/domain/failures/infrastructure_failures.dart';
 import 'package:mlit_sdk/src/domain/repositories/base_repository.dart';
 import 'package:mlit_sdk/src/domain/repositories/real_estate/i_appraisal_repository.dart';
 import 'package:mlit_sdk/src/domain/repositories/real_estate/i_land_price_repository.dart';
@@ -23,6 +19,7 @@ import 'package:mlit_sdk/src/domain/value_objects/real_estate/transaction_period
 import 'package:mlit_sdk/src/domain/value_objects/transportation/station_code.dart';
 import 'package:mlit_sdk/src/infrastructure/datasources/local/local_data_source.dart';
 import 'package:mlit_sdk/src/infrastructure/datasources/remote/real_estate_remote_datasource.dart';
+import 'package:mlit_sdk/src/infrastructure/utils/network_error_handler.dart';
 
 class RealEstateRepository
     implements
@@ -47,10 +44,10 @@ class RealEstateRepository
     required LocalDataSource localDataSource,
     bool useCache = true,
     int? defaultCacheTtl,
-  })  : _remoteDataSource = remoteDataSource,
-        _localDataSource = localDataSource,
-        _useCache = useCache,
-        _cacheTtl = defaultCacheTtl;
+  }) : _remoteDataSource = remoteDataSource,
+       _localDataSource = localDataSource,
+       _useCache = useCache,
+       _cacheTtl = defaultCacheTtl;
 
   // BaseRepository implementation
   @override
@@ -72,25 +69,20 @@ class RealEstateRepository
   @override
   Future<void> clearCache() async {
     final result = await _localDataSource.clear();
-    result.fold(
-      (failure) => throw failure,
-      (_) => null,
-    );
+    result.fold((failure) => throw failure, (_) => null);
   }
 
   @override
   Future<void> clearExpiredCache() async {
     final result = await _localDataSource.clearExpired();
-    result.fold(
-      (failure) => throw failure,
-      (_) => null,
-    );
+    result.fold((failure) => throw failure, (_) => null);
   }
 
   // Helper method to generate cache keys
   String _generateCacheKey(String prefix, Map<String, dynamic> params) {
     final sortedParams = Map.fromEntries(
-        params.entries.toList()..sort((a, b) => a.key.compareTo(b.key)));
+      params.entries.toList()..sort((a, b) => a.key.compareTo(b.key)),
+    );
     return '$prefix$sortedParams';
   }
 
@@ -132,8 +124,9 @@ class RealEstateRepository
 
     try {
       // Check cache using the helper method
-      final cachedResult =
-          await _getFromCacheIfValid<List<AppraisalReport>>(cacheKey);
+      final cachedResult = await _getFromCacheIfValid<List<AppraisalReport>>(
+        cacheKey,
+      );
 
       final validCachedData = cachedResult.fold(
         (failure) => false,
@@ -158,30 +151,27 @@ class RealEstateRepository
 
       return Right(reports.map((e) => e.toDomain()).toList());
     } on DioException catch (e) {
-      return Left(ApiFailure.fromDioException(e));
-    } on SocketException catch (e) {
-      return Left(InfrastructureFailure.networkConnection(
-        message: 'Network connection failed',
-        error: e,
-      ).toFailure());
+      return handleNetworkError(e, 'Error while fetching appraisal reports');
     } on Object catch (e) {
-      return Left(Failure.unexpected(
-          message:
-              'An unexpected error occurred while fetching appraisal reports',
-          error: e));
+      return handleNetworkError(
+        e,
+        'An unexpected error occurred while fetching appraisal reports',
+      );
     }
   }
 
   @override
-  Future<Either<Failure, AppraisalReport>> getAppraisalReportById(
-      {required String reportId}) async {
+  Future<Either<Failure, AppraisalReport>> getAppraisalReportById({
+    required String reportId,
+  }) async {
     // Implement similar to above, use _remoteDataSource and _localDataSource
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Failure, List<AppraisalReport>>> getAppraisalReportsByLocation(
-      {required String standardLocationId}) async {
+  Future<Either<Failure, List<AppraisalReport>>> getAppraisalReportsByLocation({
+    required String standardLocationId,
+  }) async {
     // Implement similar to above, use _remoteDataSource and _localDataSource
     throw UnimplementedError();
   }
@@ -205,8 +195,9 @@ class RealEstateRepository
 
     try {
       // Check cache using the helper method
-      final cachedResult =
-          await _getFromCacheIfValid<List<LandPricePoint>>(cacheKey);
+      final cachedResult = await _getFromCacheIfValid<List<LandPricePoint>>(
+        cacheKey,
+      );
 
       final validCachedData = cachedResult.fold(
         (failure) => false,
@@ -236,16 +227,12 @@ class RealEstateRepository
 
       return Right(points.map((e) => e.toDomain()).toList());
     } on DioException catch (e) {
-      return Left(ApiFailure.fromDioException(e));
-    } on SocketException catch (e) {
-      return Left(InfrastructureFailure.networkConnection(
-              message: 'Network connection failed', error: e)
-          .toFailure());
+      return handleNetworkError(e, 'Error while fetching land price points');
     } on Object catch (e) {
-      return Left(Failure.unexpected(
-          message:
-              'An unexpected error occurred while fetching land price points',
-          error: e));
+      return handleNetworkError(
+        e,
+        'An unexpected error occurred while fetching land price points',
+      );
     }
   }
 
@@ -300,16 +287,12 @@ class RealEstateRepository
 
       return Right(transactions.map((e) => e.toDomain()).toList());
     } on DioException catch (e) {
-      return Left(ApiFailure.fromDioException(e));
-    } on SocketException catch (e) {
-      return Left(InfrastructureFailure.networkConnection(
-        message: 'Network connection failed',
-        error: e,
-      ).toFailure());
+      return handleNetworkError(e, 'Error while fetching transactions');
     } on Object catch (e) {
-      return Left(Failure.unexpected(
-          message: 'An unexpected error occurred while fetching transactions',
-          error: e));
+      return handleNetworkError(
+        e,
+        'An unexpected error occurred while fetching transactions',
+      );
     }
   }
 }

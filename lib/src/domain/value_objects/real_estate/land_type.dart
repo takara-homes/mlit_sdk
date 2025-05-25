@@ -4,8 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'land_type.freezed.dart';
 
 @freezed
-class LandType with _$LandType {
-
+abstract class LandType with _$LandType {
   const factory LandType(String value) = _LandType;
   const LandType._();
 

@@ -4,8 +4,7 @@ part 'district_plan.freezed.dart';
 
 /// Represents a district plan in urban planning
 @freezed
-class DistrictPlan with _$DistrictPlan {
-
+abstract class DistrictPlan with _$DistrictPlan {
   const factory DistrictPlan({
     /// Name of the plan
     required String planName,

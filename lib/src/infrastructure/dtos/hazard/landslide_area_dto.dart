@@ -1,24 +1,36 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 import 'package:mlit_sdk/src/domain/entities/hazard/landslide_area.dart';
 import 'package:mlit_sdk/src/infrastructure/dtos/hazard/hazard_dto.dart';
 
-part 'landslide_area_dto.freezed.dart';
 part 'landslide_area_dto.g.dart';
 
-@freezed
-class LandslideAreaDto with _$LandslideAreaDto {
-  const factory LandslideAreaDto({
-    @JsonKey(name: 'hazard') required Map<String, dynamic> hazardData,
-    @JsonKey(name: 'group_code') required String groupCode,
-    @JsonKey(name: 'region_name') required String regionName,
-    @JsonKey(name: 'charge_ministry_code') required String chargeMinistryCode,
-    @JsonKey(name: 'charge_ministry_name') required String chargeMinistryName,
-  }) = _LandslideAreaDto;
+@JsonSerializable(explicitToJson: true)
+class LandslideAreaDto extends Equatable {
+  const LandslideAreaDto({
+    required this.hazardData,
+    required this.groupCode,
+    required this.regionName,
+    required this.chargeMinistryCode,
+    required this.chargeMinistryName,
+  });
 
-  const LandslideAreaDto._();
+  @JsonKey(name: 'hazard')
+  final Map<String, dynamic> hazardData;
+  @JsonKey(name: 'group_code')
+  final String groupCode;
+  @JsonKey(name: 'region_name')
+  final String regionName;
+  @JsonKey(name: 'charge_ministry_code')
+  final String chargeMinistryCode;
+  @JsonKey(name: 'charge_ministry_name')
+  final String chargeMinistryName;
 
   factory LandslideAreaDto.fromJson(Map<String, dynamic> json) =>
       _$LandslideAreaDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LandslideAreaDtoToJson(this);
 
   LandslideArea toDomain() {
     return LandslideArea(
@@ -39,4 +51,13 @@ class LandslideAreaDto with _$LandslideAreaDto {
       chargeMinistryName: domain.chargeMinistryName,
     );
   }
+
+  @override
+  List<Object?> get props => [
+    hazardData,
+    groupCode,
+    regionName,
+    chargeMinistryCode,
+    chargeMinistryName,
+  ];
 }

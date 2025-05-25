@@ -5,8 +5,7 @@ part 'disaster_risk_area.freezed.dart';
 
 /// Represents a disaster risk area
 @freezed
-class DisasterRiskArea with _$DisasterRiskArea {
-
+abstract class DisasterRiskArea with _$DisasterRiskArea {
   const factory DisasterRiskArea({
     /// Base hazard information
     required Hazard hazard,

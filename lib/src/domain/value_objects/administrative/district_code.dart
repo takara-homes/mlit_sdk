@@ -4,8 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'district_code.freezed.dart';
 
 @freezed
-class DistrictCode with _$DistrictCode {
-
+abstract class DistrictCode with _$DistrictCode {
   const factory DistrictCode(String value) = _DistrictCode;
   const DistrictCode._();
 

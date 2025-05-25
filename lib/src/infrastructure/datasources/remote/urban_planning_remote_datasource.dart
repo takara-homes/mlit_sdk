@@ -18,11 +18,9 @@ class UrbanPlanningRemoteDataSource {
   final Dio _dio;
   final String _apiKey;
 
-  UrbanPlanningRemoteDataSource({
-    required Dio dio,
-    required String apiKey,
-  })  : _dio = dio,
-        _apiKey = apiKey;
+  UrbanPlanningRemoteDataSource({required Dio dio, required String apiKey})
+    : _dio = dio,
+      _apiKey = apiKey;
 
   /// Fetches urbanization area data from the API
   Future<List<UrbanizationArea>> getUrbanizationAreas({
@@ -39,9 +37,7 @@ class UrbanPlanningRemoteDataSource {
           'x': coordinates.longitude,
           'y': coordinates.latitude,
         },
-        options: Options(
-          headers: {'Ocp-Apim-Subscription-Key': _apiKey},
-        ),
+        options: Options(headers: {'Ocp-Apim-Subscription-Key': _apiKey}),
       );
 
       return (response.data as List<Map<String, dynamic>>)
@@ -69,9 +65,7 @@ class UrbanPlanningRemoteDataSource {
           'x': coordinates.longitude,
           'y': coordinates.latitude,
         },
-        options: Options(
-          headers: {'Ocp-Apim-Subscription-Key': _apiKey},
-        ),
+        options: Options(headers: {'Ocp-Apim-Subscription-Key': _apiKey}),
       );
 
       return (response.data as List<Map<String, dynamic>>)
@@ -99,9 +93,7 @@ class UrbanPlanningRemoteDataSource {
           'x': coordinates.longitude,
           'y': coordinates.latitude,
         },
-        options: Options(
-          headers: {'Ocp-Apim-Subscription-Key': _apiKey},
-        ),
+        options: Options(headers: {'Ocp-Apim-Subscription-Key': _apiKey}),
       );
 
       return (response.data as List<Map<String, dynamic>>)
@@ -129,9 +121,7 @@ class UrbanPlanningRemoteDataSource {
           'x': coordinates.longitude,
           'y': coordinates.latitude,
         },
-        options: Options(
-          headers: {'Ocp-Apim-Subscription-Key': _apiKey},
-        ),
+        options: Options(headers: {'Ocp-Apim-Subscription-Key': _apiKey}),
       );
 
       return (response.data as List<Map<String, dynamic>>)

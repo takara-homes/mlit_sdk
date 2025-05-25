@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,157 +10,136 @@ part of 'railway_code.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$RailwayCode {
-  String get operatorCode => throw _privateConstructorUsedError;
-  String get lineCode => throw _privateConstructorUsedError;
 
-  /// Create a copy of RailwayCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $RailwayCodeCopyWith<RailwayCode> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get operatorCode; String get lineCode;
+/// Create a copy of RailwayCode
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RailwayCodeCopyWith<RailwayCode> get copyWith => _$RailwayCodeCopyWithImpl<RailwayCode>(this as RailwayCode, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RailwayCode&&(identical(other.operatorCode, operatorCode) || other.operatorCode == operatorCode)&&(identical(other.lineCode, lineCode) || other.lineCode == lineCode));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,operatorCode,lineCode);
+
+@override
+String toString() {
+  return 'RailwayCode(operatorCode: $operatorCode, lineCode: $lineCode)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $RailwayCodeCopyWith<$Res> {
-  factory $RailwayCodeCopyWith(
-          RailwayCode value, $Res Function(RailwayCode) then) =
-      _$RailwayCodeCopyWithImpl<$Res, RailwayCode>;
-  @useResult
-  $Res call({String operatorCode, String lineCode});
-}
+abstract mixin class $RailwayCodeCopyWith<$Res>  {
+  factory $RailwayCodeCopyWith(RailwayCode value, $Res Function(RailwayCode) _then) = _$RailwayCodeCopyWithImpl;
+@useResult
+$Res call({
+ String operatorCode, String lineCode
+});
 
+
+
+
+}
 /// @nodoc
-class _$RailwayCodeCopyWithImpl<$Res, $Val extends RailwayCode>
+class _$RailwayCodeCopyWithImpl<$Res>
     implements $RailwayCodeCopyWith<$Res> {
-  _$RailwayCodeCopyWithImpl(this._value, this._then);
+  _$RailwayCodeCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final RailwayCode _self;
+  final $Res Function(RailwayCode) _then;
 
-  /// Create a copy of RailwayCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? operatorCode = null,
-    Object? lineCode = null,
-  }) {
-    return _then(_value.copyWith(
-      operatorCode: null == operatorCode
-          ? _value.operatorCode
-          : operatorCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      lineCode: null == lineCode
-          ? _value.lineCode
-          : lineCode // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of RailwayCode
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? operatorCode = null,Object? lineCode = null,}) {
+  return _then(_self.copyWith(
+operatorCode: null == operatorCode ? _self.operatorCode : operatorCode // ignore: cast_nullable_to_non_nullable
+as String,lineCode: null == lineCode ? _self.lineCode : lineCode // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$RailwayCodeImplCopyWith<$Res>
-    implements $RailwayCodeCopyWith<$Res> {
-  factory _$$RailwayCodeImplCopyWith(
-          _$RailwayCodeImpl value, $Res Function(_$RailwayCodeImpl) then) =
-      __$$RailwayCodeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String operatorCode, String lineCode});
 }
 
-/// @nodoc
-class __$$RailwayCodeImplCopyWithImpl<$Res>
-    extends _$RailwayCodeCopyWithImpl<$Res, _$RailwayCodeImpl>
-    implements _$$RailwayCodeImplCopyWith<$Res> {
-  __$$RailwayCodeImplCopyWithImpl(
-      _$RailwayCodeImpl _value, $Res Function(_$RailwayCodeImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RailwayCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? operatorCode = null,
-    Object? lineCode = null,
-  }) {
-    return _then(_$RailwayCodeImpl(
-      operatorCode: null == operatorCode
-          ? _value.operatorCode
-          : operatorCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      lineCode: null == lineCode
-          ? _value.lineCode
-          : lineCode // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$RailwayCodeImpl extends _RailwayCode {
-  const _$RailwayCodeImpl({required this.operatorCode, required this.lineCode})
-      : super._();
 
-  @override
-  final String operatorCode;
-  @override
-  final String lineCode;
+class _RailwayCode extends RailwayCode {
+  const _RailwayCode({required this.operatorCode, required this.lineCode}): super._();
+  
 
-  @override
-  String toString() {
-    return 'RailwayCode(operatorCode: $operatorCode, lineCode: $lineCode)';
-  }
+@override final  String operatorCode;
+@override final  String lineCode;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RailwayCodeImpl &&
-            (identical(other.operatorCode, operatorCode) ||
-                other.operatorCode == operatorCode) &&
-            (identical(other.lineCode, lineCode) ||
-                other.lineCode == lineCode));
-  }
+/// Create a copy of RailwayCode
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$RailwayCodeCopyWith<_RailwayCode> get copyWith => __$RailwayCodeCopyWithImpl<_RailwayCode>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, operatorCode, lineCode);
 
-  /// Create a copy of RailwayCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RailwayCodeImplCopyWith<_$RailwayCodeImpl> get copyWith =>
-      __$$RailwayCodeImplCopyWithImpl<_$RailwayCodeImpl>(this, _$identity);
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RailwayCode&&(identical(other.operatorCode, operatorCode) || other.operatorCode == operatorCode)&&(identical(other.lineCode, lineCode) || other.lineCode == lineCode));
 }
 
-abstract class _RailwayCode extends RailwayCode {
-  const factory _RailwayCode(
-      {required final String operatorCode,
-      required final String lineCode}) = _$RailwayCodeImpl;
-  const _RailwayCode._() : super._();
 
-  @override
-  String get operatorCode;
-  @override
-  String get lineCode;
+@override
+int get hashCode => Object.hash(runtimeType,operatorCode,lineCode);
 
-  /// Create a copy of RailwayCode
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RailwayCodeImplCopyWith<_$RailwayCodeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'RailwayCode(operatorCode: $operatorCode, lineCode: $lineCode)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$RailwayCodeCopyWith<$Res> implements $RailwayCodeCopyWith<$Res> {
+  factory _$RailwayCodeCopyWith(_RailwayCode value, $Res Function(_RailwayCode) _then) = __$RailwayCodeCopyWithImpl;
+@override @useResult
+$Res call({
+ String operatorCode, String lineCode
+});
+
+
+
+
+}
+/// @nodoc
+class __$RailwayCodeCopyWithImpl<$Res>
+    implements _$RailwayCodeCopyWith<$Res> {
+  __$RailwayCodeCopyWithImpl(this._self, this._then);
+
+  final _RailwayCode _self;
+  final $Res Function(_RailwayCode) _then;
+
+/// Create a copy of RailwayCode
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? operatorCode = null,Object? lineCode = null,}) {
+  return _then(_RailwayCode(
+operatorCode: null == operatorCode ? _self.operatorCode : operatorCode // ignore: cast_nullable_to_non_nullable
+as String,lineCode: null == lineCode ? _self.lineCode : lineCode // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

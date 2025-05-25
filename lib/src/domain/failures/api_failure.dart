@@ -20,9 +20,7 @@ class ApiFailure extends Failure {
     this.type = DioExceptionType.unknown,
     super.code,
     String? message,
-  }) : super(
-          message: message ?? _getDefaultMessage(type),
-        );
+  }) : super(message: message ?? _getDefaultMessage(type));
 
   static String _getDefaultMessage(DioExceptionType type) {
     return switch (type) {
@@ -49,12 +47,7 @@ class ApiFailure extends Failure {
   }
 
   @override
-  List<Object?> get props => [
-        ...super.props,
-        type,
-        requestOptions,
-        response,
-      ];
+  List<Object?> get props => [...super.props, type, requestOptions, response];
 }
 
 /// Represents a 400 Bad Request failure
@@ -66,10 +59,10 @@ class BadRequestFailure extends ApiFailure {
     super.error,
     String? message,
   }) : super(
-          type: DioExceptionType.badResponse,
-          code: '400',
-          message: message ?? 'Bad request',
-        );
+         type: DioExceptionType.badResponse,
+         code: '400',
+         message: message ?? 'Bad request',
+       );
 }
 
 /// Represents a 401 Unauthorized failure
@@ -81,10 +74,10 @@ class UnauthorizedFailure extends ApiFailure {
     super.error,
     String? message,
   }) : super(
-          type: DioExceptionType.badResponse,
-          code: '401',
-          message: message ?? 'Unauthorized access',
-        );
+         type: DioExceptionType.badResponse,
+         code: '401',
+         message: message ?? 'Unauthorized access',
+       );
 }
 
 /// Represents a 404 Not Found failure
@@ -96,10 +89,10 @@ class NotFoundFailure extends ApiFailure {
     super.error,
     String? message,
   }) : super(
-          type: DioExceptionType.badResponse,
-          code: '404',
-          message: message ?? 'Resource not found',
-        );
+         type: DioExceptionType.badResponse,
+         code: '404',
+         message: message ?? 'Resource not found',
+       );
 }
 
 /// Represents a 500 Server Error failure
@@ -111,8 +104,8 @@ class ServerFailure extends ApiFailure {
     super.error,
     String? message,
   }) : super(
-          type: DioExceptionType.badResponse,
-          code: '500',
-          message: message ?? 'Internal server error',
-        );
+         type: DioExceptionType.badResponse,
+         code: '500',
+         message: message ?? 'Internal server error',
+       );
 }

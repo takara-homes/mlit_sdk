@@ -4,15 +4,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'floor_area_ratio.freezed.dart';
 
 @freezed
-class FloorAreaRatio with _$FloorAreaRatio {
-
+abstract class FloorAreaRatio with _$FloorAreaRatio {
   const factory FloorAreaRatio(int percentage) = _FloorAreaRatio;
   const FloorAreaRatio._();
 
   factory FloorAreaRatio.fromInt(int value) {
     if (!_isValidPercentage(value)) {
       throw ArgumentError(
-          'Invalid floor area ratio. Must be between 0 and 1000',);
+        'Invalid floor area ratio. Must be between 0 and 1000',
+      );
     }
     return FloorAreaRatio(value);
   }

@@ -84,9 +84,9 @@ class MLITSdkConfig {
     this.defaultCacheTtl,
     bool enableLogging = false,
   }) : apiClientConfig = ApiClientConfig(
-          apiKey: apiKey,
-          enableLogging: enableLogging,
-        );
+         apiKey: apiKey,
+         enableLogging: enableLogging,
+       );
 
   /// Creates a new configuration with a custom API client config
   ///
@@ -149,8 +149,9 @@ Future<MLITSdk> createMLITSdk(MLITSdkConfig config) async {
   final localDataSource = await config.createLocalDataSource();
 
   final realEstateRemoteDataSource = RealEstateRemoteDataSource(dioInstance);
-  final facilitiesRemoteDataSource =
-      FacilitiesRemoteDataSource(client: dioInstance);
+  final facilitiesRemoteDataSource = FacilitiesRemoteDataSource(
+    client: dioInstance,
+  );
   final hazardRemoteDataSource = HazardRemoteDataSource(
     client: dioInstance,
     apiKey: config.apiClientConfig.apiKey,

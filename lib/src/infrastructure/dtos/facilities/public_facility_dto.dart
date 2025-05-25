@@ -1,36 +1,81 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:mlit_sdk/src/domain/entities/core/address.dart';
 import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 import 'package:mlit_sdk/src/domain/entities/facilities/public_facility.dart';
 
-part 'public_facility_dto.freezed.dart';
 part 'public_facility_dto.g.dart';
 
-@freezed
-class PublicFacilityDto with _$PublicFacilityDto {
-  const factory PublicFacilityDto({
-    @JsonKey(name: 'P1') required String administrativeAreaCode,
-    @JsonKey(name: 'facility_code') required String facilityClassificationCode,
-    @JsonKey(name: 'P4_name_ja') required String facilityClassificationNameJa,
-    @JsonKey(name: 'P5_name_ja') required String nameJa,
-    @JsonKey(name: 'P5_en') required String nameEn,
-    @JsonKey(name: 'latitude') required double latitude,
-    @JsonKey(name: 'longitude') required double longitude,
-    @JsonKey(name: 'location_en') required Map<String, dynamic> addressData,
-    @JsonKey(name: 'floor_info') Map<String, dynamic>? floorInformationData,
-    @JsonKey(name: 'operating_info')
-    Map<String, dynamic>? operatingInformationData,
-    @JsonKey(name: 'services') List<String>? services,
-    @JsonKey(name: 'parking_info') Map<String, dynamic>? parkingInformationData,
-    @JsonKey(name: 'accessibility') List<String>? accessibilityFeatures,
-    @JsonKey(name: 'disaster_designation')
-    Map<String, dynamic>? disasterDesignationData,
-  }) = _PublicFacilityDto;
+@JsonSerializable()
+class PublicFacilityDto extends Equatable {
+  @JsonKey(name: 'P1')
+  final String administrativeAreaCode;
+  @JsonKey(name: 'facility_code')
+  final String facilityClassificationCode;
+  @JsonKey(name: 'P4_name_ja')
+  final String facilityClassificationNameJa;
+  @JsonKey(name: 'P5_name_ja')
+  final String nameJa;
+  @JsonKey(name: 'P5_en')
+  final String nameEn;
+  @JsonKey(name: 'latitude')
+  final double latitude;
+  @JsonKey(name: 'longitude')
+  final double longitude;
+  @JsonKey(name: 'location_en')
+  final Map<String, dynamic> addressData;
+  @JsonKey(name: 'floor_info')
+  final Map<String, dynamic>? floorInformationData;
+  @JsonKey(name: 'operating_info')
+  final Map<String, dynamic>? operatingInformationData;
+  @JsonKey(name: 'services')
+  final List<String>? services;
+  @JsonKey(name: 'parking_info')
+  final Map<String, dynamic>? parkingInformationData;
+  @JsonKey(name: 'accessibility')
+  final List<String>? accessibilityFeatures;
+  @JsonKey(name: 'disaster_designation')
+  final Map<String, dynamic>? disasterDesignationData;
 
-  const PublicFacilityDto._();
+  const PublicFacilityDto({
+    required this.administrativeAreaCode,
+    required this.facilityClassificationCode,
+    required this.facilityClassificationNameJa,
+    required this.nameJa,
+    required this.nameEn,
+    required this.latitude,
+    required this.longitude,
+    required this.addressData,
+    this.floorInformationData,
+    this.operatingInformationData,
+    this.services,
+    this.parkingInformationData,
+    this.accessibilityFeatures,
+    this.disasterDesignationData,
+  });
 
   factory PublicFacilityDto.fromJson(Map<String, dynamic> json) =>
       _$PublicFacilityDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PublicFacilityDtoToJson(this);
+
+  @override
+  List<Object?> get props => [
+    administrativeAreaCode,
+    facilityClassificationCode,
+    facilityClassificationNameJa,
+    nameJa,
+    nameEn,
+    latitude,
+    longitude,
+    addressData,
+    floorInformationData,
+    operatingInformationData,
+    services,
+    parkingInformationData,
+    accessibilityFeatures,
+    disasterDesignationData,
+  ];
 
   PublicFacility toDomain() {
     return PublicFacility(
@@ -39,10 +84,7 @@ class PublicFacilityDto with _$PublicFacilityDto {
       facilityClassificationNameJa: facilityClassificationNameJa,
       nameJa: nameJa,
       nameEn: nameEn,
-      coordinate: Coordinate(
-        latitude: latitude,
-        longitude: longitude,
-      ),
+      coordinate: Coordinate(latitude: latitude, longitude: longitude),
       address: Address.fromMap(addressData),
       floorInformation: floorInformationData != null
           ? FloorInformation.fromMap(floorInformationData!)

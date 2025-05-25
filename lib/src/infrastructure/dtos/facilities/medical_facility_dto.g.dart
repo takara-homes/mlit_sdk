@@ -6,9 +6,8 @@ part of 'medical_facility_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MedicalFacilityDtoImpl _$$MedicalFacilityDtoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$MedicalFacilityDtoImpl(
+MedicalFacilityDto _$MedicalFacilityDtoFromJson(Map<String, dynamic> json) =>
+    MedicalFacilityDto(
       institutionClassification: json['P1'] as String,
       nameJa: json['P2_name_ja'] as String,
       nameEn: json['P2_en'] as String,
@@ -25,8 +24,7 @@ _$MedicalFacilityDtoImpl _$$MedicalFacilityDtoImplFromJson(
       disasterBaseStatus: json['P10'] as String?,
     );
 
-Map<String, dynamic> _$$MedicalFacilityDtoImplToJson(
-        _$MedicalFacilityDtoImpl instance) =>
+Map<String, dynamic> _$MedicalFacilityDtoToJson(MedicalFacilityDto instance) =>
     <String, dynamic>{
       'P1': instance.institutionClassification,
       'P2_name_ja': instance.nameJa,

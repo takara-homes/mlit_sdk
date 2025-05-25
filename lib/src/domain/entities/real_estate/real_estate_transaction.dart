@@ -5,8 +5,7 @@ part 'real_estate_transaction.freezed.dart';
 
 /// Represents a real estate transaction with detailed property information
 @freezed
-class RealEstateTransaction with _$RealEstateTransaction {
-
+abstract class RealEstateTransaction with _$RealEstateTransaction {
   const factory RealEstateTransaction({
     /// Type of transaction in Japanese
     required String typeJa,
@@ -152,8 +151,9 @@ class RealEstateTransaction with _$RealEstateTransaction {
       frontRoadWidth: double.tryParse(map['Breadth']?.toString() ?? ''),
       cityPlanningJa: map['City_Planning'] as String?,
       cityPlanningEn: map['City_Planning_en'] as String?,
-      buildingCoverageRatio:
-          double.tryParse(map['CoverageRatio']?.toString() ?? ''),
+      buildingCoverageRatio: double.tryParse(
+        map['CoverageRatio']?.toString() ?? '',
+      ),
       floorAreaRatio: double.tryParse(map['FloorAreaRatio']?.toString() ?? ''),
       periodJa: map['Period'] as String,
       periodEn: map['Period_en'] as String,

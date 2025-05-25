@@ -4,8 +4,7 @@ part 'welfare_facility.freezed.dart';
 
 /// Represents a welfare facility in Japan
 @freezed
-class WelfareFacility with _$WelfareFacility {
-
+abstract class WelfareFacility with _$WelfareFacility {
   const factory WelfareFacility({
     /// Prefecture name
     required String prefecture,
@@ -83,7 +82,8 @@ class WelfareFacility with _$WelfareFacility {
 
 /// Represents the classification hierarchy of a welfare facility
 @freezed
-class WelfareFacilityClassification with _$WelfareFacilityClassification {
+abstract class WelfareFacilityClassification
+    with _$WelfareFacilityClassification {
   const factory WelfareFacilityClassification({
     required String majorCode,
     required String majorName,
@@ -95,7 +95,7 @@ class WelfareFacilityClassification with _$WelfareFacilityClassification {
 
 /// Represents operating schedule of a facility
 @freezed
-class OperatingSchedule with _$OperatingSchedule {
+abstract class OperatingSchedule with _$OperatingSchedule {
   const factory OperatingSchedule({
     required String weekdayHours,
     String? weekendHours,
@@ -115,7 +115,7 @@ class OperatingSchedule with _$OperatingSchedule {
 
 /// Represents capacity information of a facility
 @freezed
-class FacilityCapacity with _$FacilityCapacity {
+abstract class FacilityCapacity with _$FacilityCapacity {
   const factory FacilityCapacity({
     required int totalCapacity,
     int? currentOccupancy,

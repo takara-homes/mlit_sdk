@@ -17,11 +17,9 @@ class HazardRemoteDataSource {
   final Dio _dio;
   final String _apiKey;
 
-  HazardRemoteDataSource({
-    required Dio client,
-    required String apiKey,
-  })  : _dio = client,
-        _apiKey = apiKey;
+  HazardRemoteDataSource({required Dio client, required String apiKey})
+    : _dio = client,
+      _apiKey = apiKey;
 
   /// Fetches disaster risk areas from the API
   Future<List<DisasterRiskArea>> getDisasterRiskAreas({
@@ -40,9 +38,7 @@ class HazardRemoteDataSource {
           if (prefectureCode != null) 'prefectureCode': prefectureCode.value,
           if (cityCode != null) 'administrativeAreaCode': cityCode.value,
         },
-        options: Options(
-          headers: {'Ocp-Apim-Subscription-Key': _apiKey},
-        ),
+        options: Options(headers: {'Ocp-Apim-Subscription-Key': _apiKey}),
       );
 
       return (response.data as List<Map<String, dynamic>>)
@@ -51,9 +47,7 @@ class HazardRemoteDataSource {
     } on DioException catch (e) {
       throw ApiFailure.fromDioException(e);
     } on Object catch (e) {
-      throw UnsupportedError(
-        e.toString(),
-      );
+      throw UnsupportedError(e.toString());
     }
   }
 
@@ -74,9 +68,7 @@ class HazardRemoteDataSource {
           if (prefectureCode != null) 'prefectureCode': prefectureCode.value,
           if (cityCode != null) 'administrativeAreaCode': cityCode.value,
         },
-        options: Options(
-          headers: {'Ocp-Apim-Subscription-Key': _apiKey},
-        ),
+        options: Options(headers: {'Ocp-Apim-Subscription-Key': _apiKey}),
       );
 
       return (response.data as List<Map<String, dynamic>>)
@@ -85,9 +77,7 @@ class HazardRemoteDataSource {
     } on DioException catch (e) {
       throw ApiFailure.fromDioException(e);
     } on Object catch (e) {
-      throw UnsupportedError(
-        e.toString(),
-      );
+      throw UnsupportedError(e.toString());
     }
   }
 
@@ -108,9 +98,7 @@ class HazardRemoteDataSource {
           if (prefectureCode != null) 'prefectureCode': prefectureCode.value,
           if (cityCode != null) 'administrativeAreaCode': cityCode.value,
         },
-        options: Options(
-          headers: {'Ocp-Apim-Subscription-Key': _apiKey},
-        ),
+        options: Options(headers: {'Ocp-Apim-Subscription-Key': _apiKey}),
       );
 
       return (response.data as List<Map<String, dynamic>>)
@@ -119,9 +107,7 @@ class HazardRemoteDataSource {
     } on DioException catch (e) {
       throw ApiFailure.fromDioException(e);
     } on Object catch (e) {
-      throw UnsupportedError(
-        e.toString(),
-      );
+      throw UnsupportedError(e.toString());
     }
   }
 }

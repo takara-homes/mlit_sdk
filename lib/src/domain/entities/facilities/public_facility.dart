@@ -7,8 +7,7 @@ part 'public_facility.freezed.dart';
 /// Represents a public facility such as government offices, community centers,
 /// and other public service facilities in Japan
 @freezed
-class PublicFacility with _$PublicFacility {
-
+abstract class PublicFacility with _$PublicFacility {
   const factory PublicFacility({
     /// Administrative area code
     required String administrativeAreaCode,
@@ -69,18 +68,22 @@ class PublicFacility with _$PublicFacility {
           : null,
       operatingInformation: map['operating_info'] != null
           ? OperatingInformation.fromMap(
-              map['operating_info'] as Map<String, dynamic>,)
+              map['operating_info'] as Map<String, dynamic>,
+            )
           : null,
       services: _parseServices(map['services'] as List?),
       parkingInformation: map['parking_info'] != null
           ? ParkingInformation.fromMap(
-              map['parking_info'] as Map<String, dynamic>,)
+              map['parking_info'] as Map<String, dynamic>,
+            )
           : null,
-      accessibilityFeatures:
-          _parseAccessibilityFeatures(map['accessibility'] as List?),
+      accessibilityFeatures: _parseAccessibilityFeatures(
+        map['accessibility'] as List?,
+      ),
       disasterResponseDesignation: map['disaster_designation'] != null
           ? DisasterResponseDesignation.fromMap(
-              map['disaster_designation'] as Map<String, dynamic>,)
+              map['disaster_designation'] as Map<String, dynamic>,
+            )
           : null,
     );
   }
@@ -94,30 +97,35 @@ class PublicFacility with _$PublicFacility {
     if (servicesList == null) return [];
 
     return servicesList
-        .map((service) => PublicService.values.firstWhere(
-              (s) => s.toString().split('.').last == service,
-              orElse: () => PublicService.other,
-            ),)
+        .map(
+          (service) => PublicService.values.firstWhere(
+            (s) => s.toString().split('.').last == service,
+            orElse: () => PublicService.other,
+          ),
+        )
         .toList();
   }
 
   /// Parses accessibility features from API response
   static List<AccessibilityFeature> _parseAccessibilityFeatures(
-      List? featuresList,) {
+    List? featuresList,
+  ) {
     if (featuresList == null) return [];
 
     return featuresList
-        .map((feature) => AccessibilityFeature.values.firstWhere(
-              (f) => f.toString().split('.').last == feature,
-              orElse: () => AccessibilityFeature.other,
-            ),)
+        .map(
+          (feature) => AccessibilityFeature.values.firstWhere(
+            (f) => f.toString().split('.').last == feature,
+            orElse: () => AccessibilityFeature.other,
+          ),
+        )
         .toList();
   }
 }
 
 /// Represents floor information of a public facility
 @freezed
-class FloorInformation with _$FloorInformation {
+abstract class FloorInformation with _$FloorInformation {
   const factory FloorInformation({
     required int totalFloors,
     int? basementFloors,
@@ -137,7 +145,7 @@ class FloorInformation with _$FloorInformation {
 
 /// Represents operating information of a public facility
 @freezed
-class OperatingInformation with _$OperatingInformation {
+abstract class OperatingInformation with _$OperatingInformation {
   const factory OperatingInformation({
     required String weekdayHours,
     String? weekendHours,
@@ -160,7 +168,7 @@ class OperatingInformation with _$OperatingInformation {
 
 /// Represents parking information of a public facility
 @freezed
-class ParkingInformation with _$ParkingInformation {
+abstract class ParkingInformation with _$ParkingInformation {
   const factory ParkingInformation({
     required bool isAvailable,
     int? regularSpaces,
@@ -182,7 +190,7 @@ class ParkingInformation with _$ParkingInformation {
 
 /// Represents disaster response designation of a public facility
 @freezed
-class DisasterResponseDesignation with _$DisasterResponseDesignation {
+abstract class DisasterResponseDesignation with _$DisasterResponseDesignation {
   const factory DisasterResponseDesignation({
     required bool isEvacuationSite,
     String? designationType,
@@ -195,8 +203,8 @@ class DisasterResponseDesignation with _$DisasterResponseDesignation {
       isEvacuationSite: map['is_evacuation_site'] as bool,
       designationType: map['designation_type'] as String?,
       capacity: map['capacity'] as int?,
-      supportedDisasterTypes:
-          (map['supported_disaster_types'] as List?)?.cast<String>(),
+      supportedDisasterTypes: (map['supported_disaster_types'] as List?)
+          ?.cast<String>(),
     );
   }
 }
@@ -236,7 +244,7 @@ enum PublicService {
   registration,
   payment,
   meeting,
-  other;
+  other,
 }
 
 /// Represents accessibility features of public facilities
@@ -246,5 +254,5 @@ enum AccessibilityFeature {
   toilets,
   braille,
   hearingAid,
-  other;
+  other,
 }

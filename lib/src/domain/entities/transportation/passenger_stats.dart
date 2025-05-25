@@ -4,8 +4,7 @@ part 'passenger_stats.freezed.dart';
 
 /// Represents passenger statistics for a station
 @freezed
-class PassengerStats with _$PassengerStats {
-
+abstract class PassengerStats with _$PassengerStats {
   const factory PassengerStats({
     /// Station code this statistic belongs to
     required String stationCode,
@@ -36,8 +35,9 @@ class PassengerStats with _$PassengerStats {
       stationCode: json['station_code'] as String,
       year: json['year'] as int,
       dailyPassengers: json['daily_passengers'] as int,
-      dataStatus:
-          DataAvailabilityStatus.fromCode(json['data_status'] as String),
+      dataStatus: DataAvailabilityStatus.fromCode(
+        json['data_status'] as String,
+      ),
       remarks: json['remarks'] as String?,
       isDuplicate: json['is_duplicate'] as bool? ?? false,
       metadata: Map<String, dynamic>.from(json['metadata'] as Map? ?? {}),

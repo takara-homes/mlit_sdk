@@ -4,8 +4,7 @@ part 'urbanization_area.freezed.dart';
 
 /// Represents an urbanization area in urban planning
 @freezed
-class UrbanizationArea with _$UrbanizationArea {
-
+abstract class UrbanizationArea with _$UrbanizationArea {
   const factory UrbanizationArea({
     /// Prefecture name
     required String prefecture,

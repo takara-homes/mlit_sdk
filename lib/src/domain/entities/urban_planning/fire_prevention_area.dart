@@ -4,8 +4,7 @@ part 'fire_prevention_area.freezed.dart';
 
 /// Represents a fire prevention area in urban planning
 @freezed
-class FirePreventionArea with _$FirePreventionArea {
-
+abstract class FirePreventionArea with _$FirePreventionArea {
   const factory FirePreventionArea({
     /// Name of the fire prevention area in English
     required String firePreventionEn,

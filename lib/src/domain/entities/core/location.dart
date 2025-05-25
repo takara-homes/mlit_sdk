@@ -1,48 +1,60 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:mlit_sdk/src/domain/entities/core/address.dart';
 import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 
-part 'location.freezed.dart';
+part 'location.g.dart';
 
 /// Represents a comprehensive location with geographic and administrative information
-@freezed
-class Location with _$Location {
-
-  const factory Location({
+@JsonSerializable(fieldRename: FieldRename.snake)
+class Location extends Equatable {
+  const Location({
     /// Unique identifier for the location
-    required String id,
+    required this.id,
 
     /// Geographic coordinate of the location
-    required Coordinate coordinate,
+    required this.coordinate,
 
     /// Address information
-    required Address address,
+    required this.address,
 
     /// Location type classification
-    required LocationType type,
+    required this.type,
 
     /// Name in Japanese
-    required String nameJa,
+    required this.nameJa,
 
     /// Name in English
-    required String nameEn,
+    required this.nameEn,
 
     /// Description in Japanese (optional)
-    String? descriptionJa,
+    this.descriptionJa,
 
     /// Description in English (optional)
-    String? descriptionEn,
+    this.descriptionEn,
 
     /// Reference points - nearby landmarks or stations
-    @Default([]) List<ReferencePoint> referencePoints,
+    List<ReferencePoint>? referencePoints,
 
     /// Additional metadata as key-value pairs
-    @Default({}) Map<String, dynamic> metadata,
+    Map<String, dynamic>? metadata,
 
     /// Last updated timestamp
-    DateTime? updatedAt,
-  }) = _Location;
-  const Location._();
+    this.updatedAt,
+  }) : referencePoints = referencePoints ?? const [],
+       metadata = metadata ?? const {};
+
+  final String id;
+  final Coordinate coordinate;
+  final Address address;
+  final LocationType type;
+  final String nameJa;
+  final String nameEn;
+  final String? descriptionJa;
+  final String? descriptionEn;
+  final List<ReferencePoint> referencePoints;
+  final Map<String, dynamic> metadata;
+  final DateTime? updatedAt;
 
   /// Creates a Location from a map structure
   factory Location.fromMap(Map<String, dynamic> map) {
@@ -55,7 +67,8 @@ class Location with _$Location {
       nameEn: map['name_en'] as String,
       descriptionJa: map['description_ja'] as String?,
       descriptionEn: map['description_en'] as String?,
-      referencePoints: (map['reference_points'] as List?)
+      referencePoints:
+          (map['reference_points'] as List?)
               ?.map((e) => ReferencePoint.fromMap(e as Map<String, dynamic>))
               .toList() ??
           [],
@@ -66,6 +79,13 @@ class Location with _$Location {
     );
   }
 
+  /// Creates a Location instance from JSON
+  factory Location.fromJson(Map<String, dynamic> json) =>
+      _$LocationFromJson(json);
+
+  /// Converts Location instance to JSON
+  Map<String, dynamic> toJson() => _$LocationToJson(this);
+
   /// Returns the distance to another location in meters
   double distanceTo(Location other) {
     return coordinate.distanceTo(other.coordinate);
@@ -75,30 +95,52 @@ class Location with _$Location {
   ReferencePoint? getNearestReferencePoint() {
     if (referencePoints.isEmpty) return null;
 
-    return referencePoints.reduce((curr, next) =>
-        curr.coordinate.distanceTo(coordinate) <
-                next.coordinate.distanceTo(coordinate)
-            ? curr
-            : next,);
+    return referencePoints.reduce(
+      (curr, next) =>
+          curr.coordinate.distanceTo(coordinate) <
+              next.coordinate.distanceTo(coordinate)
+          ? curr
+          : next,
+    );
   }
+
+  @override
+  List<Object?> get props => [
+    id,
+    coordinate,
+    address,
+    type,
+    nameJa,
+    nameEn,
+    descriptionJa,
+    descriptionEn,
+    referencePoints,
+    metadata,
+    updatedAt,
+  ];
 }
 
 /// Represents a reference point near a location
-@freezed
-class ReferencePoint with _$ReferencePoint {
-  const factory ReferencePoint({
+@JsonSerializable(fieldRename: FieldRename.snake)
+class ReferencePoint extends Equatable {
+  const ReferencePoint({
     /// Type of reference point
-    required ReferencePointType type,
+    required this.type,
 
     /// Name of the reference point
-    required String name,
+    required this.name,
 
     /// Geographic coordinate
-    required Coordinate coordinate,
+    required this.coordinate,
 
     /// Distance in meters from the main location (optional)
-    double? distance,
-  }) = _ReferencePoint;
+    this.distance,
+  });
+
+  final ReferencePointType type;
+  final String name;
+  final Coordinate coordinate;
+  final double? distance;
 
   /// Creates a ReferencePoint from a map structure
   factory ReferencePoint.fromMap(Map<String, dynamic> map) {
@@ -109,6 +151,16 @@ class ReferencePoint with _$ReferencePoint {
       distance: (map['distance'] as num?)?.toDouble(),
     );
   }
+
+  /// Creates a ReferencePoint instance from JSON
+  factory ReferencePoint.fromJson(Map<String, dynamic> json) =>
+      _$ReferencePointFromJson(json);
+
+  /// Converts ReferencePoint instance to JSON
+  Map<String, dynamic> toJson() => _$ReferencePointToJson(this);
+
+  @override
+  List<Object?> get props => [type, name, coordinate, distance];
 }
 
 /// Represents the type of location

@@ -4,8 +4,7 @@ part 'use_zone.freezed.dart';
 
 /// Represents a use zone in urban planning
 @freezed
-class UseZone with _$UseZone {
-
+abstract class UseZone with _$UseZone {
   const factory UseZone({
     /// Unique identifier for the use zone
     required String youtoId,
@@ -61,8 +60,9 @@ class UseZone with _$UseZone {
       noticeNumber: map['notice_number'] as String,
       useAreaJa: map['use_area_ja'] as String,
       floorAreaRatio: double.parse(map['u_floor_area_ratio_ja'] as String),
-      buildingCoverageRatio:
-          double.parse(map['u_building_coverage_ratio_en'] as String),
+      buildingCoverageRatio: double.parse(
+        map['u_building_coverage_ratio_en'] as String,
+      ),
       firstDecisionDate: DateTime.parse(map['first_decision_date'] as String),
       noticeNumberS: map['notice_number_s'] as String,
     );

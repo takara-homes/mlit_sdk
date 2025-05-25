@@ -6,8 +6,8 @@ part of 'transaction_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TransactionDtoImpl _$$TransactionDtoImplFromJson(Map<String, dynamic> json) =>
-    _$TransactionDtoImpl(
+TransactionDto _$TransactionDtoFromJson(Map<String, dynamic> json) =>
+    TransactionDto(
       typeJa: json['Type'] as String,
       typeEn: json['Type_en'] as String,
       tradePrice: json['Trade_Price'] as String,
@@ -54,8 +54,7 @@ _$TransactionDtoImpl _$$TransactionDtoImplFromJson(Map<String, dynamic> json) =>
       longitude: json['Longitude'] as String?,
     );
 
-Map<String, dynamic> _$$TransactionDtoImplToJson(
-        _$TransactionDtoImpl instance) =>
+Map<String, dynamic> _$TransactionDtoToJson(TransactionDto instance) =>
     <String, dynamic>{
       'Type': instance.typeJa,
       'Type_en': instance.typeEn,

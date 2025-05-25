@@ -51,10 +51,7 @@ class ApiClientConfig {
         connectTimeout: Duration(milliseconds: connectTimeout),
         receiveTimeout: Duration(milliseconds: receiveTimeout),
         sendTimeout: Duration(milliseconds: sendTimeout),
-        headers: {
-          ...defaultHeaders,
-          'Ocp-Apim-Subscription-Key': apiKey,
-        },
+        headers: {...defaultHeaders, 'Ocp-Apim-Subscription-Key': apiKey},
       ),
     );
 

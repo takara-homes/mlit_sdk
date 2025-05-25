@@ -4,8 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'price_type.freezed.dart';
 
 @freezed
-class PriceType with _$PriceType {
-
+abstract class PriceType with _$PriceType {
   const factory PriceType(String value) = _PriceType;
   const PriceType._();
 
@@ -27,11 +26,7 @@ class PriceType with _$PriceType {
       _isValidPriceType(value) ? right(value) : left('Invalid price type');
 
   static bool _isValidPriceType(String code) {
-    const validCodes = {
-      total,
-      perUnit,
-      perSquareMeter,
-    };
+    const validCodes = {total, perUnit, perSquareMeter};
     return validCodes.contains(code);
   }
 

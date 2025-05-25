@@ -6,9 +6,8 @@ part of 'land_price_point_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LandPricePointDtoImpl _$$LandPricePointDtoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$LandPricePointDtoImpl(
+LandPricePointDto _$LandPricePointDtoFromJson(Map<String, dynamic> json) =>
+    LandPricePointDto(
       pointId: json['point_id'] as String,
       targetYear: json['target_year_name_ja'] as String,
       landPriceType: json['land_price_type'] as String,
@@ -41,36 +40,35 @@ _$LandPricePointDtoImpl _$$LandPricePointDtoImplFromJson(
       floorAreaRatio: json['u_regulations_floor_area_ratio_ja'] as String?,
     );
 
-Map<String, dynamic> _$$LandPricePointDtoImplToJson(
-        _$LandPricePointDtoImpl instance) =>
-    <String, dynamic>{
-      'point_id': instance.pointId,
-      'target_year_name_ja': instance.targetYear,
-      'land_price_type': instance.landPriceType,
-      'latitude': instance.latitude,
-      'longitude': instance.longitude,
-      'prefecture_code': instance.prefectureCode,
-      'prefecture_name_ja': instance.prefectureNameJa,
-      'city_code': instance.cityCode,
-      'use_category_name_ja': instance.useCategoryNameJa,
-      'standard_lot_number_ja': instance.standardLotNumber,
-      'u_current_years_price_ja': instance.currentYearPrice,
-      'last_years_price': instance.lastYearPrice,
-      'year_on_year_change_rate': instance.yearOnYearChangeRate,
-      'u_cadastral_en': instance.cadastralArea,
-      'building_structure_name_en': instance.buildingStructure,
-      'u_ground_hierarchy_en': instance.groundFloors,
-      'u_underground_hierarchy_en': instance.undergroundFloors,
-      'front_road_name_ja': instance.frontRoadDetails,
-      'front_road_azimuth_name': instance.frontRoadDirection,
-      'front_road_width': instance.frontRoadWidth,
-      'gas_supply_availability': instance.gasSupplyAvailability,
-      'water_supply_availability': instance.waterSupplyAvailability,
-      'sewer_supply_availability': instance.sewerSupplyAvailability,
-      'nearest_station_name': instance.nearestStationName,
-      'u_road_distance_to_nearest_station_name_ja': instance.distanceToStation,
-      'usage_status_name_ja': instance.currentUseStatus,
-      'u_regulations_building_coverage_ratio_ja':
-          instance.buildingCoverageRatio,
-      'u_regulations_floor_area_ratio_ja': instance.floorAreaRatio,
-    };
+Map<String, dynamic> _$LandPricePointDtoToJson(
+  LandPricePointDto instance,
+) => <String, dynamic>{
+  'point_id': instance.pointId,
+  'target_year_name_ja': instance.targetYear,
+  'land_price_type': instance.landPriceType,
+  'latitude': instance.latitude,
+  'longitude': instance.longitude,
+  'prefecture_code': instance.prefectureCode,
+  'prefecture_name_ja': instance.prefectureNameJa,
+  'city_code': instance.cityCode,
+  'use_category_name_ja': instance.useCategoryNameJa,
+  'standard_lot_number_ja': instance.standardLotNumber,
+  'u_current_years_price_ja': instance.currentYearPrice,
+  'last_years_price': instance.lastYearPrice,
+  'year_on_year_change_rate': instance.yearOnYearChangeRate,
+  'u_cadastral_en': instance.cadastralArea,
+  'building_structure_name_en': instance.buildingStructure,
+  'u_ground_hierarchy_en': instance.groundFloors,
+  'u_underground_hierarchy_en': instance.undergroundFloors,
+  'front_road_name_ja': instance.frontRoadDetails,
+  'front_road_azimuth_name': instance.frontRoadDirection,
+  'front_road_width': instance.frontRoadWidth,
+  'gas_supply_availability': instance.gasSupplyAvailability,
+  'water_supply_availability': instance.waterSupplyAvailability,
+  'sewer_supply_availability': instance.sewerSupplyAvailability,
+  'nearest_station_name': instance.nearestStationName,
+  'u_road_distance_to_nearest_station_name_ja': instance.distanceToStation,
+  'usage_status_name_ja': instance.currentUseStatus,
+  'u_regulations_building_coverage_ratio_ja': instance.buildingCoverageRatio,
+  'u_regulations_floor_area_ratio_ja': instance.floorAreaRatio,
+};

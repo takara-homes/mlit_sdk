@@ -24,12 +24,7 @@ final class DioConfig {
     );
 
     // Add logging interceptor for development
-    dio.interceptors.add(
-      LogInterceptor(
-        requestBody: true,
-        responseBody: true,
-      ),
-    );
+    dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
 
     return dio;
   }

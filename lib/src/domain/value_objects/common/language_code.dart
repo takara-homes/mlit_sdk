@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'language_code.freezed.dart';
 
 @freezed
-class LanguageCode with _$LanguageCode {
+abstract class LanguageCode with _$LanguageCode {
   const factory LanguageCode(String value) = _LanguageCode;
   const LanguageCode._();
 

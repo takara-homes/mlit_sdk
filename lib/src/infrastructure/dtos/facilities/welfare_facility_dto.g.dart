@@ -6,9 +6,8 @@ part of 'welfare_facility_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$WelfareFacilityDtoImpl _$$WelfareFacilityDtoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$WelfareFacilityDtoImpl(
+WelfareFacilityDto _$WelfareFacilityDtoFromJson(Map<String, dynamic> json) =>
+    WelfareFacilityDto(
       prefecture: json['P1'] as String,
       cityName: json['P2'] as String,
       administrativeAreaCode: json['P3'] as String,
@@ -29,8 +28,7 @@ _$WelfareFacilityDtoImpl _$$WelfareFacilityDtoImplFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$WelfareFacilityDtoImplToJson(
-        _$WelfareFacilityDtoImpl instance) =>
+Map<String, dynamic> _$WelfareFacilityDtoToJson(WelfareFacilityDto instance) =>
     <String, dynamic>{
       'P1': instance.prefecture,
       'P2': instance.cityName,

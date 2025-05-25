@@ -6,8 +6,7 @@ part 'hazard.freezed.dart';
 
 /// Base class for all hazard-related entities
 @freezed
-class Hazard with _$Hazard {
-
+abstract class Hazard with _$Hazard {
   const factory Hazard({
     /// Unique identifier for the hazard area
     required String id,

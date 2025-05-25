@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'administrative_area_code.freezed.dart';
 
 @freezed
-class AdministrativeAreaCode with _$AdministrativeAreaCode {
+abstract class AdministrativeAreaCode with _$AdministrativeAreaCode {
   const factory AdministrativeAreaCode(String value) = _AdministrativeAreaCode;
 
   factory AdministrativeAreaCode.fromString(String value) {

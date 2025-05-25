@@ -20,8 +20,8 @@ class FacilitiesRepository implements IFacilitiesRepository {
   FacilitiesRepository({
     required FacilitiesRemoteDataSource remoteDataSource,
     required LocalDataSource localDataSource,
-  })  : _remoteDataSource = remoteDataSource,
-        _localDataSource = localDataSource;
+  }) : _remoteDataSource = remoteDataSource,
+       _localDataSource = localDataSource;
 
   @override
   Future<Either<Failure, List<MedicalFacility>>> getMedicalFacilities({

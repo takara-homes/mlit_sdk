@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,421 +10,387 @@ part of 'welfare_facility_class_codes.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$WelfareFacilityClassCode {
-  String get value => throw _privateConstructorUsedError;
 
-  /// Create a copy of WelfareFacilityClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $WelfareFacilityClassCodeCopyWith<WelfareFacilityClassCode> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get value;
+/// Create a copy of WelfareFacilityClassCode
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$WelfareFacilityClassCodeCopyWith<WelfareFacilityClassCode> get copyWith => _$WelfareFacilityClassCodeCopyWithImpl<WelfareFacilityClassCode>(this as WelfareFacilityClassCode, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WelfareFacilityClassCode&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'WelfareFacilityClassCode(value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $WelfareFacilityClassCodeCopyWith<$Res> {
-  factory $WelfareFacilityClassCodeCopyWith(WelfareFacilityClassCode value,
-          $Res Function(WelfareFacilityClassCode) then) =
-      _$WelfareFacilityClassCodeCopyWithImpl<$Res, WelfareFacilityClassCode>;
-  @useResult
-  $Res call({String value});
-}
+abstract mixin class $WelfareFacilityClassCodeCopyWith<$Res>  {
+  factory $WelfareFacilityClassCodeCopyWith(WelfareFacilityClassCode value, $Res Function(WelfareFacilityClassCode) _then) = _$WelfareFacilityClassCodeCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
 
+
+
+
+}
 /// @nodoc
-class _$WelfareFacilityClassCodeCopyWithImpl<$Res,
-        $Val extends WelfareFacilityClassCode>
+class _$WelfareFacilityClassCodeCopyWithImpl<$Res>
     implements $WelfareFacilityClassCodeCopyWith<$Res> {
-  _$WelfareFacilityClassCodeCopyWithImpl(this._value, this._then);
+  _$WelfareFacilityClassCodeCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final WelfareFacilityClassCode _self;
+  final $Res Function(WelfareFacilityClassCode) _then;
 
-  /// Create a copy of WelfareFacilityClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of WelfareFacilityClassCode
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
+  return _then(_self.copyWith(
+value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$WelfareFacilityClassCodeImplCopyWith<$Res>
-    implements $WelfareFacilityClassCodeCopyWith<$Res> {
-  factory _$$WelfareFacilityClassCodeImplCopyWith(
-          _$WelfareFacilityClassCodeImpl value,
-          $Res Function(_$WelfareFacilityClassCodeImpl) then) =
-      __$$WelfareFacilityClassCodeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String value});
 }
 
-/// @nodoc
-class __$$WelfareFacilityClassCodeImplCopyWithImpl<$Res>
-    extends _$WelfareFacilityClassCodeCopyWithImpl<$Res,
-        _$WelfareFacilityClassCodeImpl>
-    implements _$$WelfareFacilityClassCodeImplCopyWith<$Res> {
-  __$$WelfareFacilityClassCodeImplCopyWithImpl(
-      _$WelfareFacilityClassCodeImpl _value,
-      $Res Function(_$WelfareFacilityClassCodeImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WelfareFacilityClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$WelfareFacilityClassCodeImpl(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$WelfareFacilityClassCodeImpl implements _WelfareFacilityClassCode {
-  const _$WelfareFacilityClassCodeImpl(this.value);
 
-  @override
-  final String value;
+class _WelfareFacilityClassCode implements WelfareFacilityClassCode {
+  const _WelfareFacilityClassCode(this.value);
+  
 
-  @override
-  String toString() {
-    return 'WelfareFacilityClassCode(value: $value)';
-  }
+@override final  String value;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$WelfareFacilityClassCodeImpl &&
-            (identical(other.value, value) || other.value == value));
-  }
+/// Create a copy of WelfareFacilityClassCode
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$WelfareFacilityClassCodeCopyWith<_WelfareFacilityClassCode> get copyWith => __$WelfareFacilityClassCodeCopyWithImpl<_WelfareFacilityClassCode>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
 
-  /// Create a copy of WelfareFacilityClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$WelfareFacilityClassCodeImplCopyWith<_$WelfareFacilityClassCodeImpl>
-      get copyWith => __$$WelfareFacilityClassCodeImplCopyWithImpl<
-          _$WelfareFacilityClassCodeImpl>(this, _$identity);
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WelfareFacilityClassCode&&(identical(other.value, value) || other.value == value));
 }
 
-abstract class _WelfareFacilityClassCode implements WelfareFacilityClassCode {
-  const factory _WelfareFacilityClassCode(final String value) =
-      _$WelfareFacilityClassCodeImpl;
 
-  @override
-  String get value;
+@override
+int get hashCode => Object.hash(runtimeType,value);
 
-  /// Create a copy of WelfareFacilityClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$WelfareFacilityClassCodeImplCopyWith<_$WelfareFacilityClassCodeImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'WelfareFacilityClassCode(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$WelfareFacilityClassCodeCopyWith<$Res> implements $WelfareFacilityClassCodeCopyWith<$Res> {
+  factory _$WelfareFacilityClassCodeCopyWith(_WelfareFacilityClassCode value, $Res Function(_WelfareFacilityClassCode) _then) = __$WelfareFacilityClassCodeCopyWithImpl;
+@override @useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$WelfareFacilityClassCodeCopyWithImpl<$Res>
+    implements _$WelfareFacilityClassCodeCopyWith<$Res> {
+  __$WelfareFacilityClassCodeCopyWithImpl(this._self, this._then);
+
+  final _WelfareFacilityClassCode _self;
+  final $Res Function(_WelfareFacilityClassCode) _then;
+
+/// Create a copy of WelfareFacilityClassCode
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_WelfareFacilityClassCode(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 /// @nodoc
 mixin _$WelfareFacilityMiddleClassCode {
-  String get value => throw _privateConstructorUsedError;
 
-  /// Create a copy of WelfareFacilityMiddleClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $WelfareFacilityMiddleClassCodeCopyWith<WelfareFacilityMiddleClassCode>
-      get copyWith => throw _privateConstructorUsedError;
+ String get value;
+/// Create a copy of WelfareFacilityMiddleClassCode
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$WelfareFacilityMiddleClassCodeCopyWith<WelfareFacilityMiddleClassCode> get copyWith => _$WelfareFacilityMiddleClassCodeCopyWithImpl<WelfareFacilityMiddleClassCode>(this as WelfareFacilityMiddleClassCode, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WelfareFacilityMiddleClassCode&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'WelfareFacilityMiddleClassCode(value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $WelfareFacilityMiddleClassCodeCopyWith<$Res> {
-  factory $WelfareFacilityMiddleClassCodeCopyWith(
-          WelfareFacilityMiddleClassCode value,
-          $Res Function(WelfareFacilityMiddleClassCode) then) =
-      _$WelfareFacilityMiddleClassCodeCopyWithImpl<$Res,
-          WelfareFacilityMiddleClassCode>;
-  @useResult
-  $Res call({String value});
-}
+abstract mixin class $WelfareFacilityMiddleClassCodeCopyWith<$Res>  {
+  factory $WelfareFacilityMiddleClassCodeCopyWith(WelfareFacilityMiddleClassCode value, $Res Function(WelfareFacilityMiddleClassCode) _then) = _$WelfareFacilityMiddleClassCodeCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
 
+
+
+
+}
 /// @nodoc
-class _$WelfareFacilityMiddleClassCodeCopyWithImpl<$Res,
-        $Val extends WelfareFacilityMiddleClassCode>
+class _$WelfareFacilityMiddleClassCodeCopyWithImpl<$Res>
     implements $WelfareFacilityMiddleClassCodeCopyWith<$Res> {
-  _$WelfareFacilityMiddleClassCodeCopyWithImpl(this._value, this._then);
+  _$WelfareFacilityMiddleClassCodeCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final WelfareFacilityMiddleClassCode _self;
+  final $Res Function(WelfareFacilityMiddleClassCode) _then;
 
-  /// Create a copy of WelfareFacilityMiddleClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of WelfareFacilityMiddleClassCode
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
+  return _then(_self.copyWith(
+value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$WelfareFacilityMiddleClassCodeImplCopyWith<$Res>
-    implements $WelfareFacilityMiddleClassCodeCopyWith<$Res> {
-  factory _$$WelfareFacilityMiddleClassCodeImplCopyWith(
-          _$WelfareFacilityMiddleClassCodeImpl value,
-          $Res Function(_$WelfareFacilityMiddleClassCodeImpl) then) =
-      __$$WelfareFacilityMiddleClassCodeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String value});
 }
 
-/// @nodoc
-class __$$WelfareFacilityMiddleClassCodeImplCopyWithImpl<$Res>
-    extends _$WelfareFacilityMiddleClassCodeCopyWithImpl<$Res,
-        _$WelfareFacilityMiddleClassCodeImpl>
-    implements _$$WelfareFacilityMiddleClassCodeImplCopyWith<$Res> {
-  __$$WelfareFacilityMiddleClassCodeImplCopyWithImpl(
-      _$WelfareFacilityMiddleClassCodeImpl _value,
-      $Res Function(_$WelfareFacilityMiddleClassCodeImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WelfareFacilityMiddleClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$WelfareFacilityMiddleClassCodeImpl(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$WelfareFacilityMiddleClassCodeImpl
-    implements _WelfareFacilityMiddleClassCode {
-  const _$WelfareFacilityMiddleClassCodeImpl(this.value);
 
-  @override
-  final String value;
+class _WelfareFacilityMiddleClassCode implements WelfareFacilityMiddleClassCode {
+  const _WelfareFacilityMiddleClassCode(this.value);
+  
 
-  @override
-  String toString() {
-    return 'WelfareFacilityMiddleClassCode(value: $value)';
-  }
+@override final  String value;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$WelfareFacilityMiddleClassCodeImpl &&
-            (identical(other.value, value) || other.value == value));
-  }
+/// Create a copy of WelfareFacilityMiddleClassCode
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$WelfareFacilityMiddleClassCodeCopyWith<_WelfareFacilityMiddleClassCode> get copyWith => __$WelfareFacilityMiddleClassCodeCopyWithImpl<_WelfareFacilityMiddleClassCode>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
 
-  /// Create a copy of WelfareFacilityMiddleClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$WelfareFacilityMiddleClassCodeImplCopyWith<
-          _$WelfareFacilityMiddleClassCodeImpl>
-      get copyWith => __$$WelfareFacilityMiddleClassCodeImplCopyWithImpl<
-          _$WelfareFacilityMiddleClassCodeImpl>(this, _$identity);
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WelfareFacilityMiddleClassCode&&(identical(other.value, value) || other.value == value));
 }
 
-abstract class _WelfareFacilityMiddleClassCode
-    implements WelfareFacilityMiddleClassCode {
-  const factory _WelfareFacilityMiddleClassCode(final String value) =
-      _$WelfareFacilityMiddleClassCodeImpl;
 
-  @override
-  String get value;
+@override
+int get hashCode => Object.hash(runtimeType,value);
 
-  /// Create a copy of WelfareFacilityMiddleClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$WelfareFacilityMiddleClassCodeImplCopyWith<
-          _$WelfareFacilityMiddleClassCodeImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'WelfareFacilityMiddleClassCode(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$WelfareFacilityMiddleClassCodeCopyWith<$Res> implements $WelfareFacilityMiddleClassCodeCopyWith<$Res> {
+  factory _$WelfareFacilityMiddleClassCodeCopyWith(_WelfareFacilityMiddleClassCode value, $Res Function(_WelfareFacilityMiddleClassCode) _then) = __$WelfareFacilityMiddleClassCodeCopyWithImpl;
+@override @useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$WelfareFacilityMiddleClassCodeCopyWithImpl<$Res>
+    implements _$WelfareFacilityMiddleClassCodeCopyWith<$Res> {
+  __$WelfareFacilityMiddleClassCodeCopyWithImpl(this._self, this._then);
+
+  final _WelfareFacilityMiddleClassCode _self;
+  final $Res Function(_WelfareFacilityMiddleClassCode) _then;
+
+/// Create a copy of WelfareFacilityMiddleClassCode
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_WelfareFacilityMiddleClassCode(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 /// @nodoc
 mixin _$WelfareFacilityMinorClassCode {
-  String get value => throw _privateConstructorUsedError;
 
-  /// Create a copy of WelfareFacilityMinorClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $WelfareFacilityMinorClassCodeCopyWith<WelfareFacilityMinorClassCode>
-      get copyWith => throw _privateConstructorUsedError;
+ String get value;
+/// Create a copy of WelfareFacilityMinorClassCode
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$WelfareFacilityMinorClassCodeCopyWith<WelfareFacilityMinorClassCode> get copyWith => _$WelfareFacilityMinorClassCodeCopyWithImpl<WelfareFacilityMinorClassCode>(this as WelfareFacilityMinorClassCode, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WelfareFacilityMinorClassCode&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'WelfareFacilityMinorClassCode(value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $WelfareFacilityMinorClassCodeCopyWith<$Res> {
-  factory $WelfareFacilityMinorClassCodeCopyWith(
-          WelfareFacilityMinorClassCode value,
-          $Res Function(WelfareFacilityMinorClassCode) then) =
-      _$WelfareFacilityMinorClassCodeCopyWithImpl<$Res,
-          WelfareFacilityMinorClassCode>;
-  @useResult
-  $Res call({String value});
-}
+abstract mixin class $WelfareFacilityMinorClassCodeCopyWith<$Res>  {
+  factory $WelfareFacilityMinorClassCodeCopyWith(WelfareFacilityMinorClassCode value, $Res Function(WelfareFacilityMinorClassCode) _then) = _$WelfareFacilityMinorClassCodeCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
 
+
+
+
+}
 /// @nodoc
-class _$WelfareFacilityMinorClassCodeCopyWithImpl<$Res,
-        $Val extends WelfareFacilityMinorClassCode>
+class _$WelfareFacilityMinorClassCodeCopyWithImpl<$Res>
     implements $WelfareFacilityMinorClassCodeCopyWith<$Res> {
-  _$WelfareFacilityMinorClassCodeCopyWithImpl(this._value, this._then);
+  _$WelfareFacilityMinorClassCodeCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final WelfareFacilityMinorClassCode _self;
+  final $Res Function(WelfareFacilityMinorClassCode) _then;
 
-  /// Create a copy of WelfareFacilityMinorClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of WelfareFacilityMinorClassCode
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
+  return _then(_self.copyWith(
+value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$WelfareFacilityMinorClassCodeImplCopyWith<$Res>
-    implements $WelfareFacilityMinorClassCodeCopyWith<$Res> {
-  factory _$$WelfareFacilityMinorClassCodeImplCopyWith(
-          _$WelfareFacilityMinorClassCodeImpl value,
-          $Res Function(_$WelfareFacilityMinorClassCodeImpl) then) =
-      __$$WelfareFacilityMinorClassCodeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String value});
 }
 
-/// @nodoc
-class __$$WelfareFacilityMinorClassCodeImplCopyWithImpl<$Res>
-    extends _$WelfareFacilityMinorClassCodeCopyWithImpl<$Res,
-        _$WelfareFacilityMinorClassCodeImpl>
-    implements _$$WelfareFacilityMinorClassCodeImplCopyWith<$Res> {
-  __$$WelfareFacilityMinorClassCodeImplCopyWithImpl(
-      _$WelfareFacilityMinorClassCodeImpl _value,
-      $Res Function(_$WelfareFacilityMinorClassCodeImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WelfareFacilityMinorClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$WelfareFacilityMinorClassCodeImpl(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$WelfareFacilityMinorClassCodeImpl
-    implements _WelfareFacilityMinorClassCode {
-  const _$WelfareFacilityMinorClassCodeImpl(this.value);
 
-  @override
-  final String value;
+class _WelfareFacilityMinorClassCode implements WelfareFacilityMinorClassCode {
+  const _WelfareFacilityMinorClassCode(this.value);
+  
 
-  @override
-  String toString() {
-    return 'WelfareFacilityMinorClassCode(value: $value)';
-  }
+@override final  String value;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$WelfareFacilityMinorClassCodeImpl &&
-            (identical(other.value, value) || other.value == value));
-  }
+/// Create a copy of WelfareFacilityMinorClassCode
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$WelfareFacilityMinorClassCodeCopyWith<_WelfareFacilityMinorClassCode> get copyWith => __$WelfareFacilityMinorClassCodeCopyWithImpl<_WelfareFacilityMinorClassCode>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
 
-  /// Create a copy of WelfareFacilityMinorClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$WelfareFacilityMinorClassCodeImplCopyWith<
-          _$WelfareFacilityMinorClassCodeImpl>
-      get copyWith => __$$WelfareFacilityMinorClassCodeImplCopyWithImpl<
-          _$WelfareFacilityMinorClassCodeImpl>(this, _$identity);
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WelfareFacilityMinorClassCode&&(identical(other.value, value) || other.value == value));
 }
 
-abstract class _WelfareFacilityMinorClassCode
-    implements WelfareFacilityMinorClassCode {
-  const factory _WelfareFacilityMinorClassCode(final String value) =
-      _$WelfareFacilityMinorClassCodeImpl;
 
-  @override
-  String get value;
+@override
+int get hashCode => Object.hash(runtimeType,value);
 
-  /// Create a copy of WelfareFacilityMinorClassCode
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$WelfareFacilityMinorClassCodeImplCopyWith<
-          _$WelfareFacilityMinorClassCodeImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'WelfareFacilityMinorClassCode(value: $value)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$WelfareFacilityMinorClassCodeCopyWith<$Res> implements $WelfareFacilityMinorClassCodeCopyWith<$Res> {
+  factory _$WelfareFacilityMinorClassCodeCopyWith(_WelfareFacilityMinorClassCode value, $Res Function(_WelfareFacilityMinorClassCode) _then) = __$WelfareFacilityMinorClassCodeCopyWithImpl;
+@override @useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$WelfareFacilityMinorClassCodeCopyWithImpl<$Res>
+    implements _$WelfareFacilityMinorClassCodeCopyWith<$Res> {
+  __$WelfareFacilityMinorClassCodeCopyWithImpl(this._self, this._then);
+
+  final _WelfareFacilityMinorClassCode _self;
+  final $Res Function(_WelfareFacilityMinorClassCode) _then;
+
+/// Create a copy of WelfareFacilityMinorClassCode
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_WelfareFacilityMinorClassCode(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

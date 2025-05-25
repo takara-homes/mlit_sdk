@@ -6,9 +6,8 @@ part of 'district_plan_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DistrictPlanDtoImpl _$$DistrictPlanDtoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$DistrictPlanDtoImpl(
+DistrictPlanDto _$DistrictPlanDtoFromJson(Map<String, dynamic> json) =>
+    DistrictPlanDto(
       planName: json['plan_name'] as String,
       planTypeJa: json['plan_type_ja'] as String,
       kubunId: json['kubun_id'] as String,
@@ -23,8 +22,7 @@ _$DistrictPlanDtoImpl _$$DistrictPlanDtoImplFromJson(
       noticeNumberS: json['notice_number_s'] as String,
     );
 
-Map<String, dynamic> _$$DistrictPlanDtoImplToJson(
-        _$DistrictPlanDtoImpl instance) =>
+Map<String, dynamic> _$DistrictPlanDtoToJson(DistrictPlanDto instance) =>
     <String, dynamic>{
       'plan_name': instance.planName,
       'plan_type_ja': instance.planTypeJa,

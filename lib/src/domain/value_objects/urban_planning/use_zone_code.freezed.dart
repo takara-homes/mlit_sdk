@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,136 +10,133 @@ part of 'use_zone_code.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$UseZoneCode {
-  String get value => throw _privateConstructorUsedError;
 
-  /// Create a copy of UseZoneCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $UseZoneCodeCopyWith<UseZoneCode> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get value;
+/// Create a copy of UseZoneCode
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UseZoneCodeCopyWith<UseZoneCode> get copyWith => _$UseZoneCodeCopyWithImpl<UseZoneCode>(this as UseZoneCode, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UseZoneCode&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'UseZoneCode(value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UseZoneCodeCopyWith<$Res> {
-  factory $UseZoneCodeCopyWith(
-          UseZoneCode value, $Res Function(UseZoneCode) then) =
-      _$UseZoneCodeCopyWithImpl<$Res, UseZoneCode>;
-  @useResult
-  $Res call({String value});
-}
+abstract mixin class $UseZoneCodeCopyWith<$Res>  {
+  factory $UseZoneCodeCopyWith(UseZoneCode value, $Res Function(UseZoneCode) _then) = _$UseZoneCodeCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
 
+
+
+
+}
 /// @nodoc
-class _$UseZoneCodeCopyWithImpl<$Res, $Val extends UseZoneCode>
+class _$UseZoneCodeCopyWithImpl<$Res>
     implements $UseZoneCodeCopyWith<$Res> {
-  _$UseZoneCodeCopyWithImpl(this._value, this._then);
+  _$UseZoneCodeCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final UseZoneCode _self;
+  final $Res Function(UseZoneCode) _then;
 
-  /// Create a copy of UseZoneCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of UseZoneCode
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
+  return _then(_self.copyWith(
+value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UseZoneCodeImplCopyWith<$Res>
-    implements $UseZoneCodeCopyWith<$Res> {
-  factory _$$UseZoneCodeImplCopyWith(
-          _$UseZoneCodeImpl value, $Res Function(_$UseZoneCodeImpl) then) =
-      __$$UseZoneCodeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String value});
 }
 
-/// @nodoc
-class __$$UseZoneCodeImplCopyWithImpl<$Res>
-    extends _$UseZoneCodeCopyWithImpl<$Res, _$UseZoneCodeImpl>
-    implements _$$UseZoneCodeImplCopyWith<$Res> {
-  __$$UseZoneCodeImplCopyWithImpl(
-      _$UseZoneCodeImpl _value, $Res Function(_$UseZoneCodeImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UseZoneCode
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$UseZoneCodeImpl(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$UseZoneCodeImpl extends _UseZoneCode {
-  const _$UseZoneCodeImpl(this.value) : super._();
 
-  @override
-  final String value;
+class _UseZoneCode extends UseZoneCode {
+  const _UseZoneCode(this.value): super._();
+  
 
-  @override
-  String toString() {
-    return 'UseZoneCode(value: $value)';
-  }
+@override final  String value;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UseZoneCodeImpl &&
-            (identical(other.value, value) || other.value == value));
-  }
+/// Create a copy of UseZoneCode
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UseZoneCodeCopyWith<_UseZoneCode> get copyWith => __$UseZoneCodeCopyWithImpl<_UseZoneCode>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
 
-  /// Create a copy of UseZoneCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UseZoneCodeImplCopyWith<_$UseZoneCodeImpl> get copyWith =>
-      __$$UseZoneCodeImplCopyWithImpl<_$UseZoneCodeImpl>(this, _$identity);
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UseZoneCode&&(identical(other.value, value) || other.value == value));
 }
 
-abstract class _UseZoneCode extends UseZoneCode {
-  const factory _UseZoneCode(final String value) = _$UseZoneCodeImpl;
-  const _UseZoneCode._() : super._();
 
-  @override
-  String get value;
+@override
+int get hashCode => Object.hash(runtimeType,value);
 
-  /// Create a copy of UseZoneCode
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UseZoneCodeImplCopyWith<_$UseZoneCodeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UseZoneCode(value: $value)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$UseZoneCodeCopyWith<$Res> implements $UseZoneCodeCopyWith<$Res> {
+  factory _$UseZoneCodeCopyWith(_UseZoneCode value, $Res Function(_UseZoneCode) _then) = __$UseZoneCodeCopyWithImpl;
+@override @useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$UseZoneCodeCopyWithImpl<$Res>
+    implements _$UseZoneCodeCopyWith<$Res> {
+  __$UseZoneCodeCopyWithImpl(this._self, this._then);
+
+  final _UseZoneCode _self;
+  final $Res Function(_UseZoneCode) _then;
+
+/// Create a copy of UseZoneCode
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_UseZoneCode(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -1,44 +1,71 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 import 'package:mlit_sdk/src/domain/entities/core/address.dart';
 import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 import 'package:mlit_sdk/src/domain/entities/facilities/medical_facility.dart';
 
-part 'medical_facility_dto.freezed.dart';
 part 'medical_facility_dto.g.dart';
 
-@freezed
-class MedicalFacilityDto with _$MedicalFacilityDto {
-  const factory MedicalFacilityDto({
-    @JsonKey(name: 'P1') required String institutionClassification,
-    @JsonKey(name: 'P2_name_ja') required String nameJa,
-    @JsonKey(name: 'P2_en') required String nameEn,
-    @JsonKey(name: 'latitude') required double latitude,
-    @JsonKey(name: 'longitude') required double longitude,
-    @JsonKey(name: 'P3_en') required Map<String, dynamic> addressData,
-    @JsonKey(name: 'P4_1') String? department1,
-    @JsonKey(name: 'P4_2') String? department2,
-    @JsonKey(name: 'P4_3') String? department3,
-    @JsonKey(name: 'medical_subject_en') String? combinedDepartments,
-    @JsonKey(name: 'P7') required String founderClassification,
-    @JsonKey(name: 'P8') String? bedCount,
-    @JsonKey(name: 'P9') String? emergencyStatus,
-    @JsonKey(name: 'P10') String? disasterBaseStatus,
-  }) = _MedicalFacilityDto;
+@JsonSerializable(explicitToJson: true)
+class MedicalFacilityDto extends Equatable {
+  const MedicalFacilityDto({
+    required this.institutionClassification,
+    required this.nameJa,
+    required this.nameEn,
+    required this.latitude,
+    required this.longitude,
+    required this.addressData,
+    this.department1,
+    this.department2,
+    this.department3,
+    this.combinedDepartments,
+    required this.founderClassification,
+    this.bedCount,
+    this.emergencyStatus,
+    this.disasterBaseStatus,
+  });
+
+  @JsonKey(name: 'P1')
+  final String institutionClassification;
+  @JsonKey(name: 'P2_name_ja')
+  final String nameJa;
+  @JsonKey(name: 'P2_en')
+  final String nameEn;
+  @JsonKey(name: 'latitude')
+  final double latitude;
+  @JsonKey(name: 'longitude')
+  final double longitude;
+  @JsonKey(name: 'P3_en')
+  final Map<String, dynamic> addressData;
+  @JsonKey(name: 'P4_1')
+  final String? department1;
+  @JsonKey(name: 'P4_2')
+  final String? department2;
+  @JsonKey(name: 'P4_3')
+  final String? department3;
+  @JsonKey(name: 'medical_subject_en')
+  final String? combinedDepartments;
+  @JsonKey(name: 'P7')
+  final String founderClassification;
+  @JsonKey(name: 'P8')
+  final String? bedCount;
+  @JsonKey(name: 'P9')
+  final String? emergencyStatus;
+  @JsonKey(name: 'P10')
+  final String? disasterBaseStatus;
 
   factory MedicalFacilityDto.fromJson(Map<String, dynamic> json) =>
       _$MedicalFacilityDtoFromJson(json);
 
-  const MedicalFacilityDto._();
+  Map<String, dynamic> toJson() => _$MedicalFacilityDtoToJson(this);
 
   MedicalFacility toDomain() {
     return MedicalFacility(
       institutionClassification: institutionClassification,
       nameJa: nameJa,
       nameEn: nameEn,
-      coordinate: Coordinate(
-        latitude: latitude,
-        longitude: longitude,
-      ),
+      coordinate: Coordinate(latitude: latitude, longitude: longitude),
       address: Address.fromMap(addressData),
       departments: _combineDepartments(),
       founderClassification: founderClassification,
@@ -63,4 +90,22 @@ class MedicalFacilityDto with _$MedicalFacilityDto {
 
     return departments.toSet().toList(); // Remove duplicates
   }
+
+  @override
+  List<Object?> get props => [
+    institutionClassification,
+    nameJa,
+    nameEn,
+    latitude,
+    longitude,
+    addressData,
+    department1,
+    department2,
+    department3,
+    combinedDepartments,
+    founderClassification,
+    bedCount,
+    emergencyStatus,
+    disasterBaseStatus,
+  ];
 }

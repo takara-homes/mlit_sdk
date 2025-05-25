@@ -19,9 +19,7 @@ import 'package:mlit_sdk/src/infrastructure/dtos/facilities/welfare_facility_dto
 class FacilitiesRemoteDataSource {
   final Dio _dio;
 
-  FacilitiesRemoteDataSource({
-    required Dio client,
-  }) : _dio = client;
+  FacilitiesRemoteDataSource({required Dio client}) : _dio = client;
 
   /// Fetches medical facilities data from the API
   Future<List<MedicalFacility>> getMedicalFacilities({

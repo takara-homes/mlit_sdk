@@ -5,8 +5,7 @@ part 'transaction_period.freezed.dart';
 part 'transaction_period.g.dart';
 
 @freezed
-class TransactionPeriod with _$TransactionPeriod {
-
+abstract class TransactionPeriod with _$TransactionPeriod {
   const factory TransactionPeriod({
     required String year,
     required String quarter,

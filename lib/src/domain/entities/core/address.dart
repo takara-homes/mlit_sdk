@@ -1,41 +1,67 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 
-part 'address.freezed.dart';
+part 'address.g.dart';
 
 /// Represents a Japanese address with support for both Japanese and English formats
-@freezed
-class Address with _$Address {
-
-  const factory Address({
+@JsonSerializable(fieldRename: FieldRename.snake)
+class Address extends Equatable {
+  const Address({
     /// Prefecture code
-    required String prefectureCode,
+    required this.prefectureCode,
 
     /// City code
-    required String cityCode,
-
-    /// District code (optional)
-    String? districtCode,
-
-    /// Block number (番地)
-    String? blockNumber,
-
-    /// Building name (optional)
-    String? buildingName,
-
-    /// Japanese postal code
-    String? postalCode,
+    required this.cityCode,
 
     /// Address in Japanese format
-    required String fullAddressJa,
+    required this.fullAddressJa,
 
     /// Address in English format
-    required String fullAddressEn,
+    required this.fullAddressEn,
+
+    /// District code (optional)
+    this.districtCode,
+
+    /// Block number (番地)
+    this.blockNumber,
+
+    /// Building name (optional)
+    this.buildingName,
+
+    /// Japanese postal code
+    this.postalCode,
 
     /// Geographic coordinates of the address
-    Coordinate? coordinate,
-  }) = _Address;
-  const Address._();
+    this.coordinate,
+  });
+
+  @JsonKey(name: 'prefecture_code')
+  final String prefectureCode;
+
+  @JsonKey(name: 'city_code')
+  final String cityCode;
+
+  @JsonKey(name: 'district_code')
+  final String? districtCode;
+
+  @JsonKey(name: 'block_number')
+  final String? blockNumber;
+
+  @JsonKey(name: 'building_name')
+  final String? buildingName;
+
+  @JsonKey(name: 'postal_code')
+  final String? postalCode;
+
+  @JsonKey(name: 'full_address')
+  final String fullAddressJa;
+
+  @JsonKey(name: 'full_address_en')
+  final String fullAddressEn;
+
+  @JsonKey(name: 'coordinate')
+  final Coordinate? coordinate;
 
   /// Creates an Address from a map structure
   factory Address.fromMap(Map<String, dynamic> map) {
@@ -54,6 +80,10 @@ class Address with _$Address {
     );
   }
 
+  /// Creates an Address from JSON
+  factory Address.fromJson(Map<String, dynamic> json) =>
+      _$AddressFromJson(json);
+
   /// Converts the address to a map structure
   Map<String, dynamic> toMap() {
     return {
@@ -68,6 +98,9 @@ class Address with _$Address {
       if (coordinate != null) 'coordinate': coordinate!.toMap(),
     };
   }
+
+  /// Converts Address to JSON
+  Map<String, dynamic> toJson() => _$AddressToJson(this);
 
   /// Returns the normalized Japanese address format
   String toNormalizedJapanese() {
@@ -86,4 +119,17 @@ class Address with _$Address {
     if (postalCode != null) parts.add('$postalCode');
     return parts.join(', ');
   }
+
+  @override
+  List<Object?> get props => [
+    prefectureCode,
+    cityCode,
+    districtCode,
+    blockNumber,
+    buildingName,
+    postalCode,
+    fullAddressJa,
+    fullAddressEn,
+    coordinate,
+  ];
 }

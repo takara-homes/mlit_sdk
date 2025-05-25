@@ -49,10 +49,7 @@ class RealEstateRemoteDataSource {
           );
       }
     }
-    throw ApiFailure(
-      requestOptions: requestOptions,
-      message: error.toString(),
-    );
+    throw ApiFailure(requestOptions: requestOptions, message: error.toString());
   }
 
   /// Fetches real estate transaction data
@@ -173,11 +170,7 @@ class RealEstateRemoteDataSource {
     try {
       final response = await _dio.get(
         ApiEndpoints.appraisalReport,
-        queryParameters: {
-          'year': year,
-          'area': area,
-          'division': division,
-        },
+        queryParameters: {'year': year, 'area': area, 'division': division},
       );
 
       if (response.data == null) {
@@ -219,9 +212,7 @@ class RealEstateRemoteDataSource {
       );
 
       if (response.data == null) {
-        throw NotFoundFailure(
-          requestOptions: response.requestOptions,
-        );
+        throw NotFoundFailure(requestOptions: response.requestOptions);
       }
 
       return response.data as Map<String, dynamic>;

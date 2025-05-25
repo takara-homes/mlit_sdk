@@ -6,13 +6,12 @@ part of 'coordinates.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CoordinatesImpl _$$CoordinatesImplFromJson(Map<String, dynamic> json) =>
-    _$CoordinatesImpl(
-      latitude: (json['latitude'] as num).toDouble(),
-      longitude: (json['longitude'] as num).toDouble(),
-    );
+_Coordinates _$CoordinatesFromJson(Map<String, dynamic> json) => _Coordinates(
+  latitude: (json['latitude'] as num).toDouble(),
+  longitude: (json['longitude'] as num).toDouble(),
+);
 
-Map<String, dynamic> _$$CoordinatesImplToJson(_$CoordinatesImpl instance) =>
+Map<String, dynamic> _$CoordinatesToJson(_Coordinates instance) =>
     <String, dynamic>{
       'latitude': instance.latitude,
       'longitude': instance.longitude,
