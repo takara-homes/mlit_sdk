@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/PublicFacility-class.html">PublicFacility</a></li>
     <li class="self-crumb">PublicFacility.fromMap factory constructor</li>
   </ol>
@@ -52,7 +52,7 @@
       data-above-sidebar="mlit_sdk&#47;PublicFacility-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/facilities/public_facility.dart#L55"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/facilities/public_facility.dart#L54"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">PublicFacility.fromMap</span> constructor 
 </h1></div>
 
@@ -87,18 +87,22 @@
         : null,
     operatingInformation: map[&#39;operating_info&#39;] != null
         ? OperatingInformation.fromMap(
-            map[&#39;operating_info&#39;] as Map&lt;String, dynamic&gt;,)
+            map[&#39;operating_info&#39;] as Map&lt;String, dynamic&gt;,
+          )
         : null,
     services: _parseServices(map[&#39;services&#39;] as List?),
     parkingInformation: map[&#39;parking_info&#39;] != null
         ? ParkingInformation.fromMap(
-            map[&#39;parking_info&#39;] as Map&lt;String, dynamic&gt;,)
+            map[&#39;parking_info&#39;] as Map&lt;String, dynamic&gt;,
+          )
         : null,
-    accessibilityFeatures:
-        _parseAccessibilityFeatures(map[&#39;accessibility&#39;] as List?),
+    accessibilityFeatures: _parseAccessibilityFeatures(
+      map[&#39;accessibility&#39;] as List?,
+    ),
     disasterResponseDesignation: map[&#39;disaster_designation&#39;] != null
         ? DisasterResponseDesignation.fromMap(
-            map[&#39;disaster_designation&#39;] as Map&lt;String, dynamic&gt;,)
+            map[&#39;disaster_designation&#39;] as Map&lt;String, dynamic&gt;,
+          )
         : null,
   );
 }</code></pre>
@@ -115,7 +119,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/PublicFacility-class.html">PublicFacility</a></li>
     <li class="self-crumb">PublicFacility.fromMap factory constructor</li>
 </ol>
@@ -129,7 +133,7 @@
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

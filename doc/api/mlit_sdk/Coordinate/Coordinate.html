@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/Coordinate-class.html">Coordinate</a></li>
     <li class="self-crumb">Coordinate const constructor</li>
   </ol>
@@ -52,42 +52,29 @@
       data-above-sidebar="mlit_sdk&#47;Coordinate-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/core/coordinate.dart#L16"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/core/coordinate.dart#L11"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">Coordinate</span> constructor 
 </h1></div>
 
     <section class="multi-line-signature">
-      
-  <div>
-    <ol class="annotation-list">
-        <li>@<a href="https://pub.dev/documentation/freezed_annotation/2.4.4/freezed_annotation/Assert-class.html">Assert</a>(&#39;latitude &gt;= -90 &amp;&amp; latitude &lt;= 90&#39;, &#39;Latitude must be between -90 and 90&#39;)</li>
-        <li>@<a href="https://pub.dev/documentation/freezed_annotation/2.4.4/freezed_annotation/Assert-class.html">Assert</a>(&#39;longitude &gt;= -180 &amp;&amp; longitude &lt;= 180&#39;, &#39;Longitude must be between -180 and 180&#39;)</li>
-    </ol>
-  </div>const
+      const
       <span class="name ">Coordinate</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="-param-latitude"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">latitude</span>, </span></li>
 <li><span class="parameter" id="-param-longitude"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">longitude</span>, </span></li>
 </ol>})
     </section>
     
-<section class="desc markdown">
-  <p>Creates a new coordinate with the specified latitude and longitude</p>
-</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">@Assert(&#39;latitude &gt;= -90 &amp;&amp; latitude &lt;= 90&#39;,
-    &#39;Latitude must be between -90 and 90&#39;,)
-@Assert(&#39;longitude &gt;= -180 &amp;&amp; longitude &lt;= 180&#39;,
-    &#39;Longitude must be between -180 and 180&#39;,)
-const factory Coordinate({
+  <pre class="language-dart"><code class="language-dart">const Coordinate({
   &#47;&#47;&#47; Latitude in decimal degrees (-90 to 90)
-  required double latitude,
+  required this.latitude,
 
   &#47;&#47;&#47; Longitude in decimal degrees (-180 to 180)
-  required double longitude,
-}) = _Coordinate;</code></pre>
+  required this.longitude,
+});</code></pre>
 </section>
 
 
@@ -101,7 +88,7 @@ const factory Coordinate({
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/Coordinate-class.html">Coordinate</a></li>
     <li class="self-crumb">Coordinate const constructor</li>
 </ol>
@@ -115,7 +102,7 @@ const factory Coordinate({
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

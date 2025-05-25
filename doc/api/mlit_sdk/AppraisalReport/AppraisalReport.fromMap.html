@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/AppraisalReport-class.html">AppraisalReport</a></li>
     <li class="self-crumb">AppraisalReport.fromMap factory constructor</li>
   </ol>
@@ -52,7 +52,7 @@
       data-above-sidebar="mlit_sdk&#47;AppraisalReport-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/appraisal_report.dart#L102"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/appraisal_report.dart#L171"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">AppraisalReport.fromMap</span> constructor 
 </h1></div>
 
@@ -85,14 +85,16 @@
     previousYearPrice: int.tryParse(map[&#39;Road_price_year&#39;]?.toString() ?? &#39;&#39;),
     landArea: double.parse(map[&#39;Standard_land_area&#39;]?.toString() ?? &#39;0&#39;),
     totalLandArea: double.tryParse(
-        map[&#39;Standard_land_area_including_private_road_area&#39;]?.toString() ??
-            &#39;&#39;,),
+      map[&#39;Standard_land_area_including_private_road_area&#39;]?.toString() ?? &#39;&#39;,
+    ),
     landShape: map[&#39;Standard_value_Shape_Shape&#39;] as String?,
     landShapeRatio: double.tryParse(
-        map[&#39;Standard_area_Shape_Shape_ratio&#39;]?.toString() ?? &#39;&#39;,),
+      map[&#39;Standard_area_Shape_Shape_ratio&#39;]?.toString() ?? &#39;&#39;,
+    ),
     frontage: double.tryParse(map[&#39;Frontage&#39;]?.toString() ?? &#39;&#39;),
     depth: double.tryParse(
-        map[&#39;Standard_Shape_Shape_Ratio_Depth&#39;]?.toString() ?? &#39;&#39;,),
+      map[&#39;Standard_Shape_Shape_Ratio_Depth&#39;]?.toString() ?? &#39;&#39;,
+    ),
     direction: map[&#39;Standard_Geometry_Orientation&#39;] as String?,
     topography: map[&#39;Standard_terrain_shape_and_slope&#39;] as String?,
     currentLandUse: map[&#39;Standard_land_Current_status_of_land_use&#39;] as String,
@@ -100,13 +102,15 @@
         map[&#39;Standard_land_Current_state_of_land_use_Structure_code&#39;]
             as String?,
     floorsAboveGround: int.tryParse(
-        map[&#39;Standard_land_Current_state_of_land_use_Number_of_above-ground_floors&#39;]
-                ?.toString() ??
-            &#39;&#39;,),
+      map[&#39;Standard_land_Current_state_of_land_use_Number_of_above-ground_floors&#39;]
+              ?.toString() ??
+          &#39;&#39;,
+    ),
     basementFloors: int.tryParse(
-        map[&#39;Standard_land_Current_state_of_land_use_Number_of_basement_floors&#39;]
-                ?.toString() ??
-            &#39;&#39;,),
+      map[&#39;Standard_land_Current_state_of_land_use_Number_of_basement_floors&#39;]
+              ?.toString() ??
+          &#39;&#39;,
+    ),
     surroundingAreaUse:
         map[&#39;Standard_area_Surrounding_area_usage_status&#39;] as String?,
     roadCondition: AppraisalRoadCondition.fromMap(map),
@@ -114,17 +118,20 @@
     transportation: AppraisalTransportation.fromMap(map),
     regulations: AppraisalRegulations.fromMap(map),
     transactionPriceBenchmark: int.tryParse(
-        map[&#39;Application_of_appraisal_method_Transaction_comparison_method_benchmark_price&#39;]
-                ?.toString() ??
-            &#39;&#39;,),
+      map[&#39;Application_of_appraisal_method_Transaction_comparison_method_benchmark_price&#39;]
+              ?.toString() ??
+          &#39;&#39;,
+    ),
     netIncomePrice: int.tryParse(
-        map[&#39;Application_of_appraisal_method_Income_capitalization_method_Income_price&#39;]
-                ?.toString() ??
-            &#39;&#39;,),
+      map[&#39;Application_of_appraisal_method_Income_capitalization_method_Income_price&#39;]
+              ?.toString() ??
+          &#39;&#39;,
+    ),
     costApproachPrice: int.tryParse(
-        map[&#39;Application_of_appraisal_method_Cost_method_Estimated_price&#39;]
-                ?.toString() ??
-            &#39;&#39;,),
+      map[&#39;Application_of_appraisal_method_Cost_method_Estimated_price&#39;]
+              ?.toString() ??
+          &#39;&#39;,
+    ),
     publishedPrice: int.tryParse(map[&#39;Published_price&#39;]?.toString() ?? &#39;&#39;),
     priceVolatility: double.tryParse(map[&#39;Volatility&#39;]?.toString() ?? &#39;&#39;),
   );
@@ -142,7 +149,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/AppraisalReport-class.html">AppraisalReport</a></li>
     <li class="self-crumb">AppraisalReport.fromMap factory constructor</li>
 </ol>
@@ -156,7 +163,7 @@
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

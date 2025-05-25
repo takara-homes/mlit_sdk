@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/Station-class.html">Station</a></li>
     <li class="self-crumb">Station.fromJson factory constructor</li>
   </ol>
@@ -52,7 +52,7 @@
       data-above-sidebar="mlit_sdk&#47;Station-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/transportation/station.dart#L47"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/transportation/station.dart#L46"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">Station.fromJson</span> constructor 
 </h1></div>
 
@@ -79,8 +79,9 @@
     operatorName: json[&#39;operator_name&#39;] as String,
     lineName: json[&#39;line_name&#39;] as String,
     type: json[&#39;type&#39;] as String,
-    coordinate:
-        Coordinate.fromMap(json[&#39;coordinate&#39;] as Map&lt;String, dynamic&gt;),
+    coordinate: Coordinate.fromMap(
+      json[&#39;coordinate&#39;] as Map&lt;String, dynamic&gt;,
+    ),
     passengerCount: json[&#39;passenger_count&#39;] as int?,
     businessType: json[&#39;business_type&#39;] as String?,
     metadata: Map&lt;String, dynamic&gt;.from(json[&#39;metadata&#39;] as Map? ?? {}),
@@ -99,7 +100,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/Station-class.html">Station</a></li>
     <li class="self-crumb">Station.fromJson factory constructor</li>
 </ol>
@@ -113,7 +114,7 @@
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

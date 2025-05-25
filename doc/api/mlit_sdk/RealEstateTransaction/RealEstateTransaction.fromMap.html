@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/RealEstateTransaction-class.html">RealEstateTransaction</a></li>
     <li class="self-crumb">RealEstateTransaction.fromMap factory constructor</li>
   </ol>
@@ -52,7 +52,7 @@
       data-above-sidebar="mlit_sdk&#47;RealEstateTransaction-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/real_estate_transaction.dart#L119"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/real_estate_transaction.dart#L118"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">RealEstateTransaction.fromMap</span> constructor 
 </h1></div>
 
@@ -106,8 +106,9 @@
     frontRoadWidth: double.tryParse(map[&#39;Breadth&#39;]?.toString() ?? &#39;&#39;),
     cityPlanningJa: map[&#39;City_Planning&#39;] as String?,
     cityPlanningEn: map[&#39;City_Planning_en&#39;] as String?,
-    buildingCoverageRatio:
-        double.tryParse(map[&#39;CoverageRatio&#39;]?.toString() ?? &#39;&#39;),
+    buildingCoverageRatio: double.tryParse(
+      map[&#39;CoverageRatio&#39;]?.toString() ?? &#39;&#39;,
+    ),
     floorAreaRatio: double.tryParse(map[&#39;FloorAreaRatio&#39;]?.toString() ?? &#39;&#39;),
     periodJa: map[&#39;Period&#39;] as String,
     periodEn: map[&#39;Period_en&#39;] as String,
@@ -130,7 +131,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/RealEstateTransaction-class.html">RealEstateTransaction</a></li>
     <li class="self-crumb">RealEstateTransaction.fromMap factory constructor</li>
 </ol>
@@ -144,7 +145,7 @@
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

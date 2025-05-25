@@ -1,3 +1,9 @@
+## 1.1.0
+
+- Refactored entity classes to use json_serializable instead of freezed
+- Updated dependencies to their latest stable versions
+- Updated documentation to reflect changes
+
 ## 1.0.0
 
 - Initial stable release of the MLIT SDK

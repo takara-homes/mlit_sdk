@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/Nursery-class.html">Nursery</a></li>
     <li class="self-crumb">Nursery const constructor</li>
   </ol>
@@ -52,7 +52,7 @@
       data-above-sidebar="mlit_sdk&#47;Nursery-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/education/nursery.dart#L11"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/education/nursery.dart#L11"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">Nursery</span> constructor 
 </h1></div>
 
@@ -66,7 +66,7 @@
 <li><span class="parameter" id="-param-administratorCode"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">administratorCode</span>, </span></li>
 <li><span class="parameter" id="-param-operatingHours"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../mlit_sdk/OperatingHours-class.html">OperatingHours</a></span>&gt;</span>?</span> <span class="parameter-name">operatingHours</span>, </span></li>
 <li><span class="parameter" id="-param-capacity"><span class="type-annotation"><a href="../../mlit_sdk/NurseryCapacity-class.html">NurseryCapacity</a>?</span> <span class="parameter-name">capacity</span>, </span></li>
-<li><span class="parameter" id="-param-services"><span>@<a href="https://pub.dev/documentation/freezed_annotation/2.4.4/freezed_annotation/Default-class.html">Default</a>([])</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../mlit_sdk/NurseryService.html">NurseryService</a></span>&gt;</span></span> <span class="parameter-name">services</span>, </span></li>
+<li><span class="parameter" id="-param-services"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../mlit_sdk/NurseryService.html">NurseryService</a></span>&gt;</span>?</span> <span class="parameter-name">services</span>, </span></li>
 </ol>})
     </section>
     
@@ -75,34 +75,34 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const factory Nursery({
+  <pre class="language-dart"><code class="language-dart">const Nursery({
   &#47;&#47;&#47; Administrative area code
-  required String administrativeAreaCode,
+  required this.administrativeAreaCode,
 
   &#47;&#47;&#47; Facility name in Japanese
-  required String nameJa,
+  required this.nameJa,
 
   &#47;&#47;&#47; Facility classification codes
-  required NurseryClassification classification,
+  required this.classification,
 
   &#47;&#47;&#47; Geographic location
-  required Coordinate coordinate,
+  required this.coordinate,
 
   &#47;&#47;&#47; Facility address
-  required Address address,
+  required this.address,
 
   &#47;&#47;&#47; Administrator code (public&#47;private&#47;other)
-  required String administratorCode,
+  required this.administratorCode,
 
   &#47;&#47;&#47; Operating hours (optional)
-  List&lt;OperatingHours&gt;? operatingHours,
+  this.operatingHours,
 
   &#47;&#47;&#47; Capacity information
-  NurseryCapacity? capacity,
+  this.capacity,
 
   &#47;&#47;&#47; Additional services offered
-  @Default([]) List&lt;NurseryService&gt; services,
-}) = _Nursery;</code></pre>
+  List&lt;NurseryService&gt;? services,
+}) : services = services ?? const [];</code></pre>
 </section>
 
 
@@ -116,7 +116,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/Nursery-class.html">Nursery</a></li>
     <li class="self-crumb">Nursery const constructor</li>
 </ol>
@@ -130,7 +130,7 @@
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

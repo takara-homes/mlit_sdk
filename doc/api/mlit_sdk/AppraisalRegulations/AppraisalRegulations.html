@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/AppraisalRegulations-class.html">AppraisalRegulations</a></li>
     <li class="self-crumb">AppraisalRegulations const constructor</li>
   </ol>
@@ -52,7 +52,7 @@
       data-above-sidebar="mlit_sdk&#47;AppraisalRegulations-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/appraisal_report.dart#L280"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/appraisal_report.dart#L471"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">AppraisalRegulations</span> constructor 
 </h1></div>
 
@@ -75,34 +75,17 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const factory AppraisalRegulations({
-  &#47;&#47;&#47; Area classification (urbanization, etc.)
-  required String areaClassification,
-
-  &#47;&#47;&#47; Zoning type
-  required String zoning,
-
-  &#47;&#47;&#47; Building coverage ratio as percentage
-  required double buildingCoverageRatio,
-
-  &#47;&#47;&#47; Floor area ratio as percentage
-  required double floorAreaRatio,
-
-  &#47;&#47;&#47; Fire prevention area classification
-  String? firePreventionClass,
-
-  &#47;&#47;&#47; Forest Law regulations
-  String? forestLawInfo,
-
-  &#47;&#47;&#47; Natural Parks Act regulations
-  String? naturalParksInfo,
-
-  &#47;&#47;&#47; Height district regulations
-  String? heightDistrict,
-
-  &#47;&#47;&#47; Other regulations and restrictions
-  List&lt;String&gt;? otherRegulations,
-}) = _AppraisalRegulations;</code></pre>
+  <pre class="language-dart"><code class="language-dart">const AppraisalRegulations({
+  required this.areaClassification,
+  required this.zoning,
+  required this.buildingCoverageRatio,
+  required this.floorAreaRatio,
+  this.firePreventionClass,
+  this.forestLawInfo,
+  this.naturalParksInfo,
+  this.heightDistrict,
+  this.otherRegulations,
+});</code></pre>
 </section>
 
 
@@ -116,7 +99,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/AppraisalRegulations-class.html">AppraisalRegulations</a></li>
     <li class="self-crumb">AppraisalRegulations const constructor</li>
 </ol>
@@ -130,7 +113,7 @@
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

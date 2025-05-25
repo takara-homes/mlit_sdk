@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/Location-class.html">Location</a></li>
     <li class="self-crumb">Location const constructor</li>
   </ol>
@@ -52,7 +52,7 @@
       data-above-sidebar="mlit_sdk&#47;Location-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/core/location.dart#L11"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/core/location.dart#L11"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">Location</span> constructor 
 </h1></div>
 
@@ -66,8 +66,8 @@
 <li><span class="parameter" id="-param-nameEn"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">nameEn</span>, </span></li>
 <li><span class="parameter" id="-param-descriptionJa"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">descriptionJa</span>, </span></li>
 <li><span class="parameter" id="-param-descriptionEn"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">descriptionEn</span>, </span></li>
-<li><span class="parameter" id="-param-referencePoints"><span>@<a href="https://pub.dev/documentation/freezed_annotation/2.4.4/freezed_annotation/Default-class.html">Default</a>([])</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../mlit_sdk/ReferencePoint-class.html">ReferencePoint</a></span>&gt;</span></span> <span class="parameter-name">referencePoints</span>, </span></li>
-<li><span class="parameter" id="-param-metadata"><span>@<a href="https://pub.dev/documentation/freezed_annotation/2.4.4/freezed_annotation/Default-class.html">Default</a>({})</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">metadata</span>, </span></li>
+<li><span class="parameter" id="-param-referencePoints"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../mlit_sdk/ReferencePoint-class.html">ReferencePoint</a></span>&gt;</span>?</span> <span class="parameter-name">referencePoints</span>, </span></li>
+<li><span class="parameter" id="-param-metadata"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span>?</span> <span class="parameter-name">metadata</span>, </span></li>
 <li><span class="parameter" id="-param-updatedAt"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">updatedAt</span>, </span></li>
 </ol>})
     </section>
@@ -77,40 +77,41 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const factory Location({
+  <pre class="language-dart"><code class="language-dart">const Location({
   &#47;&#47;&#47; Unique identifier for the location
-  required String id,
+  required this.id,
 
   &#47;&#47;&#47; Geographic coordinate of the location
-  required Coordinate coordinate,
+  required this.coordinate,
 
   &#47;&#47;&#47; Address information
-  required Address address,
+  required this.address,
 
   &#47;&#47;&#47; Location type classification
-  required LocationType type,
+  required this.type,
 
   &#47;&#47;&#47; Name in Japanese
-  required String nameJa,
+  required this.nameJa,
 
   &#47;&#47;&#47; Name in English
-  required String nameEn,
+  required this.nameEn,
 
   &#47;&#47;&#47; Description in Japanese (optional)
-  String? descriptionJa,
+  this.descriptionJa,
 
   &#47;&#47;&#47; Description in English (optional)
-  String? descriptionEn,
+  this.descriptionEn,
 
   &#47;&#47;&#47; Reference points - nearby landmarks or stations
-  @Default([]) List&lt;ReferencePoint&gt; referencePoints,
+  List&lt;ReferencePoint&gt;? referencePoints,
 
   &#47;&#47;&#47; Additional metadata as key-value pairs
-  @Default({}) Map&lt;String, dynamic&gt; metadata,
+  Map&lt;String, dynamic&gt;? metadata,
 
   &#47;&#47;&#47; Last updated timestamp
-  DateTime? updatedAt,
-}) = _Location;</code></pre>
+  this.updatedAt,
+}) : referencePoints = referencePoints ?? const [],
+     metadata = metadata ?? const {};</code></pre>
 </section>
 
 
@@ -124,7 +125,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/Location-class.html">Location</a></li>
     <li class="self-crumb">Location const constructor</li>
 </ol>
@@ -138,7 +139,7 @@
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

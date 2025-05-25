@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">mlit_sdk</a></li>
-    <li><a href="../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li class="self-crumb">Location class</li>
   </ol>
   <div class="self-name">Location</div>
@@ -51,7 +51,7 @@
     data-above-sidebar="mlit_sdk&#47;mlit_sdk-library-sidebar.html"
     data-below-sidebar="mlit_sdk&#47;Location-class-sidebar.html">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/core/location.dart#L9"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/core/location.dart#L10"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-class">Location</span> class 
  
 </h1></div>
@@ -65,6 +65,14 @@
     <section>
       <dl class="dl-horizontal">
         
+  <dt>Inheritance</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></li>
+        <li><a href="https://pub.dev/documentation/equatable/2.0.7/equatable/Equatable-class.html">Equatable</a></li>
+      <li>Location</li>
+    </ul>
+  </dd>
 
         
         
@@ -75,7 +83,7 @@
   <dt>Annotations</dt>
   <dd>
     <ul class="annotation-list clazz-relationships">
-        <li>@<a href="https://pub.dev/documentation/freezed_annotation/2.4.4/freezed_annotation/freezed-constant.html">freezed</a></li>
+        <li>@<a href="https://pub.dev/documentation/json_annotation/4.9.0/json_annotation/JsonSerializable-class.html">JsonSerializable</a>(fieldRename: FieldRename.snake)</li>
     </ul>
   </dd>
 
@@ -88,11 +96,17 @@
     <h2>Constructors</h2>
     <dl class="constructor-summary-list">
         <dt id="Location" class="callable">
-          <span class="name"><a href="../mlit_sdk/Location/Location.html">Location</a></span><span class="signature">({<span class="parameter" id="-param-id"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">id</span>, </span><span class="parameter" id="-param-coordinate"><span>required</span> <span class="type-annotation"><a href="../mlit_sdk/Coordinate-class.html">Coordinate</a></span> <span class="parameter-name">coordinate</span>, </span><span class="parameter" id="-param-address"><span>required</span> <span class="type-annotation"><a href="../mlit_sdk/Address-class.html">Address</a></span> <span class="parameter-name">address</span>, </span><span class="parameter" id="-param-type"><span>required</span> <span class="type-annotation"><a href="../mlit_sdk/LocationType.html">LocationType</a></span> <span class="parameter-name">type</span>, </span><span class="parameter" id="-param-nameJa"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">nameJa</span>, </span><span class="parameter" id="-param-nameEn"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">nameEn</span>, </span><span class="parameter" id="-param-descriptionJa"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">descriptionJa</span>, </span><span class="parameter" id="-param-descriptionEn"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">descriptionEn</span>, </span><span class="parameter" id="-param-referencePoints"><span>@<a href="https://pub.dev/documentation/freezed_annotation/2.4.4/freezed_annotation/Default-class.html">Default</a>([])</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../mlit_sdk/ReferencePoint-class.html">ReferencePoint</a></span>&gt;</span></span> <span class="parameter-name">referencePoints</span>, </span><span class="parameter" id="-param-metadata"><span>@<a href="https://pub.dev/documentation/freezed_annotation/2.4.4/freezed_annotation/Default-class.html">Default</a>({})</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">metadata</span>, </span><span class="parameter" id="-param-updatedAt"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">updatedAt</span></span>})</span>
+          <span class="name"><a href="../mlit_sdk/Location/Location.html">Location</a></span><span class="signature">({<span class="parameter" id="-param-id"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">id</span>, </span><span class="parameter" id="-param-coordinate"><span>required</span> <span class="type-annotation"><a href="../mlit_sdk/Coordinate-class.html">Coordinate</a></span> <span class="parameter-name">coordinate</span>, </span><span class="parameter" id="-param-address"><span>required</span> <span class="type-annotation"><a href="../mlit_sdk/Address-class.html">Address</a></span> <span class="parameter-name">address</span>, </span><span class="parameter" id="-param-type"><span>required</span> <span class="type-annotation"><a href="../mlit_sdk/LocationType.html">LocationType</a></span> <span class="parameter-name">type</span>, </span><span class="parameter" id="-param-nameJa"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">nameJa</span>, </span><span class="parameter" id="-param-nameEn"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">nameEn</span>, </span><span class="parameter" id="-param-descriptionJa"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">descriptionJa</span>, </span><span class="parameter" id="-param-descriptionEn"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">descriptionEn</span>, </span><span class="parameter" id="-param-referencePoints"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../mlit_sdk/ReferencePoint-class.html">ReferencePoint</a></span>&gt;</span>?</span> <span class="parameter-name">referencePoints</span>, </span><span class="parameter" id="-param-metadata"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span>?</span> <span class="parameter-name">metadata</span>, </span><span class="parameter" id="-param-updatedAt"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">updatedAt</span></span>})</span>
         </dt>
         <dd>
           
             <div class="constructor-modifier features">const</div>
+        </dd>
+        <dt id="Location.fromJson" class="callable">
+          <span class="name"><a href="../mlit_sdk/Location/Location.fromJson.html">Location.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
+        </dt>
+        <dd>
+          Creates a Location instance from JSON
             <div class="constructor-modifier features">factory</div>
         </dd>
         <dt id="Location.fromMap" class="callable">
@@ -106,73 +120,60 @@
   </section>
     
   <section
-      class="summary offset-anchor inherited"
+      class="summary offset-anchor"
       id="instance-properties">
     <h2>Properties</h2>
     <dl class="properties">
-        <dt id="address" class="property inherited">
+        <dt id="address" class="property">
   <span class="name"><a href="../mlit_sdk/Location/address.html">address</a></span>
   <span class="signature">&#8594; <a href="../mlit_sdk/Address-class.html">Address</a></span>
   
 
 </dt>
-<dd class="inherited">
-  Address information
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
-        <dt id="coordinate" class="property inherited">
+        <dt id="coordinate" class="property">
   <span class="name"><a href="../mlit_sdk/Location/coordinate.html">coordinate</a></span>
   <span class="signature">&#8594; <a href="../mlit_sdk/Coordinate-class.html">Coordinate</a></span>
   
 
 </dt>
-<dd class="inherited">
-  Geographic coordinate of the location
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
-
-</dd>
-
-        <dt id="copyWith" class="property inherited">
-  <span class="name"><a href="../mlit_sdk/Location/copyWith.html">copyWith</a></span>
-  <span class="signature">&#8594; $LocationCopyWith<span class="signature">&lt;<wbr><span class="type-parameter"><a href="../mlit_sdk/Location-class.html">Location</a></span>&gt;</span></span>
+<dd>
   
-
-</dt>
-<dd class="inherited">
-  Create a copy of Location
-with the given fields replaced by the non-null parameter values.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
-        <dt id="descriptionEn" class="property inherited">
+        <dt id="descriptionEn" class="property">
   <span class="name"><a href="../mlit_sdk/Location/descriptionEn.html">descriptionEn</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
   
 
 </dt>
-<dd class="inherited">
-  Description in English (optional)
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
-        <dt id="descriptionJa" class="property inherited">
+        <dt id="descriptionJa" class="property">
   <span class="name"><a href="../mlit_sdk/Location/descriptionJa.html">descriptionJa</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
   
 
 </dt>
-<dd class="inherited">
-  Description in Japanese (optional)
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
         <dt id="hashCode" class="property inherited">
-  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="name"><a href="https://pub.dev/documentation/equatable/2.0.7/equatable/Equatable/hashCode.html">hashCode</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
   
 
@@ -183,63 +184,76 @@ with the given fields replaced by the non-null parameter values.
 
 </dd>
 
-        <dt id="id" class="property inherited">
+        <dt id="id" class="property">
   <span class="name"><a href="../mlit_sdk/Location/id.html">id</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
   
 
 </dt>
-<dd class="inherited">
-  Unique identifier for the location
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
-        <dt id="metadata" class="property inherited">
+        <dt id="metadata" class="property">
   <span class="name"><a href="../mlit_sdk/Location/metadata.html">metadata</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>
   
 
 </dt>
-<dd class="inherited">
-  Additional metadata as key-value pairs
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
-        <dt id="nameEn" class="property inherited">
+        <dt id="nameEn" class="property">
   <span class="name"><a href="../mlit_sdk/Location/nameEn.html">nameEn</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
   
 
 </dt>
-<dd class="inherited">
-  Name in English
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
-        <dt id="nameJa" class="property inherited">
+        <dt id="nameJa" class="property">
   <span class="name"><a href="../mlit_sdk/Location/nameJa.html">nameJa</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
   
 
 </dt>
-<dd class="inherited">
-  Name in Japanese
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
-        <dt id="referencePoints" class="property inherited">
+        <dt id="props" class="property">
+  <span class="name"><a href="../mlit_sdk/Location/props.html">props</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The list of properties that will be used to determine whether
+two instances are equal.
+  <div class="features"><span class="feature">no setter</span><span class="feature">override</span></div>
+
+</dd>
+
+        <dt id="referencePoints" class="property">
   <span class="name"><a href="../mlit_sdk/Location/referencePoints.html">referencePoints</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../mlit_sdk/ReferencePoint-class.html">ReferencePoint</a></span>&gt;</span></span>
   
 
 </dt>
-<dd class="inherited">
-  Reference points - nearby landmarks or stations
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
@@ -255,27 +269,40 @@ with the given fields replaced by the non-null parameter values.
 
 </dd>
 
-        <dt id="type" class="property inherited">
+        <dt id="stringify" class="property inherited">
+  <span class="name"><a href="https://pub.dev/documentation/equatable/2.0.7/equatable/Equatable/stringify.html">stringify</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  If set to <code>true</code>, the <a href="https://pub.dev/documentation/equatable/2.0.7/equatable/Equatable/toString.html">toString</a> method will be overridden to output
+this instance's <a href="https://pub.dev/documentation/equatable/2.0.7/equatable/Equatable/props.html">props</a>.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="type" class="property">
   <span class="name"><a href="../mlit_sdk/Location/type.html">type</a></span>
   <span class="signature">&#8594; <a href="../mlit_sdk/LocationType.html">LocationType</a></span>
   
 
 </dt>
-<dd class="inherited">
-  Location type classification
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
-        <dt id="updatedAt" class="property inherited">
+        <dt id="updatedAt" class="property">
   <span class="name"><a href="../mlit_sdk/Location/updatedAt.html">updatedAt</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span>
   
 
 </dt>
-<dd class="inherited">
-  Last updated timestamp
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
@@ -327,8 +354,21 @@ with the given fields replaced by the non-null parameter values.
 
 </dd>
 
+        <dt id="toJson" class="callable">
+  <span class="name"><a href="../mlit_sdk/Location/toJson.html">toJson</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Converts Location instance to JSON
+  
+
+</dd>
+
         <dt id="toString" class="callable inherited">
-  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+  <span class="name"><a href="https://pub.dev/documentation/equatable/2.0.7/equatable/Equatable/toString.html">toString</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
   </span>
   
@@ -349,7 +389,7 @@ with the given fields replaced by the non-null parameter values.
     <h2>Operators</h2>
     <dl class="callables">
         <dt id="operator ==" class="callable inherited">
-  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+  <span class="name"><a href="https://pub.dev/documentation/equatable/2.0.7/equatable/Equatable/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
   </span>
   
@@ -377,7 +417,7 @@ with the given fields replaced by the non-null parameter values.
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">mlit_sdk</a></li>
-    <li><a href="../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li class="self-crumb">Location class</li>
 </ol>
 
@@ -390,7 +430,7 @@ with the given fields replaced by the non-null parameter values.
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

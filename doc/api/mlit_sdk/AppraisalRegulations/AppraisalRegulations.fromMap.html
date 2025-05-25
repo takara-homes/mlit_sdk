@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/AppraisalRegulations-class.html">AppraisalRegulations</a></li>
     <li class="self-crumb">AppraisalRegulations.fromMap factory constructor</li>
   </ol>
@@ -52,7 +52,7 @@
       data-above-sidebar="mlit_sdk&#47;AppraisalRegulations-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/appraisal_report.dart#L310"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/appraisal_report.dart#L518"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">AppraisalRegulations.fromMap</span> constructor 
 </h1></div>
 
@@ -73,37 +73,26 @@
   <pre class="language-dart"><code class="language-dart">factory AppraisalRegulations.fromMap(Map&lt;String, dynamic&gt; map) {
   return AppraisalRegulations(
     areaClassification:
-        map[&#39;Standard_area_Legal_regulations_etc_Area_classification&#39;]
-                as String? ??
-            &#39;Unknown&#39;,
-    zoning: map[&#39;Standard_land_legal_regulations_etc_Zoning&#39;] as String? ??
-        &#39;Unknown&#39;,
-    buildingCoverageRatio: double.parse(
-        map[&#39;Standard_land_Legal_regulations_etc_Designated_building_coverage_ratio&#39;]
-                ?.toString() ??
-            &#39;0&#39;,),
-    floorAreaRatio: double.parse(
-        map[&#39;Standard_land_Legal_regulations_etc_designated_floor_area_ratio&#39;]
-                ?.toString() ??
-            &#39;0&#39;,),
-    firePreventionClass:
-        map[&#39;Standard_area_Legal_regulations_Fire_prevention_area&#39;]
-            as String?,
-    forestLawInfo:
-        map[&#39;Standard_area_Legal_regulations_Forest_Law&#39;] as String?,
-    naturalParksInfo:
-        map[&#39;Standard_area_Legal_regulations_Natural_Parks_Act&#39;] as String?,
-    heightDistrict:
-        map[&#39;Standard_area_legal_regulations_etc_Other_Height_district_1&#39;]
-            as String?,
-    otherRegulations: [
-      map[&#39;Standard_area_Legal_regulations_etc_Other_Other_areas_districts_etc_1&#39;]
-          as String?,
-      map[&#39;Standard_area_Legal_regulations_etc_Other_Other_areas_districts_etc_2&#39;]
-          as String?,
-      map[&#39;Standard_area_Legal_regulations_etc_Other_Other_areas_districts_etc_3&#39;]
-          as String?,
-    ].where((reg) =&gt; reg != null).map((reg) =&gt; reg!).toList(),
+        map[&#39;Standard_land_Area_classification&#39;] as String? ?? &#39;&#39;,
+    zoning: map[&#39;Standard_land_Use_district&#39;] as String? ?? &#39;&#39;,
+    buildingCoverageRatio:
+        double.tryParse(
+          map[&#39;Standard_land_Building_coverage_ratio&#39;]?.toString() ?? &#39;&#39;,
+        ) ??
+        0.0,
+    floorAreaRatio:
+        double.tryParse(
+          map[&#39;Standard_land_Floor_area_ratio&#39;]?.toString() ?? &#39;&#39;,
+        ) ??
+        0.0,
+    firePreventionClass: map[&#39;Standard_land_Fire_prevention_area&#39;] as String?,
+    forestLawInfo: map[&#39;Standard_land_Forest_Law&#39;] as String?,
+    naturalParksInfo: map[&#39;Standard_land_Natural_Parks_Act&#39;] as String?,
+    heightDistrict: map[&#39;Standard_land_Height_district&#39;] as String?,
+    otherRegulations:
+        (map[&#39;Standard_land_Other_regulations&#39;] as List&lt;dynamic&gt;?)
+            ?.map((e) =&gt; e.toString())
+            .toList(),
   );
 }</code></pre>
 </section>
@@ -119,7 +108,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/AppraisalRegulations-class.html">AppraisalRegulations</a></li>
     <li class="self-crumb">AppraisalRegulations.fromMap factory constructor</li>
 </ol>
@@ -133,7 +122,7 @@
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/LandPricePoint-class.html">LandPricePoint</a></li>
     <li class="self-crumb">LandPricePoint.fromMap factory constructor</li>
   </ol>
@@ -52,7 +52,7 @@
       data-above-sidebar="mlit_sdk&#47;LandPricePoint-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/land_price_point.dart#L96"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/land_price_point.dart#L95"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">LandPricePoint.fromMap</span> constructor 
 </h1></div>
 
@@ -86,29 +86,36 @@
     standardLotNumber: map[&#39;standard_lot_number_ja&#39;] as String,
     currentYearPrice: int.parse(map[&#39;u_current_years_price_ja&#39;].toString()),
     lastYearPrice: int.tryParse(map[&#39;last_years_price&#39;]?.toString() ?? &#39;&#39;),
-    yearOnYearChangeRate:
-        double.tryParse(map[&#39;year_on_year_change_rate&#39;]?.toString() ?? &#39;&#39;),
+    yearOnYearChangeRate: double.tryParse(
+      map[&#39;year_on_year_change_rate&#39;]?.toString() ?? &#39;&#39;,
+    ),
     cadastralArea: double.tryParse(map[&#39;u_cadastral_en&#39;]?.toString() ?? &#39;&#39;),
     buildingStructure: map[&#39;building_structure_name_en&#39;] as String?,
-    groundFloors:
-        int.tryParse(map[&#39;u_ground_hierarchy_en&#39;]?.toString() ?? &#39;&#39;),
-    undergroundFloors:
-        int.tryParse(map[&#39;u_underground_hierarchy_en&#39;]?.toString() ?? &#39;&#39;),
+    groundFloors: int.tryParse(
+      map[&#39;u_ground_hierarchy_en&#39;]?.toString() ?? &#39;&#39;,
+    ),
+    undergroundFloors: int.tryParse(
+      map[&#39;u_underground_hierarchy_en&#39;]?.toString() ?? &#39;&#39;,
+    ),
     frontRoadDetails: map[&#39;front_road_name_ja&#39;] as String?,
     frontRoadDirection: map[&#39;front_road_azimuth_name&#39;] as String?,
-    frontRoadWidth:
-        double.tryParse(map[&#39;front_road_width&#39;]?.toString() ?? &#39;&#39;),
+    frontRoadWidth: double.tryParse(
+      map[&#39;front_road_width&#39;]?.toString() ?? &#39;&#39;,
+    ),
     hasGasSupply: map[&#39;gas_supply_availability&#39;] == &#39;1&#39;,
     hasWaterSupply: map[&#39;water_supply_availability&#39;] == &#39;1&#39;,
     hasSewerSupply: map[&#39;sewer_supply_availability&#39;] == &#39;1&#39;,
     nearestStationName: map[&#39;nearest_station_name&#39;] as String?,
     distanceToStation: double.tryParse(
-        map[&#39;u_road_distance_to_nearest_station_name_ja&#39;]?.toString() ?? &#39;&#39;,),
+      map[&#39;u_road_distance_to_nearest_station_name_ja&#39;]?.toString() ?? &#39;&#39;,
+    ),
     currentUseStatus: map[&#39;usage_status_name_ja&#39;] as String?,
     buildingCoverageRatio: double.tryParse(
-        map[&#39;u_regulations_building_coverage_ratio_ja&#39;]?.toString() ?? &#39;&#39;,),
+      map[&#39;u_regulations_building_coverage_ratio_ja&#39;]?.toString() ?? &#39;&#39;,
+    ),
     floorAreaRatio: double.tryParse(
-        map[&#39;u_regulations_floor_area_ratio_ja&#39;]?.toString() ?? &#39;&#39;,),
+      map[&#39;u_regulations_floor_area_ratio_ja&#39;]?.toString() ?? &#39;&#39;,
+    ),
   );
 }</code></pre>
 </section>
@@ -124,7 +131,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/LandPricePoint-class.html">LandPricePoint</a></li>
     <li class="self-crumb">LandPricePoint.fromMap factory constructor</li>
 </ol>
@@ -138,7 +145,7 @@
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

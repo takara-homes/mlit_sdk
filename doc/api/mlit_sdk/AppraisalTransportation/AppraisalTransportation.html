@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/AppraisalTransportation-class.html">AppraisalTransportation</a></li>
     <li class="self-crumb">AppraisalTransportation const constructor</li>
   </ol>
@@ -52,7 +52,7 @@
       data-above-sidebar="mlit_sdk&#47;AppraisalTransportation-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/appraisal_report.dart#L243"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/appraisal_report.dart#L403"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">AppraisalTransportation</span> constructor 
 </h1></div>
 
@@ -70,19 +70,12 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const factory AppraisalTransportation({
-  &#47;&#47;&#47; Status of transportation facilities
-  required String facilityStatus,
-
-  &#47;&#47;&#47; Nearest station name
-  String? nearestStation,
-
-  &#47;&#47;&#47; Distance to the nearest station in meters
-  double? distanceToStation,
-
-  &#47;&#47;&#47; Transportation proximity classification
-  String? proximityClass,
-}) = _AppraisalTransportation;</code></pre>
+  <pre class="language-dart"><code class="language-dart">const AppraisalTransportation({
+  required this.facilityStatus,
+  this.nearestStation,
+  this.distanceToStation,
+  this.proximityClass,
+});</code></pre>
 </section>
 
 
@@ -96,7 +89,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/AppraisalTransportation-class.html">AppraisalTransportation</a></li>
     <li class="self-crumb">AppraisalTransportation const constructor</li>
 </ol>
@@ -110,7 +103,7 @@
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

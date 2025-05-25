@@ -206,16 +206,25 @@ dart pub global run dartdoc
 <p>The generated documentation includes:</p>
 <ul>
 <li>Complete API reference for all classes and methods</li>
-<li>Category-based organization of components</li>
+<li>Category-based organization of components (Core, Services, Entities, etc.)</li>
 <li>Code examples and usage patterns</li>
 <li>Comprehensive explanations of caching behavior and error handling</li>
 </ul>
+<h3 id="documentation-structure">Documentation Structure</h3>
+<p>The documentation is organized into the following categories:</p>
+<ol>
+<li><strong>Core SDK</strong> - Main SDK class, configuration, and initialization</li>
+<li><strong>Services</strong> - Service classes for accessing different types of MLIT data</li>
+<li><strong>Entities</strong> - Domain entities representing MLIT data</li>
+<li><strong>Repositories</strong> - Data repositories with caching capabilities</li>
+<li><strong>Value Objects</strong> - Value objects used throughout the SDK</li>
+</ol>
+<p>Each category includes detailed markdown documentation with examples and explanations.</p>
 <h3 id="customizing-documentation">Customizing Documentation</h3>
 <p>The documentation generation is configured through the <code>dartdoc_options.yaml</code> file, which provides:</p>
 <ul>
 <li>Custom categorization of SDK components</li>
 <li>Detailed markdown descriptions for each category</li>
-<li>Customized header and footer for the documentation</li>
 <li>Configuration for error and warning reporting</li>
 </ul>
 <p>If you encounter any issues with documentation generation, ensure that:</p>
@@ -241,7 +250,7 @@ dart pub global run dartdoc
           <h2>Libraries</h2>
         <dl>
           <dt id="mlit_sdk">
-  <span class="name"><a href="mlit_sdk/">mlit_sdk</a></span> 
+  <span class="name"><a href="mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></span> 
 
 </dt>
 <dd>MLIT SDK for Flutter
@@ -264,7 +273,7 @@ dart pub global run dartdoc
     <h5 class="hidden-xs"><span class="package-name">mlit_sdk</span> <span class="package-kind">package</span></h5>
     <ol>
       <li class="section-title">Libraries</li>
-      <li><a href="mlit_sdk/">mlit_sdk</a></li>
+      <li><a href="mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
 </ol>
 
   </div>
@@ -274,7 +283,7 @@ dart pub global run dartdoc
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

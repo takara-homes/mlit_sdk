@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/AppraisalReport-class.html">AppraisalReport</a></li>
     <li class="self-crumb">AppraisalReport const constructor</li>
   </ol>
@@ -52,7 +52,7 @@
       data-above-sidebar="mlit_sdk&#47;AppraisalReport-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/appraisal_report.dart#L11"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/real_estate/appraisal_report.dart#L11"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">AppraisalReport</span> constructor 
 </h1></div>
 
@@ -95,94 +95,37 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const factory AppraisalReport({
-  &#47;&#47;&#47; Price date of the appraisal
-  required DateTime priceDate,
-
-  &#47;&#47;&#47; Standard land number for reference
-  required String standardLandNumber,
-
-  &#47;&#47;&#47; Property address information
-  required Address address,
-
-  &#47;&#47;&#47; Geographic coordinate of the property
-  required Coordinate coordinate,
-
-  &#47;&#47;&#47; Land use classification (residential, commercial, etc.)
-  required String useClassification,
-
-  &#47;&#47;&#47; Price per square meter in Japanese Yen
-  required int pricePerSquareMeter,
-
-  &#47;&#47;&#47; Previous year&#39;s price per square meter
-  int? previousYearPrice,
-
-  &#47;&#47;&#47; Land area in square meters
-  required double landArea,
-
-  &#47;&#47;&#47; Land area including private road
-  double? totalLandArea,
-
-  &#47;&#47;&#47; Land shape characteristics
-  String? landShape,
-
-  &#47;&#47;&#47; Land shape ratio (frontage to depth)
-  double? landShapeRatio,
-
-  &#47;&#47;&#47; Frontage measurement in meters
-  double? frontage,
-
-  &#47;&#47;&#47; Depth measurement in meters
-  double? depth,
-
-  &#47;&#47;&#47; Direction the property faces
-  String? direction,
-
-  &#47;&#47;&#47; Topography details
-  String? topography,
-
-  &#47;&#47;&#47; Current land use status
-  required String currentLandUse,
-
-  &#47;&#47;&#47; Building structure details
-  String? buildingStructure,
-
-  &#47;&#47;&#47; Number of floors above ground
-  int? floorsAboveGround,
-
-  &#47;&#47;&#47; Number of basement floors
-  int? basementFloors,
-
-  &#47;&#47;&#47; Usage of surrounding area
-  String? surroundingAreaUse,
-
-  &#47;&#47;&#47; Front road conditions
-  required AppraisalRoadCondition roadCondition,
-
-  &#47;&#47;&#47; Infrastructure availability
-  required AppraisalInfrastructure infrastructure,
-
-  &#47;&#47;&#47; Transportation details
-  required AppraisalTransportation transportation,
-
-  &#47;&#47;&#47; Zoning and regulations
-  required AppraisalRegulations regulations,
-
-  &#47;&#47;&#47; Transaction price benchmark
-  int? transactionPriceBenchmark,
-
-  &#47;&#47;&#47; Net income price (for income approach)
-  int? netIncomePrice,
-
-  &#47;&#47;&#47; Cost approach price
-  int? costApproachPrice,
-
-  &#47;&#47;&#47; Published reference price
-  int? publishedPrice,
-
-  &#47;&#47;&#47; Price volatility percentage
-  double? priceVolatility,
-}) = _AppraisalReport;</code></pre>
+  <pre class="language-dart"><code class="language-dart">const AppraisalReport({
+  required this.priceDate,
+  required this.standardLandNumber,
+  required this.address,
+  required this.coordinate,
+  required this.useClassification,
+  required this.pricePerSquareMeter,
+  this.previousYearPrice,
+  required this.landArea,
+  this.totalLandArea,
+  this.landShape,
+  this.landShapeRatio,
+  this.frontage,
+  this.depth,
+  this.direction,
+  this.topography,
+  required this.currentLandUse,
+  this.buildingStructure,
+  this.floorsAboveGround,
+  this.basementFloors,
+  this.surroundingAreaUse,
+  required this.roadCondition,
+  required this.infrastructure,
+  required this.transportation,
+  required this.regulations,
+  this.transactionPriceBenchmark,
+  this.netIncomePrice,
+  this.costApproachPrice,
+  this.publishedPrice,
+  this.priceVolatility,
+});</code></pre>
 </section>
 
 
@@ -196,7 +139,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/AppraisalReport-class.html">AppraisalReport</a></li>
     <li class="self-crumb">AppraisalReport const constructor</li>
 </ol>
@@ -210,7 +153,7 @@
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>

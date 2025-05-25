@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk.dart</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk.dart</a></li>
     <li><a href="../../mlit_sdk/Address-class.html">Address</a></li>
     <li class="self-crumb">Address const constructor</li>
   </ol>
@@ -52,7 +52,7 @@
       data-above-sidebar="mlit_sdk&#47;Address-class-sidebar.html"
       data-below-sidebar="">
       <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/yourusername/mlit_sdk/blob/main/lib/src/domain/entities/core/address.dart#L10"><span class="material-symbols-outlined">description</span></a></div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/erknvl/mlit_sdk/blob/main/lib/src/domain/entities/core/address.dart#L10"><span class="material-symbols-outlined">description</span></a></div>
 <h1><span class="kind-constructor">Address</span> constructor 
 </h1></div>
 
@@ -60,12 +60,12 @@
       const
       <span class="name ">Address</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="-param-prefectureCode"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">prefectureCode</span>, </span></li>
 <li><span class="parameter" id="-param-cityCode"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">cityCode</span>, </span></li>
+<li><span class="parameter" id="-param-fullAddressJa"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">fullAddressJa</span>, </span></li>
+<li><span class="parameter" id="-param-fullAddressEn"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">fullAddressEn</span>, </span></li>
 <li><span class="parameter" id="-param-districtCode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">districtCode</span>, </span></li>
 <li><span class="parameter" id="-param-blockNumber"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">blockNumber</span>, </span></li>
 <li><span class="parameter" id="-param-buildingName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">buildingName</span>, </span></li>
 <li><span class="parameter" id="-param-postalCode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">postalCode</span>, </span></li>
-<li><span class="parameter" id="-param-fullAddressJa"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">fullAddressJa</span>, </span></li>
-<li><span class="parameter" id="-param-fullAddressEn"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">fullAddressEn</span>, </span></li>
 <li><span class="parameter" id="-param-coordinate"><span class="type-annotation"><a href="../../mlit_sdk/Coordinate-class.html">Coordinate</a>?</span> <span class="parameter-name">coordinate</span>, </span></li>
 </ol>})
     </section>
@@ -75,34 +75,34 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const factory Address({
+  <pre class="language-dart"><code class="language-dart">const Address({
   &#47;&#47;&#47; Prefecture code
-  required String prefectureCode,
+  required this.prefectureCode,
 
   &#47;&#47;&#47; City code
-  required String cityCode,
-
-  &#47;&#47;&#47; District code (optional)
-  String? districtCode,
-
-  &#47;&#47;&#47; Block number (番地)
-  String? blockNumber,
-
-  &#47;&#47;&#47; Building name (optional)
-  String? buildingName,
-
-  &#47;&#47;&#47; Japanese postal code
-  String? postalCode,
+  required this.cityCode,
 
   &#47;&#47;&#47; Address in Japanese format
-  required String fullAddressJa,
+  required this.fullAddressJa,
 
   &#47;&#47;&#47; Address in English format
-  required String fullAddressEn,
+  required this.fullAddressEn,
+
+  &#47;&#47;&#47; District code (optional)
+  this.districtCode,
+
+  &#47;&#47;&#47; Block number (番地)
+  this.blockNumber,
+
+  &#47;&#47;&#47; Building name (optional)
+  this.buildingName,
+
+  &#47;&#47;&#47; Japanese postal code
+  this.postalCode,
 
   &#47;&#47;&#47; Geographic coordinates of the address
-  Coordinate? coordinate,
-}) = _Address;</code></pre>
+  this.coordinate,
+});</code></pre>
 </section>
 
 
@@ -116,7 +116,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">mlit_sdk</a></li>
-    <li><a href="../../mlit_sdk/">mlit_sdk</a></li>
+    <li><a href="../../mlit_sdk/mlit_sdk-library.html">mlit_sdk</a></li>
     <li><a href="../../mlit_sdk/Address-class.html">Address</a></li>
     <li class="self-crumb">Address const constructor</li>
 </ol>
@@ -130,7 +130,7 @@
 <footer>
   <span class="no-break">
     mlit_sdk
-      0.1.0
+      1.1.0
   </span>
   
 </footer>
