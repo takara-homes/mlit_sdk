@@ -24,7 +24,7 @@ dartdoc:
   showUndocumentedCategories: true
   linkToSource:
     root: "."
-    uriTemplate: "https://github.com/erknvl/mlit_sdk/blob/main/%f%#L%l%"
+    uriTemplate: "https://github.com/takara-homes/mlit_sdk/blob/main/%f%#L%l%"
   exclude:
     - "dart:async"
     - "dart:collection"
