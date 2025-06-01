@@ -6,6 +6,11 @@ import 'package:mlit_sdk/src/infrastructure/dtos/hazard/hazard_dto.dart';
 
 part 'steep_slope_area_dto.g.dart';
 
+/// Data Transfer Object for Steep Slope Area information
+/// 
+/// This class is used to transfer steep slope area data between the API and the application.
+/// It handles the JSON serialization/deserialization of steep slope area data.
+
 @JsonSerializable(explicitToJson: true)
 class SteepSlopeAreaDto extends Equatable {
   const SteepSlopeAreaDto({
@@ -32,9 +37,10 @@ class SteepSlopeAreaDto extends Equatable {
 
   Map<String, dynamic> toJson() => _$SteepSlopeAreaDtoToJson(this);
 
-  SteepSlopeArea toDomain() {
+  /// Converts this DTO to a domain entity
+  SteepSlopeArea toEntity() {
     return SteepSlopeArea(
-      hazard: HazardDto.fromJson(hazardData).toDomain(),
+      hazard: HazardDto.fromJson(hazardData).toEntity(),
       groupCode: groupCode,
       regionName: regionName,
       publicNoticeDate: DateTime.parse(publicNoticeDate),
@@ -42,15 +48,19 @@ class SteepSlopeAreaDto extends Equatable {
     );
   }
 
-  factory SteepSlopeAreaDto.fromDomain(SteepSlopeArea domain) {
+  /// Creates a new SteepSlopeAreaDto from a SteepSlopeArea entity
+  factory SteepSlopeAreaDto.fromEntity(SteepSlopeArea entity) {
     return SteepSlopeAreaDto(
-      hazardData: HazardDto.fromDomain(domain.hazard).toJson(),
-      groupCode: domain.groupCode,
-      regionName: domain.regionName,
-      publicNoticeDate: domain.publicNoticeDate.toIso8601String(),
-      publicNoticeNumber: domain.publicNoticeNumber,
+      hazardData: entity.hazard.toDto().toJson(),
+      groupCode: entity.groupCode,
+      regionName: entity.regionName,
+      publicNoticeDate: entity.publicNoticeDate.toIso8601String(),
+      publicNoticeNumber: entity.publicNoticeNumber,
     );
   }
+  
+  /// Converts this DTO to a domain entity
+  SteepSlopeArea toDomain() => toEntity();
 
   @override
   List<Object?> get props => [

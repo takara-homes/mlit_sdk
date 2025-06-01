@@ -1,101 +1,90 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mlit_sdk/src/domain/entities/core/address.dart';
 import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
+import 'package:mlit_sdk/src/infrastructure/dtos/hazard/hazard_dto.dart';
 
-part 'hazard.freezed.dart';
+/// Represents a hazard area with its properties and location information
 
-/// Base class for all hazard-related entities
-@freezed
-abstract class Hazard with _$Hazard {
-  const factory Hazard({
-    /// Unique identifier for the hazard area
-    required String id,
+class Hazard {
+  /// Creates a new Hazard instance
+  ///
+  /// [id] Unique identifier for the hazard area
+  /// [prefectureCode] Code of the prefecture where the hazard is located
+  /// [prefectureName] Name of the prefecture
+  /// [cityCode] Code of the city where the hazard is located
+  /// [cityName] Name of the city
+  /// [address] Detailed address information
+  /// [coordinate] Geographic coordinates of the hazard
+  /// [area] Size of the hazard area in hectares
+  /// [announcementDate] Date when the hazard was officially announced
+  /// [notificationNumber] Official notification number
+  /// [type] Type of hazard
+  /// [remarks] Optional additional notes or remarks
+  const Hazard({
+    required this.id,
+    required this.prefectureCode,
+    required this.prefectureName,
+    required this.cityCode,
+    required this.cityName,
+    required this.address,
+    required this.coordinate,
+    required this.area,
+    required this.announcementDate,
+    required this.notificationNumber,
+    required this.type,
+    this.remarks,
+  });
 
-    /// Prefecture code where the hazard is located
-    required String prefectureCode,
+  /// Unique identifier for the hazard area
+  final String id;
 
-    /// Prefecture name
-    required String prefectureName,
+  /// Code of the prefecture where the hazard is located
+  final String prefectureCode;
 
-    /// City code where the hazard is located
-    required String cityCode,
+  /// Name of the prefecture
+  final String prefectureName;
 
-    /// City name
-    required String cityName,
+  /// Code of the city where the hazard is located
+  final String cityCode;
 
-    /// Location details
-    required Address address,
+  /// Name of the city
+  final String cityName;
 
-    /// Geographic coordinate
-    required Coordinate coordinate,
+  /// Detailed address information
+  final Address address;
 
-    /// Area size in hectares
-    required double area,
+  /// Geographic coordinates of the hazard
+  final Coordinate coordinate;
 
-    /// Date when the hazard area was officially announced
-    required DateTime announcementDate,
+  /// Size of the hazard area in hectares
+  final double area;
 
-    /// Official notification number
-    required String notificationNumber,
+  /// Date when the hazard was officially announced
+  final DateTime announcementDate;
 
-    /// Additional notes or remarks
-    String? remarks,
+  /// Official notification number
+  final String notificationNumber;
 
-    /// Type of hazard
-    required HazardType type,
-  }) = _Hazard;
-  const Hazard._();
+  /// Additional notes or remarks (optional)
+  final String? remarks;
 
-  /// Creates a Hazard from a map structure
-  factory Hazard.fromMap(Map<String, dynamic> map) {
-    return Hazard(
-      id: map['id'] as String,
-      prefectureCode: map['prefecture_code'] as String,
-      prefectureName: map['prefecture_name'] as String,
-      cityCode: map['city_code'] as String,
-      cityName: map['city_name'] as String,
-      address: Address.fromMap(map['address'] as Map<String, dynamic>),
-      coordinate: Coordinate.fromMap(map['coordinate'] as Map<String, dynamic>),
-      area: (map['area'] as num).toDouble(),
-      announcementDate: DateTime.parse(map['announcement_date'] as String),
-      notificationNumber: map['notification_number'] as String,
-      remarks: map['remarks'] as String?,
-      type: HazardType.fromString(map['type'] as String),
-    );
-  }
+  /// Type of hazard
+  final HazardType type;
 
-  /// Converts the hazard to a map structure
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'prefecture_code': prefectureCode,
-      'prefecture_name': prefectureName,
-      'city_code': cityCode,
-      'city_name': cityName,
-      'address': address.toMap(),
-      'coordinate': coordinate.toMap(),
-      'area': area,
-      'announcement_date': announcementDate.toIso8601String(),
-      'notification_number': notificationNumber,
-      if (remarks != null) 'remarks': remarks,
-      'type': type.toString(),
-    };
-  }
+  /// Converts this entity to a DTO
+  HazardDto toDto() => HazardDto.fromEntity(this);
 }
 
 /// Represents different types of hazards
 enum HazardType {
+  /// Disaster risk area
   disasterRisk,
+
+  /// Landslide hazard area
   landslide,
+
+  /// Steep slope hazard area
   steepSlope;
 
   @override
   String toString() => name;
-
-  static HazardType fromString(String value) {
-    return HazardType.values.firstWhere(
-      (type) => type.toString() == value,
-      orElse: () => HazardType.disasterRisk,
-    );
-  }
 }

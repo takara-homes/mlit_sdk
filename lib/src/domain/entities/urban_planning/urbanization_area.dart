@@ -1,77 +1,48 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'urbanization_area.freezed.dart';
-
-/// Represents an urbanization area in urban planning
-@freezed
-abstract class UrbanizationArea with _$UrbanizationArea {
-  const factory UrbanizationArea({
+class UrbanizationArea {
+  const UrbanizationArea({
     /// Prefecture name
-    required String prefecture,
+    required this.prefecture,
 
     /// City code
-    required String cityCode,
+    required this.cityCode,
 
     /// City name
-    required String cityName,
+    required this.cityName,
 
     /// Category ID
-    required String kubunId,
+    required this.kubunId,
 
     /// Date of establishment
-    required DateTime decisionDate,
+    required this.decisionDate,
 
     /// Category of decision
-    required String decisionClassification,
+    required this.decisionClassification,
 
     /// Authority who made the decision
-    required String decisionMaker,
+    required this.decisionMaker,
 
     /// Official notification number
-    required String noticeNumber,
+    required this.noticeNumber,
 
     /// Area classification in English
-    required String areaClassificationEn,
+    required this.areaClassificationEn,
 
     /// Date of initial decision
-    required DateTime firstDecisionDate,
+    required this.firstDecisionDate,
 
     /// Original notification number
-    required String noticeNumberS,
-  }) = _UrbanizationArea;
-  const UrbanizationArea._();
+    required this.noticeNumberS,
+  });
 
-  /// Creates an UrbanizationArea from API response map
-  factory UrbanizationArea.fromMap(Map<String, dynamic> map) {
-    return UrbanizationArea(
-      prefecture: map['prefecture'] as String,
-      cityCode: map['city_code'] as String,
-      cityName: map['city_name'] as String,
-      kubunId: map['kubun_id'] as String,
-      decisionDate: DateTime.parse(map['decision_date'] as String),
-      decisionClassification: map['decision_classification'] as String,
-      decisionMaker: map['decision_maker'] as String,
-      noticeNumber: map['notice_number'] as String,
-      areaClassificationEn: map['area_classification_en'] as String,
-      firstDecisionDate: DateTime.parse(map['first_decision_date'] as String),
-      noticeNumberS: map['notice_number_s'] as String,
-    );
-  }
-
-  /// Converts the urbanization area to a map
-  Map<String, dynamic> toMap() {
-    return {
-      'prefecture': prefecture,
-      'city_code': cityCode,
-      'city_name': cityName,
-      'kubun_id': kubunId,
-      'decision_date': decisionDate.toIso8601String(),
-      'decision_classification': decisionClassification,
-      'decision_maker': decisionMaker,
-      'notice_number': noticeNumber,
-      'area_classification_en': areaClassificationEn,
-      'first_decision_date': firstDecisionDate.toIso8601String(),
-      'notice_number_s': noticeNumberS,
-    };
-  }
+  final String prefecture;
+  final String cityCode;
+  final String cityName;
+  final String kubunId;
+  final DateTime decisionDate;
+  final String decisionClassification;
+  final String decisionMaker;
+  final String noticeNumber;
+  final String areaClassificationEn;
+  final DateTime firstDecisionDate;
+  final String noticeNumberS;
 }

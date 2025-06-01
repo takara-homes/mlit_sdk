@@ -61,9 +61,10 @@ class DisasterRiskAreaDto extends Equatable {
     others,
   ];
 
-  DisasterRiskArea toDomain() {
+  /// Converts this DTO to a domain entity
+  DisasterRiskArea toEntity() {
     return DisasterRiskArea(
-      hazard: HazardDto.fromJson(hazardData).toDomain(),
+      hazard: HazardDto.fromJson(hazardData).toEntity(),
       designatedBodyCategory: designatedBodyCategory,
       areaNameEn: areaNameEn,
       specifiedReasonCode: specifiedReasonCode,
@@ -75,17 +76,21 @@ class DisasterRiskAreaDto extends Equatable {
     );
   }
 
-  factory DisasterRiskAreaDto.fromDomain(DisasterRiskArea domain) {
+  /// Creates a new DisasterRiskAreaDto from a DisasterRiskArea entity
+  factory DisasterRiskAreaDto.fromEntity(DisasterRiskArea entity) {
     return DisasterRiskAreaDto(
-      hazardData: HazardDto.fromDomain(domain.hazard).toJson(),
-      designatedBodyCategory: domain.designatedBodyCategory,
-      areaNameEn: domain.areaNameEn,
-      specifiedReasonCode: domain.specifiedReasonCode,
-      designationReasonJa: domain.designationReasonJa,
-      designationReasonEn: domain.designationReasonEn,
-      ordinanceBasis: domain.ordinanceBasis,
-      scale: domain.scale,
-      others: domain.others,
+      hazardData: entity.hazard.toDto().toJson(),
+      designatedBodyCategory: entity.designatedBodyCategory,
+      areaNameEn: entity.areaNameEn,
+      specifiedReasonCode: entity.specifiedReasonCode,
+      designationReasonJa: entity.designationReasonJa,
+      designationReasonEn: entity.designationReasonEn,
+      ordinanceBasis: entity.ordinanceBasis,
+      scale: entity.scale,
+      others: entity.others,
     );
   }
+  
+  /// Alias for toEntity for backward compatibility
+  DisasterRiskArea toDomain() => toEntity();
 }

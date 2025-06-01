@@ -32,9 +32,10 @@ class LandslideAreaDto extends Equatable {
 
   Map<String, dynamic> toJson() => _$LandslideAreaDtoToJson(this);
 
-  LandslideArea toDomain() {
+  /// Converts this DTO to a domain entity
+  LandslideArea toEntity() {
     return LandslideArea(
-      hazard: HazardDto.fromJson(hazardData).toDomain(),
+      hazard: HazardDto.fromJson(hazardData).toEntity(),
       groupCode: groupCode,
       regionName: regionName,
       chargeMinistryCode: chargeMinistryCode,
@@ -42,15 +43,19 @@ class LandslideAreaDto extends Equatable {
     );
   }
 
-  factory LandslideAreaDto.fromDomain(LandslideArea domain) {
+  /// Creates a new LandslideAreaDto from a LandslideArea entity
+  factory LandslideAreaDto.fromEntity(LandslideArea entity) {
     return LandslideAreaDto(
-      hazardData: HazardDto.fromDomain(domain.hazard).toJson(),
-      groupCode: domain.groupCode,
-      regionName: domain.regionName,
-      chargeMinistryCode: domain.chargeMinistryCode,
-      chargeMinistryName: domain.chargeMinistryName,
+      hazardData: entity.hazard.toDto().toJson(),
+      groupCode: entity.groupCode,
+      regionName: entity.regionName,
+      chargeMinistryCode: entity.chargeMinistryCode,
+      chargeMinistryName: entity.chargeMinistryName,
     );
   }
+  
+  /// Alias for toEntity for backward compatibility
+  LandslideArea toDomain() => toEntity();
 
   @override
   List<Object?> get props => [

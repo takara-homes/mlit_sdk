@@ -1,80 +1,49 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mlit_sdk/src/domain/entities/core/address.dart';
 import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 
-part 'medical_facility.freezed.dart';
-
-/// Represents a medical facility in Japan
-@freezed
-abstract class MedicalFacility with _$MedicalFacility {
-  const factory MedicalFacility({
+class MedicalFacility {
+  const MedicalFacility({
     /// Medical institution classification
-    required String institutionClassification,
+    required this.institutionClassification,
 
     /// Name in Japanese
-    required String nameJa,
+    required this.nameJa,
 
     /// Name in English
-    required String nameEn,
+    required this.nameEn,
 
     /// Facility location
-    required Coordinate coordinate,
+    required this.coordinate,
 
     /// Facility address
-    required Address address,
+    required this.address,
 
     /// List of medical departments
-    required List<String> departments,
+    required this.departments,
 
     /// Hospital founder classification
-    required String founderClassification,
+    required this.founderClassification,
 
     /// Number of beds
-    int? bedCount,
+    this.bedCount,
 
     /// Whether this is an emergency notification hospital
-    @Default(false) bool isEmergencyHospital,
+    this.isEmergencyHospital,
 
     /// Whether this is a disaster base hospital
-    @Default(false) bool isDisasterBaseHospital,
-  }) = _MedicalFacility;
-  const MedicalFacility._();
+    this.isDisasterBaseHospital,
+  });
 
-  /// Creates a MedicalFacility from API response map
-  factory MedicalFacility.fromMap(Map<String, dynamic> map) {
-    return MedicalFacility(
-      institutionClassification: map['P1'] as String,
-      nameJa: map['P2_name_ja'] as String,
-      nameEn: map['P2_en'] as String,
-      coordinate: Coordinate.fromMap({
-        'latitude': map['latitude'] as double,
-        'longitude': map['longitude'] as double,
-      }),
-      address: Address.fromMap(map['P3_en'] as Map<String, dynamic>),
-      departments: _parseDepartments(map),
-      founderClassification: map['P7'] as String,
-      bedCount: int.tryParse(map['P8']?.toString() ?? ''),
-      isEmergencyHospital: map['P9'] == '1',
-      isDisasterBaseHospital: map['P10'] == '1',
-    );
-  }
-
-  /// Converts MedicalFacility to a map structure
-  Map<String, dynamic> toMap() {
-    return {
-      'P1': institutionClassification,
-      'P2_name_ja': nameJa,
-      'P2_en': nameEn,
-      'latitude': coordinate.latitude,
-      'longitude': coordinate.longitude,
-      'P3_en': address.toMap(),
-      'P4': departments.join(','),
-      'P7': founderClassification,
-      if (bedCount != null) 'P8': bedCount.toString(),
-      'P9': isEmergencyHospital ? '1' : '0',
-      'P10': isDisasterBaseHospital ? '1' : '0',
-    };
-  }
+  final String institutionClassification;
+  final String nameJa;
+  final String nameEn;
+  final Coordinate coordinate;
+  final Address address;
+  final List<String> departments;
+  final String founderClassification;
+  final int? bedCount;
+  final bool? isEmergencyHospital;
+  final bool? isDisasterBaseHospital;
 
   /// Returns the facility type based on classification
   MedicalFacilityType get type =>
@@ -85,25 +54,6 @@ abstract class MedicalFacility with _$MedicalFacility {
       type == MedicalFacilityType.hospital && departments.length >= 3;
 
   /// Parses departments from API response
-  static List<String> _parseDepartments(Map<String, dynamic> map) {
-    final departments = <String>[];
-
-    // Parse up to 3 department fields
-    for (var i = 1; i <= 3; i++) {
-      final dept = map['P4_$i'];
-      if (dept != null && dept.toString().isNotEmpty) {
-        departments.add(dept.toString());
-      }
-    }
-
-    // Parse combined department field if exists
-    final combinedDepts = map['medical_subject_en'];
-    if (combinedDepts != null) {
-      departments.addAll(combinedDepts.toString().split(','));
-    }
-
-    return departments.toSet().toList(); // Remove duplicates
-  }
 }
 
 /// Represents types of medical facilities in Japan

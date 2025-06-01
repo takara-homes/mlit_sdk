@@ -1,76 +1,54 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
-part 'welfare_facility.freezed.dart';
 
 /// Represents a welfare facility in Japan
-@freezed
-abstract class WelfareFacility with _$WelfareFacility {
-  const factory WelfareFacility({
+
+class WelfareFacility {
+  const WelfareFacility({
     /// Prefecture name
-    required String prefecture,
+    required this.prefecture,
 
     /// City/town/village name
-    required String cityName,
+    required this.cityName,
 
     /// Administrative area code
-    required String administrativeAreaCode,
+    required this.administrativeAreaCode,
 
     /// Facility location
-    required Coordinate coordinate,
+    required this.coordinate,
 
     /// Facility name in English
-    required String nameEn,
+    required this.nameEn,
 
     /// Facility classification hierarchy
-    required WelfareFacilityClassification classification,
+    required this.classification,
 
     /// Administrator code
-    required String administratorCode,
+    required this.administratorCode,
 
     /// Location accuracy code
-    required String locationAccuracyCode,
+    required this.locationAccuracyCode,
 
     /// Operating hours
-    OperatingSchedule? schedule,
+    this.schedule,
 
     /// Capacity information
-    FacilityCapacity? capacity,
+    this.capacity,
 
     /// Additional services offered
-    @Default([]) List<String> services,
-  }) = _WelfareFacility;
-  const WelfareFacility._();
+    this.services,
+  });
 
-  /// Creates a WelfareFacility from API response map
-  factory WelfareFacility.fromMap(Map<String, dynamic> map) {
-    return WelfareFacility(
-      prefecture: map['P1'] as String,
-      cityName: map['P2'] as String,
-      administrativeAreaCode: map['P3'] as String,
-      coordinate: Coordinate.fromMap({
-        'latitude': map['latitude'] as double,
-        'longitude': map['longitude'] as double,
-      }),
-      nameEn: map['P6_en'] as String,
-      classification: WelfareFacilityClassification(
-        majorCode: map['P4'] as String,
-        majorName: map['P4_name_ja'] as String,
-        middleCode: map['P5'] as String,
-        middleName: map['P5_name_ja'] as String,
-        minorCode: map['P6'] as String,
-      ),
-      administratorCode: map['P7'] as String,
-      locationAccuracyCode: map['P8'] as String,
-      schedule: map['schedule'] != null
-          ? OperatingSchedule.fromMap(map['schedule'] as Map<String, dynamic>)
-          : null,
-      capacity: map['capacity'] != null
-          ? FacilityCapacity.fromMap(map['capacity'] as Map<String, dynamic>)
-          : null,
-      services:
-          (map['services'] as List?)?.map((e) => e.toString()).toList() ?? [],
-    );
-  }
+  final String prefecture;
+  final String cityName;
+  final String administrativeAreaCode;
+  final Coordinate coordinate;
+  final String nameEn;
+  final WelfareFacilityClassification classification;
+  final String administratorCode;
+  final String locationAccuracyCode;
+  final OperatingSchedule? schedule;
+  final FacilityCapacity? capacity;
+  final List<String>? services;
 
   /// Returns whether this is a public facility
   bool get isPublic => administratorCode.startsWith('1');
@@ -81,56 +59,49 @@ abstract class WelfareFacility with _$WelfareFacility {
 }
 
 /// Represents the classification hierarchy of a welfare facility
-@freezed
-abstract class WelfareFacilityClassification
-    with _$WelfareFacilityClassification {
-  const factory WelfareFacilityClassification({
-    required String majorCode,
-    required String majorName,
-    required String middleCode,
-    required String middleName,
-    required String minorCode,
-  }) = _WelfareFacilityClassification;
+
+class WelfareFacilityClassification {
+  const WelfareFacilityClassification({
+    required this.majorCode,
+    required this.majorName,
+    required this.middleCode,
+    required this.middleName,
+    required this.minorCode,
+  });
+  final String majorCode;
+  final String majorName;
+  final String middleCode;
+  final String middleName;
+  final String minorCode;
 }
 
 /// Represents operating schedule of a facility
-@freezed
-abstract class OperatingSchedule with _$OperatingSchedule {
-  const factory OperatingSchedule({
-    required String weekdayHours,
-    String? weekendHours,
-    String? holidayHours,
-    List<String>? closedDays,
-  }) = _OperatingSchedule;
 
-  factory OperatingSchedule.fromMap(Map<String, dynamic> map) {
-    return OperatingSchedule(
-      weekdayHours: map['weekday_hours'] as String,
-      weekendHours: map['weekend_hours'] as String?,
-      holidayHours: map['holiday_hours'] as String?,
-      closedDays: (map['closed_days'] as List?)?.cast<String>(),
-    );
-  }
+class OperatingSchedule {
+  const OperatingSchedule({
+    required this.weekdayHours,
+    this.weekendHours,
+    this.holidayHours,
+    this.closedDays,
+  });
+  final String weekdayHours;
+  final String? weekendHours;
+  final String? holidayHours;
+  final List<String>? closedDays;
 }
 
 /// Represents capacity information of a facility
-@freezed
-abstract class FacilityCapacity with _$FacilityCapacity {
-  const factory FacilityCapacity({
-    required int totalCapacity,
-    int? currentOccupancy,
-    Map<String, int>? capacityByType,
-  }) = _FacilityCapacity;
 
-  factory FacilityCapacity.fromMap(Map<String, dynamic> map) {
-    return FacilityCapacity(
-      totalCapacity: map['total_capacity'] as int,
-      currentOccupancy: map['current_occupancy'] as int?,
-      capacityByType: (map['capacity_by_type'] as Map<String, dynamic>?)?.map(
-        (k, v) => MapEntry(k, v as int),
-      ),
-    );
-  }
+class FacilityCapacity {
+  const FacilityCapacity({
+    required this.totalCapacity,
+    this.currentOccupancy,
+    this.capacityByType,
+  });
+
+  final int totalCapacity;
+  final int? currentOccupancy;
+  final Map<String, int>? capacityByType;
 }
 
 /// Represents types of welfare facilities

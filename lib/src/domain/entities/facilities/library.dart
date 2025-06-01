@@ -1,142 +1,104 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
-part 'library.freezed.dart';
 
-@freezed
-abstract class Library with _$Library {
-  const factory Library({
+class Library {
+  const Library({
     /// Administrative area code
-    required String administrativeAreaCode,
+    required this.administrativeAreaCode,
 
     /// Public facilities category
-    required String publicFacilitiesCategory,
+    required this.publicFacilitiesCategory,
 
     /// Public facilities subcategory
-    required String publicFacilitiesSubcategory,
+    required this.publicFacilitiesSubcategory,
 
     /// Cultural facility classification
-    required String culturalFacilityClassification,
+    required this.culturalFacilityClassification,
 
     /// Library name in Japanese
-    required String nameJa,
+    required this.nameJa,
 
     /// Library name in English
-    required String nameEn,
+    required this.nameEn,
 
     /// Library location
-    required Coordinate coordinate,
+    required this.coordinate,
 
     /// Location description
-    required String locationEn,
+    required this.locationEn,
 
     /// Administrator code
-    required String administratorCode,
+    required this.administratorCode,
 
     /// Number of floors
-    int? floorCount,
+    this.floorCount,
 
     /// Year of construction
-    int? yearBuilt,
+    this.yearBuilt,
 
     /// Library services
-    @Default([]) List<LibraryService> services,
+    this.services,
 
     /// Opening hours
-    LibrarySchedule? schedule,
+    this.schedule,
 
     /// Collection information
-    LibraryCollection? collection,
-  }) = _Library;
-  const Library._();
+    this.collection,
+  });
 
-  /// Creates a Library from API response map
-  factory Library.fromMap(Map<String, dynamic> map) {
-    return Library(
-      administrativeAreaCode: map['P1'] as String,
-      publicFacilitiesCategory: map['P2'] as String,
-      publicFacilitiesSubcategory: map['P3'] as String,
-      culturalFacilityClassification: map['P4'] as String,
-      nameJa: map['P5_name_ja'] as String,
-      nameEn: map['P5_en'] as String,
-      coordinate: Coordinate.fromMap({
-        'latitude': map['P6_latitude'] as double,
-        'longitude': map['P6_longitude'] as double,
-      }),
-      locationEn: map['P7_en'] as String,
-      administratorCode: map['P8'] as String,
-      floorCount: int.tryParse(map['P9']?.toString() ?? ''),
-      yearBuilt: int.tryParse(map['P10']?.toString() ?? ''),
-      services: _parseServices(map['services'] as List?),
-      schedule: map['schedule'] != null
-          ? LibrarySchedule.fromMap(map['schedule'] as Map<String, dynamic>)
-          : null,
-      collection: map['collection'] != null
-          ? LibraryCollection.fromMap(map['collection'] as Map<String, dynamic>)
-          : null,
-    );
-  }
+  final String administrativeAreaCode;
+  final String publicFacilitiesCategory;
+  final String publicFacilitiesSubcategory;
+  final String culturalFacilityClassification;
+  final String nameJa;
+  final String nameEn;
+  final Coordinate coordinate;
+  final String locationEn;
+  final String administratorCode;
+  final int? floorCount;
+  final int? yearBuilt;
+  final List<LibraryService>? services;
+  final LibrarySchedule? schedule;
+  final LibraryCollection? collection;
 
   /// Returns whether this is a public library
   bool get isPublic => administratorCode.startsWith('1');
 
   /// Returns the library type based on classification
-  LibraryType get type =>
-      LibraryType.fromClassification(culturalFacilityClassification);
-
-  /// Parses library services from API response
-  static List<LibraryService> _parseServices(List? servicesList) {
-    if (servicesList == null) return [];
-
-    return servicesList
-        .map(
-          (service) => LibraryService.values.firstWhere(
-            (s) => s.toString().split('.').last == service,
-            orElse: () => LibraryService.other,
-          ),
-        )
-        .toList();
-  }
+  LibraryType get type => LibraryType.fromClassification(
+        culturalFacilityClassification,
+      );
 }
 
 /// Represents the library's operating schedule
-@freezed
-abstract class LibrarySchedule with _$LibrarySchedule {
-  const factory LibrarySchedule({
-    required String weekdayHours,
-    String? weekendHours,
-    List<String>? holidays,
-    String? specialHours,
-  }) = _LibrarySchedule;
 
-  factory LibrarySchedule.fromMap(Map<String, dynamic> map) {
-    return LibrarySchedule(
-      weekdayHours: map['weekday_hours'] as String,
-      weekendHours: map['weekend_hours'] as String?,
-      holidays: (map['holidays'] as List?)?.cast<String>(),
-      specialHours: map['special_hours'] as String?,
-    );
-  }
+class LibrarySchedule {
+  const LibrarySchedule({
+    required this.weekdayHours,
+    this.weekendHours,
+    this.holidays,
+    this.specialHours,
+  });
+
+  final String weekdayHours;
+  final String? weekendHours;
+  final List<String>? holidays;
+  final String? specialHours;
 }
 
 /// Represents the library's collection information
-@freezed
-abstract class LibraryCollection with _$LibraryCollection {
-  const factory LibraryCollection({
-    required int totalVolumes,
-    Map<String, int>? volumesByCategory,
-    int? periodicalsCount,
-    int? digitalResourcesCount,
-  }) = _LibraryCollection;
 
-  factory LibraryCollection.fromMap(Map<String, dynamic> map) {
-    return LibraryCollection(
-      totalVolumes: map['total_volumes'] as int,
-      volumesByCategory: (map['volumes_by_category'] as Map<String, dynamic>?)
-          ?.map((k, v) => MapEntry(k, v as int)),
-      periodicalsCount: map['periodicals_count'] as int?,
-      digitalResourcesCount: map['digital_resources_count'] as int?,
-    );
-  }
+class LibraryCollection {
+  const LibraryCollection({
+    required this.totalVolumes,
+    this.volumesByCategory,
+    this.periodicalsCount,
+    this.digitalResourcesCount,
+  });
+
+  final int totalVolumes;
+  final Map<String, int>? volumesByCategory;
+  final int? periodicalsCount;
+  final int? digitalResourcesCount;
 }
 
 /// Represents types of library facilities
