@@ -140,7 +140,7 @@ class RealEstateRepository
 
       await _saveToCache(cacheKey, reports);
 
-      return Right(reports.map((e) => e.toDomain()).toList());
+      return Right(reports.map((e) => e.toEntity()).toList());
     } on DioException catch (e) {
       return handleNetworkError(e, 'Error while fetching appraisal reports');
     } on Object catch (e) {
@@ -211,7 +211,7 @@ class RealEstateRepository
 
       await _saveToCache(cacheKey, points);
 
-      return Right(points.map((e) => e.toDomain()).toList());
+      return Right(points.map((e) => e.toEntity()).toList());
     } on DioException catch (e) {
       return handleNetworkError(e, 'Error while fetching land price points');
     } on Object catch (e) {
@@ -268,7 +268,7 @@ class RealEstateRepository
 
       await _saveToCache(cacheKey, transactions);
 
-      return Right(transactions.map((e) => e.toDomain()).toList());
+      return Right(transactions.map((e) => e.toEntity()).toList());
     } on DioException catch (e) {
       return handleNetworkError(e, 'Error while fetching transactions');
     } on Object catch (e) {

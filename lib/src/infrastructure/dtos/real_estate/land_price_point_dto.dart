@@ -99,7 +99,7 @@ class LandPricePointDto extends Equatable {
 
   Map<String, dynamic> toJson() => _$LandPricePointDtoToJson(this);
 
-  LandPricePoint toDomain() {
+  LandPricePoint toEntity() {
     return LandPricePoint(
       pointId: pointId,
       targetYear: int.parse(targetYear),

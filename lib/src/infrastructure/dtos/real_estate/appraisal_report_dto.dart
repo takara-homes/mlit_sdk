@@ -112,7 +112,7 @@ class AppraisalReportDto extends Equatable {
 
   Map<String, dynamic> toJson() => _$AppraisalReportDtoToJson(this);
 
-  AppraisalReport toDomain() {
+  AppraisalReport toEntity() {
     return AppraisalReport(
       priceDate: DateTime.parse(priceDate),
       standardLandNumber: standardLandNumber,

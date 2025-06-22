@@ -7,37 +7,48 @@ class RealEstateTransaction extends BaseEntity
     with MultilingualEntity, AdministrativeLocationEntity, SerializationHelpers
     implements SerializableEntity {
   const RealEstateTransaction({
+    /// Price category (e.g., "不動産取引価格情報")
+    this.priceCategory,
+
     required this.typeJa,
 
-    required this.typeEn,
+    /// Type in English (often not provided by API)
+    this.typeEn,
 
     required this.regionJa,
 
-    required this.regionEn,
+    /// Region in English (often not provided by API)
+    this.regionEn,
 
     required this.municipalityCode,
 
     required this.districtNameJa,
 
-    required this.districtNameEn,
+    /// District name in English (often not provided by API)
+    this.districtNameEn,
 
     required this.tradePrice,
 
-    required this.pricePerUnit,
+    /// Price per unit (can be null/empty)
+    this.pricePerUnit,
 
-    required this.unitPrice,
+    /// Unit price (can be null/empty)
+    this.unitPrice,
 
     required this.address,
 
     required this.area,
 
-    required this.useJa,
+    /// Property use type in Japanese (can be empty)
+    this.useJa,
 
-    required this.useEn,
+    /// Property use type in English (often not provided)
+    this.useEn,
 
     required this.periodJa,
 
-    required this.periodEn,
+    /// Period in English (often not provided)
+    this.periodEn,
 
     this.floorPlanJa,
 
@@ -88,13 +99,14 @@ class RealEstateTransaction extends BaseEntity
     this.remarksEn,
   });
 
+  final String? priceCategory;
   final String typeJa;
-  final String typeEn;
+  final String? typeEn;
   final String regionJa;
-  final String regionEn;
+  final String? regionEn;
   final String municipalityCode;
   final String districtNameJa;
-  final String districtNameEn;
+  final String? districtNameEn;
   final int tradePrice;
   final double? pricePerUnit;
   final double? unitPrice;
@@ -109,8 +121,8 @@ class RealEstateTransaction extends BaseEntity
   final String? buildingYear;
   final String? buildingStructureJa;
   final String? buildingStructureEn;
-  final String useJa;
-  final String useEn;
+  final String? useJa;
+  final String? useEn;
   final String? purposeJa;
   final String? purposeEn;
   final String? frontRoadDirectionJa;
@@ -123,7 +135,7 @@ class RealEstateTransaction extends BaseEntity
   final double? buildingCoverageRatio;
   final double? floorAreaRatio;
   final String periodJa;
-  final String periodEn;
+  final String? periodEn;
   final String? renovationJa;
   final String? renovationEn;
   final String? remarksJa;
@@ -131,164 +143,49 @@ class RealEstateTransaction extends BaseEntity
 
   factory RealEstateTransaction.fromMap(Map<String, dynamic> map) {
     return RealEstateTransaction(
+      priceCategory: _getStringOrNull(map['PriceCategory']),
       typeJa: EntityValidation.getStringSafely(map['Type']),
-      typeEn: EntityValidation.getStringSafely(map['Type_en']),
+      typeEn: _getStringOrNull(map['Type_en']),
       regionJa: EntityValidation.getStringSafely(map['Region']),
-      regionEn: EntityValidation.getStringSafely(map['Region_en']),
+      regionEn: _getStringOrNull(map['Region_en']),
       municipalityCode: EntityValidation.validateAdministrativeCode(
         map['MunicipalityCode'] as String?,
       ),
       districtNameJa: EntityValidation.getStringSafely(map['DistrictName']),
-      districtNameEn: EntityValidation.getStringSafely(map['DistrictName_en']),
+      districtNameEn: _getStringOrNull(map['DistrictName_en']),
       tradePrice: EntityValidation.parseIntSafely(map['TradePrice']),
-      pricePerUnit: EntityValidation.parseDoubleSafely(map['PricePerUnit']),
-      unitPrice: EntityValidation.parseDoubleSafely(map['UnitPrice']),
-      address: Address.fromMap(map['address'] as Map<String, dynamic>? ?? {}),
+      pricePerUnit: _parseDoubleFromString(map['PricePerUnit']),
+      unitPrice: _parseDoubleFromString(map['UnitPrice']),
+      address: _createAddressFromMap(map),
       area: EntityValidation.parseDoubleSafely(map['Area']) ?? 0.0,
-      useJa: EntityValidation.getStringSafely(map['Use']),
-      useEn: EntityValidation.getStringSafely(map['Use_en']),
+      useJa: _getStringOrNull(map['Use']),
+      useEn: _getStringOrNull(map['Use_en']),
       periodJa: EntityValidation.getStringSafely(map['Period']),
-      periodEn: EntityValidation.getStringSafely(map['Period_en']),
-      floorPlanJa:
-          EntityValidation.getStringSafely(
-            map['FloorPlan'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['FloorPlan'])
-          : null,
-      floorPlanEn:
-          EntityValidation.getStringSafely(
-            map['FloorPlan_en'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['FloorPlan_en'])
-          : null,
-      landShapeJa:
-          EntityValidation.getStringSafely(
-            map['LandShape'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['LandShape'])
-          : null,
-      landShapeEn:
-          EntityValidation.getStringSafely(
-            map['LandShape_en'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['LandShape_en'])
-          : null,
-      frontage: EntityValidation.parseDoubleSafely(map['Frontage']),
-      totalFloorArea: EntityValidation.parseDoubleSafely(map['TotalFloorArea']),
-      buildingYear:
-          EntityValidation.getStringSafely(
-            map['BuildingYear'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['BuildingYear'])
-          : null,
-      buildingStructureJa:
-          EntityValidation.getStringSafely(
-            map['Structure'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['Structure'])
-          : null,
-      buildingStructureEn:
-          EntityValidation.getStringSafely(
-            map['Structure_en'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['Structure_en'])
-          : null,
-      purposeJa:
-          EntityValidation.getStringSafely(
-            map['Purpose'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['Purpose'])
-          : null,
-      purposeEn:
-          EntityValidation.getStringSafely(
-            map['Purpose_en'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['Purpose_en'])
-          : null,
-      frontRoadDirectionJa:
-          EntityValidation.getStringSafely(
-            map['Direction'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['Direction'])
-          : null,
-      frontRoadDirectionEn:
-          EntityValidation.getStringSafely(
-            map['Direction_en'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['Direction_en'])
-          : null,
-      frontRoadTypeJa:
-          EntityValidation.getStringSafely(
-            map['Classification'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['Classification'])
-          : null,
-      frontRoadTypeEn:
-          EntityValidation.getStringSafely(
-            map['Classification_en'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['Classification_en'])
-          : null,
-      frontRoadWidth: EntityValidation.parseDoubleSafely(map['Breadth']),
-      cityPlanningJa:
-          EntityValidation.getStringSafely(
-            map['CityPlanning'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['CityPlanning'])
-          : null,
-      cityPlanningEn:
-          EntityValidation.getStringSafely(
-            map['CityPlanning_en'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['CityPlanning_en'])
-          : null,
-      buildingCoverageRatio: EntityValidation.parseDoubleSafely(
-        map['CoverageRatio'],
-      ),
-      floorAreaRatio: EntityValidation.parseDoubleSafely(map['FloorAreaRatio']),
-      renovationJa:
-          EntityValidation.getStringSafely(
-            map['Renovation'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['Renovation'])
-          : null,
-      renovationEn:
-          EntityValidation.getStringSafely(
-            map['Renovation_en'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['Renovation_en'])
-          : null,
-      remarksJa:
-          EntityValidation.getStringSafely(
-            map['Remarks'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['Remarks'])
-          : null,
-      remarksEn:
-          EntityValidation.getStringSafely(
-            map['Remarks_en'],
-            defaultValue: '',
-          ).isNotEmpty
-          ? EntityValidation.getStringSafely(map['Remarks_en'])
-          : null,
+      periodEn: _getStringOrNull(map['Period_en']),
+      floorPlanJa: _getStringOrNull(map['FloorPlan']),
+      floorPlanEn: _getStringOrNull(map['FloorPlan_en']),
+      landShapeJa: _getStringOrNull(map['LandShape']),
+      landShapeEn: _getStringOrNull(map['LandShape_en']),
+      frontage: _parseDoubleFromString(map['Frontage']),
+      totalFloorArea: _parseDoubleFromString(map['TotalFloorArea']),
+      buildingYear: _getStringOrNull(map['BuildingYear']),
+      buildingStructureJa: _getStringOrNull(map['Structure']),
+      buildingStructureEn: _getStringOrNull(map['Structure_en']),
+      purposeJa: _getStringOrNull(map['Purpose']),
+      purposeEn: _getStringOrNull(map['Purpose_en']),
+      frontRoadDirectionJa: _getStringOrNull(map['Direction']),
+      frontRoadDirectionEn: _getStringOrNull(map['Direction_en']),
+      frontRoadTypeJa: _getStringOrNull(map['Classification']),
+      frontRoadTypeEn: _getStringOrNull(map['Classification_en']),
+      frontRoadWidth: _parseDoubleFromString(map['Breadth']),
+      cityPlanningJa: _getStringOrNull(map['CityPlanning']),
+      cityPlanningEn: _getStringOrNull(map['CityPlanning_en']),
+      buildingCoverageRatio: _parseDoubleFromString(map['CoverageRatio']),
+      floorAreaRatio: _parseDoubleFromString(map['FloorAreaRatio']),
+      renovationJa: _getStringOrNull(map['Renovation']),
+      renovationEn: _getStringOrNull(map['Renovation_en']),
+      remarksJa: _getStringOrNull(map['Remarks']),
+      remarksEn: _getStringOrNull(map['Remarks_en']),
     );
   }
 
@@ -296,20 +193,23 @@ class RealEstateTransaction extends BaseEntity
   Map<String, dynamic> toMap() {
     final map = <String, dynamic>{
       'Type': typeJa,
-      'Type_en': typeEn,
       'Region': regionJa,
-      'Region_en': regionEn,
       'MunicipalityCode': municipalityCode,
       'DistrictName': districtNameJa,
-      'DistrictName_en': districtNameEn,
       'TradePrice': tradePrice,
       'Area': area,
-      'Use': useJa,
-      'Use_en': useEn,
       'Period': periodJa,
-      'Period_en': periodEn,
       'address': address.toMap(),
     };
+
+    // Add optional fields
+    addIfNotNull(map, 'PriceCategory', priceCategory);
+    addIfNotNull(map, 'Type_en', typeEn);
+    addIfNotNull(map, 'Region_en', regionEn);
+    addIfNotNull(map, 'DistrictName_en', districtNameEn);
+    addIfNotNull(map, 'Use', useJa);
+    addIfNotNull(map, 'Use_en', useEn);
+    addIfNotNull(map, 'Period_en', periodEn);
 
     addIfNotNull(map, 'PricePerUnit', pricePerUnit);
     addIfNotNull(map, 'UnitPrice', unitPrice);
@@ -355,5 +255,35 @@ class RealEstateTransaction extends BaseEntity
 
   String getFormattedAdministrativeLocation() {
     return getFormattedLocation(regionJa, districtNameJa, null);
+  }
+
+  /// Helper method to safely get string or null (handles empty strings)
+  static String? _getStringOrNull(dynamic value) {
+    if (value == null) return null;
+    final stringValue = value.toString().trim();
+    return stringValue.isEmpty || stringValue == ' ' ? null : stringValue;
+  }
+
+  /// Helper method to parse double from string, handling empty strings
+  static double? _parseDoubleFromString(dynamic value) {
+    if (value == null) return null;
+    final stringValue = value.toString().trim();
+    if (stringValue.isEmpty || stringValue == ' ') return null;
+    return double.tryParse(stringValue);
+  }
+
+  /// Helper method to create address from transaction map
+  static Address _createAddressFromMap(Map<String, dynamic> map) {
+    return Address(
+      prefectureCode: '', // Not provided in transaction API
+      cityCode: EntityValidation.getStringSafely(map['MunicipalityCode']),
+      districtCode: EntityValidation.getStringSafely(map['DistrictName']),
+      fullAddressJa: [
+        EntityValidation.getStringSafely(map['Prefecture']),
+        EntityValidation.getStringSafely(map['Municipality']),
+        EntityValidation.getStringSafely(map['DistrictName']),
+      ].where((s) => s.isNotEmpty).join(' '),
+      fullAddressEn: '', // Not provided in transaction API
+    );
   }
 }
