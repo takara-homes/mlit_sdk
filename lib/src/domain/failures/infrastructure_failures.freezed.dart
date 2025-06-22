@@ -54,7 +54,7 @@ class _$InfrastructureFailureCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? message = null,}) {
   return _then(_self.copyWith(
-message: null == message ? _self.message : message
+message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -110,8 +110,8 @@ class __$NetworkConnectionCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? error = freezed,}) {
   return _then(_NetworkConnection(
-message: null == message ? _self.message : message
-as String,error: freezed == error ? _self.error : error
+message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
 as dynamic,
   ));
 }
@@ -167,8 +167,8 @@ class __$TimeoutCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? duration = freezed,}) {
   return _then(_Timeout(
-message: null == message ? _self.message : message
-as String,duration: freezed == duration ? _self.duration : duration
+message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,duration: freezed == duration ? _self.duration : duration // ignore: cast_nullable_to_non_nullable
 as Duration?,
   ));
 }
@@ -225,9 +225,9 @@ class __$CacheOperationCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? operation = null,Object? error = freezed,}) {
   return _then(_CacheOperation(
-message: null == message ? _self.message : message
-as String,operation: null == operation ? _self.operation : operation
-as String,error: freezed == error ? _self.error : error
+message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,operation: null == operation ? _self.operation : operation // ignore: cast_nullable_to_non_nullable
+as String,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
 as dynamic,
   ));
 }
@@ -284,9 +284,9 @@ class __$DataParsingCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? data = freezed,Object? error = freezed,}) {
   return _then(_DataParsing(
-message: null == message ? _self.message : message
-as String,data: freezed == data ? _self.data : data
-as dynamic,error: freezed == error ? _self.error : error
+message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as dynamic,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
 as dynamic,
   ));
 }
@@ -342,8 +342,8 @@ class __$CertificateVerificationCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? error = freezed,}) {
   return _then(_CertificateVerification(
-message: null == message ? _self.message : message
-as String,error: freezed == error ? _self.error : error
+message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
 as dynamic,
   ));
 }

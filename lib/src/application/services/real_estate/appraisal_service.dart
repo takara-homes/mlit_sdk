@@ -4,7 +4,7 @@ import 'package:mlit_sdk/src/domain/entities/real_estate/appraisal_report.dart';
 import 'package:mlit_sdk/src/domain/failures/failure.dart';
 import 'package:mlit_sdk/src/domain/repositories/real_estate/i_appraisal_repository.dart';
 import 'package:mlit_sdk/src/domain/value_objects/administrative/prefecture_code.dart';
-import 'package:mlit_sdk/src/domain/value_objects/real_estate/land_type.dart';
+import 'package:mlit_sdk/src/domain/value_objects/real_estate/appraisal_division.dart';
 
 /// Service for handling real estate appraisal operations from MLIT API
 class AppraisalService extends BaseService {
@@ -15,12 +15,12 @@ class AppraisalService extends BaseService {
   Future<Either<Failure, List<AppraisalReport>>> getAppraisalReports({
     required int year,
     required PrefectureCode prefecture,
-    required LandType landType,
+    required AppraisalDivision division,
   }) async {
     return _repository.getAppraisalReports(
       year: year,
       prefectureCode: prefecture,
-      landUseClassification: landType,
+      landUseClassification: division,
     );
   }
 }

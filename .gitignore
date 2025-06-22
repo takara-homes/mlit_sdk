@@ -16,3 +16,8 @@ CLAUDE.md
 .fvm/versions/3.32.0
 .vscode/settings.json
 .fvmrc
+.fvm/flutter_sdk
+.fvm/fvm_config.json
+.fvm/release
+.fvm/version
+.fvm/versions/3.32.0

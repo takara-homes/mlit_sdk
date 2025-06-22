@@ -3,8 +3,8 @@ import 'package:mlit_sdk/src/domain/entities/real_estate/land_price_point.dart';
 import 'package:mlit_sdk/src/domain/failures/failure.dart';
 import 'package:mlit_sdk/src/domain/value_objects/common/coordinates.dart';
 import 'package:mlit_sdk/src/domain/value_objects/common/zoom_level.dart';
-import 'package:mlit_sdk/src/domain/value_objects/real_estate/land_type.dart';
 import 'package:mlit_sdk/src/domain/value_objects/real_estate/price_type.dart';
+import 'package:mlit_sdk/src/domain/value_objects/real_estate/use_category.dart';
 
 /// Repository interface for land price data
 abstract class ILandPriceRepository {
@@ -13,6 +13,6 @@ abstract class ILandPriceRepository {
     required Coordinates coordinates,
     required int year,
     PriceType? priceType,
-    List<LandType>? landTypes,
+    List<UseCategory>? useCategories,
   });
 }

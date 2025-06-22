@@ -10,43 +10,46 @@ part 'land_price_point_dto.g.dart';
 class LandPricePointDto extends Equatable {
   const LandPricePointDto({
     required this.pointId,
-    required this.targetYear,
+    required this.targetYearNameJa,
     required this.landPriceType,
-    required this.latitude,
-    required this.longitude,
     required this.prefectureCode,
     required this.prefectureNameJa,
     required this.cityCode,
     required this.useCategoryNameJa,
-    required this.standardLotNumber,
-    required this.currentYearPrice,
-    this.lastYearPrice,
+    required this.standardLotNumberJa,
+    required this.cityCountyNameJa,
+    required this.wardTownVillageNameJa,
+    required this.placeNameJa,
+    this.residenceDisplayNameJa,
+    this.locationNumberJa,
+    required this.currentYearsPriceJa,
+    this.lastYearsPrice,
     this.yearOnYearChangeRate,
-    this.cadastralArea,
-    this.buildingStructure,
-    this.groundFloors,
-    this.undergroundFloors,
-    this.frontRoadDetails,
-    this.frontRoadDirection,
+    this.cadastralJa,
+    this.frontageRatio,
+    this.depthRatio,
+    this.buildingStructureNameJa,
+    this.groundHierarchyJa,
+    this.undergroundHierarchyJa,
+    this.frontRoadNameJa,
+    this.frontRoadAzimuthNameJa,
     this.frontRoadWidth,
     this.gasSupplyAvailability,
     this.waterSupplyAvailability,
     this.sewerSupplyAvailability,
-    this.nearestStationName,
-    this.distanceToStation,
-    this.currentUseStatus,
-    this.buildingCoverageRatio,
-    this.floorAreaRatio,
+    this.nearestStationNameJa,
+    this.roadDistanceToNearestStationNameJa,
+    this.usageStatusNameJa,
+    this.regulationsBuildingCoverageRatioJa,
+    this.regulationsFloorAreaRatioJa,
   });
 
   @JsonKey(name: 'point_id')
   final String pointId;
   @JsonKey(name: 'target_year_name_ja')
-  final String targetYear;
+  final String targetYearNameJa;
   @JsonKey(name: 'land_price_type')
   final String landPriceType;
-  final double latitude;
-  final double longitude;
   @JsonKey(name: 'prefecture_code')
   final String prefectureCode;
   @JsonKey(name: 'prefecture_name_ja')
@@ -56,25 +59,39 @@ class LandPricePointDto extends Equatable {
   @JsonKey(name: 'use_category_name_ja')
   final String useCategoryNameJa;
   @JsonKey(name: 'standard_lot_number_ja')
-  final String standardLotNumber;
+  final String standardLotNumberJa;
+  @JsonKey(name: 'city_county_name_ja')
+  final String cityCountyNameJa;
+  @JsonKey(name: 'ward_town_village_name_ja')
+  final String wardTownVillageNameJa;
+  @JsonKey(name: 'place_name_ja')
+  final String placeNameJa;
+  @JsonKey(name: 'residence_display_name_ja')
+  final String? residenceDisplayNameJa;
+  @JsonKey(name: 'location_number_ja')
+  final String? locationNumberJa;
   @JsonKey(name: 'u_current_years_price_ja')
-  final String currentYearPrice;
+  final String currentYearsPriceJa;
   @JsonKey(name: 'last_years_price')
-  final String? lastYearPrice;
+  final String? lastYearsPrice;
   @JsonKey(name: 'year_on_year_change_rate')
   final String? yearOnYearChangeRate;
-  @JsonKey(name: 'u_cadastral_en')
-  final String? cadastralArea;
-  @JsonKey(name: 'building_structure_name_en')
-  final String? buildingStructure;
-  @JsonKey(name: 'u_ground_hierarchy_en')
-  final String? groundFloors;
-  @JsonKey(name: 'u_underground_hierarchy_en')
-  final String? undergroundFloors;
+  @JsonKey(name: 'u_cadastral_ja')
+  final String? cadastralJa;
+  @JsonKey(name: 'frontage_ratio')
+  final String? frontageRatio;
+  @JsonKey(name: 'depth_ratio')
+  final String? depthRatio;
+  @JsonKey(name: 'building_structure_name_ja')
+  final String? buildingStructureNameJa;
+  @JsonKey(name: 'u_ground_hierarchy_ja')
+  final String? groundHierarchyJa;
+  @JsonKey(name: 'u_underground_hierarchy_ja')
+  final String? undergroundHierarchyJa;
   @JsonKey(name: 'front_road_name_ja')
-  final String? frontRoadDetails;
-  @JsonKey(name: 'front_road_azimuth_name')
-  final String? frontRoadDirection;
+  final String? frontRoadNameJa;
+  @JsonKey(name: 'front_road_azimuth_name_ja')
+  final String? frontRoadAzimuthNameJa;
   @JsonKey(name: 'front_road_width')
   final String? frontRoadWidth;
   @JsonKey(name: 'gas_supply_availability')
@@ -83,16 +100,16 @@ class LandPricePointDto extends Equatable {
   final String? waterSupplyAvailability;
   @JsonKey(name: 'sewer_supply_availability')
   final String? sewerSupplyAvailability;
-  @JsonKey(name: 'nearest_station_name')
-  final String? nearestStationName;
+  @JsonKey(name: 'nearest_station_name_ja')
+  final String? nearestStationNameJa;
   @JsonKey(name: 'u_road_distance_to_nearest_station_name_ja')
-  final String? distanceToStation;
+  final String? roadDistanceToNearestStationNameJa;
   @JsonKey(name: 'usage_status_name_ja')
-  final String? currentUseStatus;
+  final String? usageStatusNameJa;
   @JsonKey(name: 'u_regulations_building_coverage_ratio_ja')
-  final String? buildingCoverageRatio;
+  final String? regulationsBuildingCoverageRatioJa;
   @JsonKey(name: 'u_regulations_floor_area_ratio_ja')
-  final String? floorAreaRatio;
+  final String? regulationsFloorAreaRatioJa;
 
   factory LandPricePointDto.fromJson(Map<String, dynamic> json) =>
       _$LandPricePointDtoFromJson(json);
@@ -102,100 +119,114 @@ class LandPricePointDto extends Equatable {
   LandPricePoint toEntity() {
     return LandPricePoint(
       pointId: pointId,
-      targetYear: int.parse(targetYear),
+      targetYear: int.parse(targetYearNameJa),
       type: LandPriceType.fromString(landPriceType),
-      coordinate: Coordinate(latitude: latitude, longitude: longitude),
+      coordinate: Coordinate(latitude: 0.0, longitude: 0.0), // Will be set from GeoJSON geometry
       prefectureCode: prefectureCode,
       prefectureNameJa: prefectureNameJa,
       cityCode: cityCode,
       useCategoryNameJa: useCategoryNameJa,
-      standardLotNumber: standardLotNumber,
-      cityCounyNameJa: '',
-      wardTownVillageNameJa: '',
-      placeNameJa: '',
-      currentYearPrice: int.parse(currentYearPrice),
-      lastYearPrice: int.tryParse(lastYearPrice ?? ''),
+      standardLotNumber: standardLotNumberJa,
+      cityCounyNameJa: cityCountyNameJa,
+      wardTownVillageNameJa: wardTownVillageNameJa,
+      placeNameJa: placeNameJa,
+      residenceDisplayNameJa: residenceDisplayNameJa,
+      locationNumberJa: locationNumberJa,
+      currentYearPrice: int.parse(currentYearsPriceJa),
+      lastYearPrice: int.tryParse(lastYearsPrice ?? ''),
       yearOnYearChangeRate: double.tryParse(yearOnYearChangeRate ?? ''),
-      cadastralArea: double.tryParse(cadastralArea ?? ''),
-      buildingStructure: buildingStructure,
-      groundFloors: int.tryParse(groundFloors ?? ''),
-      undergroundFloors: int.tryParse(undergroundFloors ?? ''),
-      frontRoadDetails: frontRoadDetails,
-      frontRoadDirection: frontRoadDirection,
+      cadastralArea: double.tryParse(cadastralJa ?? ''),
+      frontageRatio: double.tryParse(frontageRatio ?? ''),
+      depthRatio: double.tryParse(depthRatio ?? ''),
+      buildingStructure: buildingStructureNameJa,
+      groundFloors: int.tryParse(groundHierarchyJa ?? ''),
+      undergroundFloors: int.tryParse(undergroundHierarchyJa ?? ''),
+      frontRoadDetails: frontRoadNameJa,
+      frontRoadDirection: frontRoadAzimuthNameJa,
       frontRoadWidth: double.tryParse(frontRoadWidth ?? ''),
       hasGasSupply: gasSupplyAvailability == '1',
       hasWaterSupply: waterSupplyAvailability == '1',
       hasSewerSupply: sewerSupplyAvailability == '1',
-      nearestStationName: nearestStationName,
-      distanceToStation: double.tryParse(distanceToStation ?? ''),
-      currentUseStatus: currentUseStatus,
-      buildingCoverageRatio: double.tryParse(buildingCoverageRatio ?? ''),
-      floorAreaRatio: double.tryParse(floorAreaRatio ?? ''),
+      nearestStationName: nearestStationNameJa,
+      distanceToStation: double.tryParse(roadDistanceToNearestStationNameJa ?? ''),
+      currentUseStatus: usageStatusNameJa,
+      buildingCoverageRatio: double.tryParse(regulationsBuildingCoverageRatioJa ?? ''),
+      floorAreaRatio: double.tryParse(regulationsFloorAreaRatioJa ?? ''),
     );
   }
 
   factory LandPricePointDto.fromDomain(LandPricePoint domain) {
     return LandPricePointDto(
       pointId: domain.pointId,
-      targetYear: domain.targetYear.toString(),
+      targetYearNameJa: domain.targetYear.toString(),
       landPriceType: domain.type.toString(),
-      latitude: domain.coordinate.latitude,
-      longitude: domain.coordinate.longitude,
       prefectureCode: domain.prefectureCode,
       prefectureNameJa: domain.prefectureNameJa,
       cityCode: domain.cityCode,
       useCategoryNameJa: domain.useCategoryNameJa,
-      standardLotNumber: domain.standardLotNumber,
-      currentYearPrice: domain.currentYearPrice.toString(),
-      lastYearPrice: domain.lastYearPrice?.toString(),
+      standardLotNumberJa: domain.standardLotNumber,
+      cityCountyNameJa: domain.cityCounyNameJa,
+      wardTownVillageNameJa: domain.wardTownVillageNameJa,
+      placeNameJa: domain.placeNameJa,
+      residenceDisplayNameJa: domain.residenceDisplayNameJa,
+      locationNumberJa: domain.locationNumberJa,
+      currentYearsPriceJa: domain.currentYearPrice.toString(),
+      lastYearsPrice: domain.lastYearPrice?.toString(),
       yearOnYearChangeRate: domain.yearOnYearChangeRate?.toString(),
-      cadastralArea: domain.cadastralArea?.toString(),
-      buildingStructure: domain.buildingStructure,
-      groundFloors: domain.groundFloors?.toString(),
-      undergroundFloors: domain.undergroundFloors?.toString(),
-      frontRoadDetails: domain.frontRoadDetails,
-      frontRoadDirection: domain.frontRoadDirection,
+      cadastralJa: domain.cadastralArea?.toString(),
+      frontageRatio: domain.frontageRatio?.toString(),
+      depthRatio: domain.depthRatio?.toString(),
+      buildingStructureNameJa: domain.buildingStructure,
+      groundHierarchyJa: domain.groundFloors?.toString(),
+      undergroundHierarchyJa: domain.undergroundFloors?.toString(),
+      frontRoadNameJa: domain.frontRoadDetails,
+      frontRoadAzimuthNameJa: domain.frontRoadDirection,
       frontRoadWidth: domain.frontRoadWidth?.toString(),
       gasSupplyAvailability: domain.hasGasSupply ?? false ? '1' : '0',
       waterSupplyAvailability: domain.hasWaterSupply ?? false ? '1' : '0',
       sewerSupplyAvailability: domain.hasSewerSupply ?? false ? '1' : '0',
-      nearestStationName: domain.nearestStationName,
-      distanceToStation: domain.distanceToStation?.toString(),
-      currentUseStatus: domain.currentUseStatus,
-      buildingCoverageRatio: domain.buildingCoverageRatio?.toString(),
-      floorAreaRatio: domain.floorAreaRatio?.toString(),
+      nearestStationNameJa: domain.nearestStationName,
+      roadDistanceToNearestStationNameJa: domain.distanceToStation?.toString(),
+      usageStatusNameJa: domain.currentUseStatus,
+      regulationsBuildingCoverageRatioJa: domain.buildingCoverageRatio?.toString(),
+      regulationsFloorAreaRatioJa: domain.floorAreaRatio?.toString(),
     );
   }
 
   @override
   List<Object?> get props => [
     pointId,
-    targetYear,
+    targetYearNameJa,
     landPriceType,
-    latitude,
-    longitude,
     prefectureCode,
     prefectureNameJa,
     cityCode,
     useCategoryNameJa,
-    standardLotNumber,
-    currentYearPrice,
-    lastYearPrice,
+    standardLotNumberJa,
+    cityCountyNameJa,
+    wardTownVillageNameJa,
+    placeNameJa,
+    residenceDisplayNameJa,
+    locationNumberJa,
+    currentYearsPriceJa,
+    lastYearsPrice,
     yearOnYearChangeRate,
-    cadastralArea,
-    buildingStructure,
-    groundFloors,
-    undergroundFloors,
-    frontRoadDetails,
-    frontRoadDirection,
+    cadastralJa,
+    frontageRatio,
+    depthRatio,
+    buildingStructureNameJa,
+    groundHierarchyJa,
+    undergroundHierarchyJa,
+    frontRoadNameJa,
+    frontRoadAzimuthNameJa,
     frontRoadWidth,
     gasSupplyAvailability,
     waterSupplyAvailability,
     sewerSupplyAvailability,
-    nearestStationName,
-    distanceToStation,
-    currentUseStatus,
-    buildingCoverageRatio,
-    floorAreaRatio,
+    nearestStationNameJa,
+    roadDistanceToNearestStationNameJa,
+    usageStatusNameJa,
+    regulationsBuildingCoverageRatioJa,
+    regulationsFloorAreaRatioJa,
   ];
 }

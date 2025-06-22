@@ -102,24 +102,22 @@ class RealEstateRemoteDataSource {
     required int zoom,
     required double x,
     required double y,
-    required String from,
-    required String to,
+    required int year,
     String? priceClassification,
-    List<String>? landTypeCodes,
+    List<String>? useCategoryCodes,
   }) async {
     try {
       final response = await _dio.get(
-        ApiEndpoints.realEstatePoints,
+        ApiEndpoints.landPricePoints,
         queryParameters: {
           'response_format': responseFormat,
           'z': zoom.toString(),
           'x': x.toString(),
           'y': y.toString(),
-          'from': from,
-          'to': to,
+          'year': year.toString(),
           if (priceClassification != null)
             'priceClassification': priceClassification,
-          if (landTypeCodes != null) 'landTypeCode': landTypeCodes.join(','),
+          if (useCategoryCodes != null) 'useCategoryCode': useCategoryCodes.join(','),
         },
       );
 
@@ -150,7 +148,7 @@ class RealEstateRemoteDataSource {
       _handleError(
         e,
         RequestOptions(
-          path: ApiEndpoints.realEstatePoints,
+          path: ApiEndpoints.landPricePoints,
           baseUrl: _dio.options.baseUrl,
           headers: _dio.options.headers,
         ),

@@ -12,7 +12,8 @@ import 'package:mlit_sdk/src/domain/value_objects/administrative/city_code.dart'
 import 'package:mlit_sdk/src/domain/value_objects/administrative/prefecture_code.dart';
 import 'package:mlit_sdk/src/domain/value_objects/common/coordinates.dart';
 import 'package:mlit_sdk/src/domain/value_objects/common/zoom_level.dart';
-import 'package:mlit_sdk/src/domain/value_objects/real_estate/land_type.dart';
+import 'package:mlit_sdk/src/domain/value_objects/real_estate/appraisal_division.dart';
+import 'package:mlit_sdk/src/domain/value_objects/real_estate/use_category.dart';
 import 'package:mlit_sdk/src/domain/value_objects/real_estate/price_classification.dart';
 import 'package:mlit_sdk/src/domain/value_objects/real_estate/price_type.dart';
 import 'package:mlit_sdk/src/domain/value_objects/real_estate/transaction_period.dart';
@@ -107,7 +108,7 @@ class RealEstateRepository
   Future<Either<Failure, List<AppraisalReport>>> getAppraisalReports({
     required int year,
     required PrefectureCode prefectureCode,
-    required LandType landUseClassification,
+    required AppraisalDivision landUseClassification,
   }) async {
     final cacheKey = _generateCacheKey(_appraisalCachePrefix, {
       'year': year,
@@ -171,14 +172,14 @@ class RealEstateRepository
     required Coordinates coordinates,
     required int year,
     PriceType? priceType,
-    List<LandType>? landTypes,
+    List<UseCategory>? useCategories,
   }) async {
     final cacheKey = _generateCacheKey(_landPriceCachePrefix, {
       'coordinates': coordinates.toString(),
       'zoomLevel': zoomLevel.value,
       'year': year,
       'priceType': priceType?.value,
-      'landTypes': landTypes?.map((e) => e.value).join(','),
+      'useCategories': useCategories?.map((e) => e.value).join(','),
     });
 
     try {
@@ -203,10 +204,9 @@ class RealEstateRepository
         zoom: zoomLevel.value,
         x: coordinates.longitude,
         y: coordinates.latitude,
-        from: year.toString(),
-        to: year.toString(),
+        year: year,
         priceClassification: priceType?.value,
-        landTypeCodes: landTypes?.map((e) => e.value).toList(),
+        useCategoryCodes: useCategories?.map((e) => e.value).toList(),
       );
 
       await _saveToCache(cacheKey, points);
