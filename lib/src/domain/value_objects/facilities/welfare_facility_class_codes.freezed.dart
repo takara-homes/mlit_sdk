@@ -65,7 +65,7 @@ class _$WelfareFacilityClassCodeCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
   return _then(_self.copyWith(
-value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+value: null == value ? _self.value : value
 as String,
   ));
 }
@@ -131,7 +131,7 @@ class __$WelfareFacilityClassCodeCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
   return _then(_WelfareFacilityClassCode(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+null == value ? _self.value : value
 as String,
   ));
 }
@@ -192,7 +192,7 @@ class _$WelfareFacilityMiddleClassCodeCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
   return _then(_self.copyWith(
-value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+value: null == value ? _self.value : value
 as String,
   ));
 }
@@ -258,7 +258,7 @@ class __$WelfareFacilityMiddleClassCodeCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
   return _then(_WelfareFacilityMiddleClassCode(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+null == value ? _self.value : value
 as String,
   ));
 }
@@ -319,7 +319,7 @@ class _$WelfareFacilityMinorClassCodeCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
   return _then(_self.copyWith(
-value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+value: null == value ? _self.value : value
 as String,
   ));
 }
@@ -385,7 +385,7 @@ class __$WelfareFacilityMinorClassCodeCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
   return _then(_WelfareFacilityMinorClassCode(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+null == value ? _self.value : value
 as String,
   ));
 }

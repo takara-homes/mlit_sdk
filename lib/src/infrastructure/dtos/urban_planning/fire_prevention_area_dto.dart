@@ -60,7 +60,7 @@ class FirePreventionAreaDto extends Equatable {
 
   FirePreventionArea toDomain() {
     return FirePreventionArea(
-      firePreventionEn: firePreventionEn,
+      firePreventionJa: firePreventionEn,
       kubunId: kubunId,
       prefecture: prefecture,
       cityCode: cityCode,
@@ -76,7 +76,7 @@ class FirePreventionAreaDto extends Equatable {
 
   factory FirePreventionAreaDto.fromDomain(FirePreventionArea domain) {
     return FirePreventionAreaDto(
-      firePreventionEn: domain.firePreventionEn,
+      firePreventionEn: domain.firePreventionJa,
       kubunId: domain.kubunId,
       prefecture: domain.prefecture,
       cityCode: domain.cityCode,

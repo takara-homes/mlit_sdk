@@ -65,7 +65,7 @@ class _$ValidationFailureCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? message = null,}) {
   return _then(_self.copyWith(
-message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+message: null == message ? _self.message : message
 as String,
   ));
 }
@@ -133,9 +133,9 @@ class _$InvalidCoordinateFailureCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? latitude = freezed,Object? longitude = freezed,}) {
   return _then(InvalidCoordinateFailure(
-message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String,latitude: freezed == latitude ? _self.latitude : latitude // ignore: cast_nullable_to_non_nullable
-as double?,longitude: freezed == longitude ? _self.longitude : longitude // ignore: cast_nullable_to_non_nullable
+message: null == message ? _self.message : message
+as String,latitude: freezed == latitude ? _self.latitude : latitude
+as double?,longitude: freezed == longitude ? _self.longitude : longitude
 as double?,
   ));
 }
@@ -203,9 +203,9 @@ class _$InvalidDateRangeFailureCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? startDate = freezed,Object? endDate = freezed,}) {
   return _then(InvalidDateRangeFailure(
-message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String,startDate: freezed == startDate ? _self.startDate : startDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,endDate: freezed == endDate ? _self.endDate : endDate // ignore: cast_nullable_to_non_nullable
+message: null == message ? _self.message : message
+as String,startDate: freezed == startDate ? _self.startDate : startDate
+as DateTime?,endDate: freezed == endDate ? _self.endDate : endDate
 as DateTime?,
   ));
 }
@@ -273,9 +273,9 @@ class _$InvalidCodeFailureCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? code = freezed,Object? type = freezed,}) {
   return _then(InvalidCodeFailure(
-message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String,code: freezed == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
-as String?,type: freezed == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+message: null == message ? _self.message : message
+as String,code: freezed == code ? _self.code : code
+as String?,type: freezed == type ? _self.type : type
 as String?,
   ));
 }
@@ -342,8 +342,8 @@ class _$MissingParameterFailureCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? parameterName = null,}) {
   return _then(MissingParameterFailure(
-message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String,parameterName: null == parameterName ? _self.parameterName : parameterName // ignore: cast_nullable_to_non_nullable
+message: null == message ? _self.message : message
+as String,parameterName: null == parameterName ? _self.parameterName : parameterName
 as String,
   ));
 }
@@ -412,10 +412,10 @@ class _$InvalidParameterFailureCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? parameterName = null,Object? actualValue = freezed,Object? expectedFormat = freezed,}) {
   return _then(InvalidParameterFailure(
-message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String,parameterName: null == parameterName ? _self.parameterName : parameterName // ignore: cast_nullable_to_non_nullable
-as String,actualValue: freezed == actualValue ? _self.actualValue : actualValue // ignore: cast_nullable_to_non_nullable
-as String?,expectedFormat: freezed == expectedFormat ? _self.expectedFormat : expectedFormat // ignore: cast_nullable_to_non_nullable
+message: null == message ? _self.message : message
+as String,parameterName: null == parameterName ? _self.parameterName : parameterName
+as String,actualValue: freezed == actualValue ? _self.actualValue : actualValue
+as String?,expectedFormat: freezed == expectedFormat ? _self.expectedFormat : expectedFormat
 as String?,
   ));
 }

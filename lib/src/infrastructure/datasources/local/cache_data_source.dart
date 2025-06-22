@@ -7,19 +7,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 /// Cache entry with metadata for TTL and type information
 class CacheEntry {
-  /// The actual data stored in cache
   final dynamic data;
 
-  /// When this entry was created (milliseconds since epoch)
   final int createdAt;
 
-  /// Time to live in seconds (null means never expires)
   final int? ttl;
 
-  /// Optional type information for debugging
   final String? type;
 
-  /// Creates a new cache entry
   CacheEntry({
     required this.data,
     required this.createdAt,
@@ -27,7 +22,6 @@ class CacheEntry {
     this.type,
   });
 
-  /// Check if this entry is expired
   bool get isExpired {
     if (ttl == null) return false;
 
@@ -36,7 +30,6 @@ class CacheEntry {
     return now > expiresAt;
   }
 
-  /// Convert to JSON for storage
   Map<String, dynamic> toJson() => {
     'data': data,
     'createdAt': createdAt,
@@ -44,7 +37,6 @@ class CacheEntry {
     'type': type,
   };
 
-  /// Create from JSON representation
   factory CacheEntry.fromJson(Map<String, dynamic> json) {
     return CacheEntry(
       data: json['data'],
@@ -57,19 +49,14 @@ class CacheEntry {
 
 /// Implements caching with SharedPreferences including TTL support
 class SharedPreferencesDataSource implements LocalDataSource {
-  /// Default TTL for cache entries (12 hours in seconds)
   static const int defaultTtl = 12 * 60 * 60;
 
   final SharedPreferences _prefs;
   final String _keyPrefix;
 
-  /// Creates a new SharedPreferencesDataSource
-  ///
-  /// [prefix] can be used to namespace the cache keys
   SharedPreferencesDataSource(this._prefs, {String prefix = 'mlit_sdk_cache_'})
     : _keyPrefix = prefix;
 
-  /// Creates a prefixed key for storage
   String _getPrefixedKey(String key) => '$_keyPrefix$key';
 
   @override
@@ -79,7 +66,6 @@ class SharedPreferencesDataSource implements LocalDataSource {
 
     if (!exists) return false;
 
-    // Check if expired
     try {
       final jsonString = _prefs.getString(prefixedKey);
       if (jsonString == null) return false;
@@ -88,7 +74,6 @@ class SharedPreferencesDataSource implements LocalDataSource {
       final entry = CacheEntry.fromJson(jsonMap);
 
       if (entry.isExpired) {
-        // Clean up expired entry
         await _prefs.remove(prefixedKey);
         return false;
       }
@@ -113,7 +98,6 @@ class SharedPreferencesDataSource implements LocalDataSource {
       final entry = CacheEntry.fromJson(jsonMap);
 
       if (entry.isExpired) {
-        // Clean up expired entry
         await _prefs.remove(prefixedKey);
 
         return Left(CacheFailure(message: 'Data for key $key has expired'));
@@ -163,7 +147,6 @@ class SharedPreferencesDataSource implements LocalDataSource {
   @override
   Future<Either<CacheFailure, Unit>> clear() async {
     try {
-      // Only clear keys with our prefix
       final allKeys = _prefs.getKeys();
       for (final key in allKeys) {
         if (key.startsWith(_keyPrefix)) {
@@ -194,7 +177,6 @@ class SharedPreferencesDataSource implements LocalDataSource {
             await _prefs.remove(key);
           }
         } catch (_) {
-          // Ignore malformed entries
           continue;
         }
       }

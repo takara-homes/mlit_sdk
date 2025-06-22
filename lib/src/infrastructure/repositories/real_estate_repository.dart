@@ -30,11 +30,9 @@ class RealEstateRepository
   final RealEstateRemoteDataSource _remoteDataSource;
   final LocalDataSource _localDataSource;
 
-  // Caching configuration
   bool _useCache = true;
   int? _cacheTtl;
 
-  // Cache key prefixes for different data types
   static const String _appraisalCachePrefix = 'appraisal_';
   static const String _landPriceCachePrefix = 'land_price_';
   static const String _transactionCachePrefix = 'transaction_';
@@ -49,7 +47,6 @@ class RealEstateRepository
        _useCache = useCache,
        _cacheTtl = defaultCacheTtl;
 
-  // BaseRepository implementation
   @override
   bool get useCache => _useCache;
 
@@ -78,7 +75,6 @@ class RealEstateRepository
     result.fold((failure) => throw failure, (_) => null);
   }
 
-  // Helper method to generate cache keys
   String _generateCacheKey(String prefix, Map<String, dynamic> params) {
     final sortedParams = Map.fromEntries(
       params.entries.toList()..sort((a, b) => a.key.compareTo(b.key)),
@@ -86,7 +82,6 @@ class RealEstateRepository
     return '$prefix$sortedParams';
   }
 
-  // Helper method to check if data exists in cache and return it if valid
   Future<Either<Failure, T?>> _getFromCacheIfValid<T>(String cacheKey) async {
     if (!_useCache) {
       return const Right(null);
@@ -100,7 +95,6 @@ class RealEstateRepository
     return _localDataSource.get<T>(cacheKey);
   }
 
-  // Helper method to store data in cache
   Future<void> _saveToCache<T>(String cacheKey, T data) async {
     if (!_useCache) {
       return;
@@ -109,7 +103,6 @@ class RealEstateRepository
     await _localDataSource.save(cacheKey, data, ttl: _cacheTtl);
   }
 
-  // Appraisal Repository Implementation
   @override
   Future<Either<Failure, List<AppraisalReport>>> getAppraisalReports({
     required int year,
@@ -123,7 +116,6 @@ class RealEstateRepository
     });
 
     try {
-      // Check cache using the helper method
       final cachedResult = await _getFromCacheIfValid<List<AppraisalReport>>(
         cacheKey,
       );
@@ -146,7 +138,6 @@ class RealEstateRepository
         division: landUseClassification.value,
       );
 
-      // Save to cache using helper method
       await _saveToCache(cacheKey, reports);
 
       return Right(reports.map((e) => e.toDomain()).toList());
@@ -164,7 +155,6 @@ class RealEstateRepository
   Future<Either<Failure, AppraisalReport>> getAppraisalReportById({
     required String reportId,
   }) async {
-    // Implement similar to above, use _remoteDataSource and _localDataSource
     throw UnimplementedError();
   }
 
@@ -172,11 +162,9 @@ class RealEstateRepository
   Future<Either<Failure, List<AppraisalReport>>> getAppraisalReportsByLocation({
     required String standardLocationId,
   }) async {
-    // Implement similar to above, use _remoteDataSource and _localDataSource
     throw UnimplementedError();
   }
 
-  // Land Price Repository Implementation
   @override
   Future<Either<Failure, List<LandPricePoint>>> getLandPricePoints({
     required ZoomLevel zoomLevel,
@@ -194,7 +182,6 @@ class RealEstateRepository
     });
 
     try {
-      // Check cache using the helper method
       final cachedResult = await _getFromCacheIfValid<List<LandPricePoint>>(
         cacheKey,
       );
@@ -222,7 +209,6 @@ class RealEstateRepository
         landTypeCodes: landTypes?.map((e) => e.value).toList(),
       );
 
-      // Save to cache using helper method
       await _saveToCache(cacheKey, points);
 
       return Right(points.map((e) => e.toDomain()).toList());
@@ -236,7 +222,6 @@ class RealEstateRepository
     }
   }
 
-  // Transaction Repository Implementation
   @override
   Future<Either<Failure, List<RealEstateTransaction>>> getTransactions({
     required TransactionPeriod period,
@@ -256,7 +241,6 @@ class RealEstateRepository
     });
 
     try {
-      // Check cache using the helper method
       final cachedResult =
           await _getFromCacheIfValid<List<RealEstateTransaction>>(cacheKey);
 
@@ -282,7 +266,6 @@ class RealEstateRepository
         language: language,
       );
 
-      // Save to cache using helper method
       await _saveToCache(cacheKey, transactions);
 
       return Right(transactions.map((e) => e.toDomain()).toList());

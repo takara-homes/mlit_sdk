@@ -8,17 +8,10 @@ import 'package:mlit_sdk/src/infrastructure/utils/network_utils.dart';
 
 /// Base service class that provides common functionality for all services
 abstract class BaseService {
-  /// Maximum number of retry attempts for network operations
   static const int _maxRetryAttempts = 3;
 
-  /// Default delay between retries (milliseconds)
   static const int _retryDelayMs = 300;
 
-  /// Executes a repository call and handles common error cases
-  ///
-  /// [call] is the actual repository call to be made
-  /// [retryOnNetworkFailure] whether to retry on network failures (default: true)
-  /// Returns Either with Failure on left or success type T on right
   Future<Either<Failure, T>> execute<T>(
     Future<T> Function() call, {
     bool retryOnNetworkFailure = true,
@@ -31,7 +24,6 @@ abstract class BaseService {
         final result = await call();
         return Right(result);
       } catch (e) {
-        // Handle all error types in a platform-agnostic way
         if (e is TimeoutException) {
           if (retryOnNetworkFailure && attempts < _maxRetryAttempts) {
             await Future.delayed(
@@ -51,15 +43,12 @@ abstract class BaseService {
           }
           return Left(Failure.network(message: e.toString(), error: e));
         } else if (e is DioException) {
-          // Handle DioException
-          // Don't retry for client errors (4xx)
           if (e.response?.statusCode != null &&
               e.response!.statusCode! >= 400 &&
               e.response!.statusCode! < 500) {
             return Left(_mapDioExceptionToFailure(e));
           }
 
-          // Retry for server errors (5xx) if configured
           if (retryOnNetworkFailure &&
               attempts < _maxRetryAttempts &&
               e.response?.statusCode != null &&
@@ -80,7 +69,6 @@ abstract class BaseService {
     }
   }
 
-  /// Maps Dio exceptions to domain-specific failures
   Failure _mapDioExceptionToFailure(DioException exception) {
     final response = exception.response;
     final requestOptions = exception.requestOptions;
@@ -157,14 +145,12 @@ abstract class BaseService {
     }
   }
 
-  /// Extracts error message from response if available
   String? _extractErrorMessage(Response? response) {
     if (response == null) return null;
 
     try {
       final data = response.data;
       if (data is Map<String, dynamic>) {
-        // Try common error message fields
         final message =
             data['message'] ??
             data['error'] ??
@@ -178,9 +164,7 @@ abstract class BaseService {
       if (data is String) {
         return data;
       }
-    } catch (_) {
-      // Ignore extraction errors
-    }
+    } catch (_) {}
 
     return null;
   }

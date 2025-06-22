@@ -2,46 +2,32 @@ import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 
 class Library {
   const Library({
-    /// Administrative area code
     required this.administrativeAreaCode,
 
-    /// Public facilities category
     required this.publicFacilitiesCategory,
 
-    /// Public facilities subcategory
     required this.publicFacilitiesSubcategory,
 
-    /// Cultural facility classification
     required this.culturalFacilityClassification,
 
-    /// Library name in Japanese
     required this.nameJa,
 
-    /// Library name in English
     required this.nameEn,
 
-    /// Library location
     required this.coordinate,
 
-    /// Location description
     required this.locationEn,
 
-    /// Administrator code
     required this.administratorCode,
 
-    /// Number of floors
     this.floorCount,
 
-    /// Year of construction
     this.yearBuilt,
 
-    /// Library services
     this.services,
 
-    /// Opening hours
     this.schedule,
 
-    /// Collection information
     this.collection,
   });
 
@@ -60,13 +46,10 @@ class Library {
   final LibrarySchedule? schedule;
   final LibraryCollection? collection;
 
-  /// Returns whether this is a public library
   bool get isPublic => administratorCode.startsWith('1');
 
-  /// Returns the library type based on classification
-  LibraryType get type => LibraryType.fromClassification(
-        culturalFacilityClassification,
-      );
+  LibraryType get type =>
+      LibraryType.fromClassification(culturalFacilityClassification);
 }
 
 /// Represents the library's operating schedule
@@ -83,6 +66,24 @@ class LibrarySchedule {
   final String? weekendHours;
   final List<String>? holidays;
   final String? specialHours;
+
+  factory LibrarySchedule.fromMap(Map<String, dynamic> map) {
+    return LibrarySchedule(
+      weekdayHours: map['weekdayHours'] as String? ?? 'Unknown',
+      weekendHours: map['weekendHours'] as String?,
+      holidays: (map['holidays'] as List<dynamic>?)?.cast<String>(),
+      specialHours: map['specialHours'] as String?,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'weekdayHours': weekdayHours,
+      'weekendHours': weekendHours,
+      'holidays': holidays,
+      'specialHours': specialHours,
+    };
+  }
 }
 
 /// Represents the library's collection information
@@ -99,6 +100,25 @@ class LibraryCollection {
   final Map<String, int>? volumesByCategory;
   final int? periodicalsCount;
   final int? digitalResourcesCount;
+
+  factory LibraryCollection.fromMap(Map<String, dynamic> map) {
+    return LibraryCollection(
+      totalVolumes: map['totalVolumes'] as int? ?? 0,
+      volumesByCategory: (map['volumesByCategory'] as Map<String, dynamic>?)
+          ?.map((key, value) => MapEntry(key, value as int)),
+      periodicalsCount: map['periodicalsCount'] as int?,
+      digitalResourcesCount: map['digitalResourcesCount'] as int?,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'totalVolumes': totalVolumes,
+      'volumesByCategory': volumesByCategory,
+      'periodicalsCount': periodicalsCount,
+      'digitalResourcesCount': digitalResourcesCount,
+    };
+  }
 }
 
 /// Represents types of library facilities
@@ -109,7 +129,6 @@ enum LibraryType {
   specialized,
   other;
 
-  /// Creates LibraryType from classification code
   static LibraryType fromClassification(String classification) {
     switch (classification) {
       case '1':

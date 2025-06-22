@@ -33,7 +33,7 @@ abstract class TransactionPeriod with _$TransactionPeriod {
     if (year.length != 4) return false;
     final numericYear = int.tryParse(year);
     if (numericYear == null) return false;
-    return numericYear >= 2000; // Assuming no data before 2000
+    return numericYear >= 2000;
   }
 
   static bool _isValidQuarter(String quarter) {

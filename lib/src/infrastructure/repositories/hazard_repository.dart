@@ -49,10 +49,7 @@ class HazardRepository implements IHazardRepository {
       );
 
       final saveResult = await _localDataSource.save(cacheKey, areas);
-      return saveResult.fold(
-        (failure) => Right(areas), // Return data even if caching fails
-        (_) => Right(areas),
-      );
+      return saveResult.fold((failure) => Right(areas), (_) => Right(areas));
     } on DioException catch (e) {
       return handleNetworkError(e, 'Error while fetching disaster risk areas');
     } on Object catch (e) {
@@ -89,10 +86,7 @@ class HazardRepository implements IHazardRepository {
       );
 
       final saveResult = await _localDataSource.save(cacheKey, areas);
-      return saveResult.fold(
-        (failure) => Right(areas), // Return data even if caching fails
-        (_) => Right(areas),
-      );
+      return saveResult.fold((failure) => Right(areas), (_) => Right(areas));
     } on DioException catch (e) {
       return handleNetworkError(e, 'Error while fetching landslide areas');
     } on Object catch (e) {
@@ -129,10 +123,7 @@ class HazardRepository implements IHazardRepository {
       );
 
       final saveResult = await _localDataSource.save(cacheKey, areas);
-      return saveResult.fold(
-        (failure) => Right(areas), // Return data even if caching fails
-        (_) => Right(areas),
-      );
+      return saveResult.fold((failure) => Right(areas), (_) => Right(areas));
     } on DioException catch (e) {
       return handleNetworkError(e, 'Error while fetching steep slope areas');
     } on Object catch (e) {

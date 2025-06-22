@@ -3,25 +3,18 @@ import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 /// Represents a geographic point with additional metadata
 class GeoPoint {
   const GeoPoint({
-    /// Geographic coordinate of the point
     required this.coordinate,
 
-    /// Unique identifier for the point
     required this.id,
 
-    /// Point type classification
     required this.type,
 
-    /// Name or label in Japanese
     this.nameJa,
 
-    /// Name or label in English
     this.nameEn,
 
-    /// Additional properties as key-value pairs
     Map<String, dynamic>? properties,
 
-    /// Accuracy level of the geographic point
     this.accuracy = GeoPointAccuracy.medium,
   }) : properties = properties ?? const {};
 

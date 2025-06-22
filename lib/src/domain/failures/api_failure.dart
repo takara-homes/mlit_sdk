@@ -3,16 +3,12 @@ import 'package:mlit_sdk/src/domain/failures/failure.dart';
 
 /// Represents API failure cases in the application
 class ApiFailure extends Failure {
-  /// The type of DioException that occurred
   final DioExceptionType type;
 
-  /// The original request options
   final RequestOptions requestOptions;
 
-  /// The response from the server, if any
   final Response? response;
 
-  /// Creates an instance of [ApiFailure]
   ApiFailure({
     required this.requestOptions,
     this.response,
@@ -35,7 +31,6 @@ class ApiFailure extends Failure {
     };
   }
 
-  /// Creates an [ApiFailure] from a [DioException]
   factory ApiFailure.fromDioException(DioException exception) {
     return ApiFailure(
       requestOptions: exception.requestOptions,
@@ -52,7 +47,6 @@ class ApiFailure extends Failure {
 
 /// Represents a 400 Bad Request failure
 class BadRequestFailure extends ApiFailure {
-  /// Creates an instance of [BadRequestFailure]
   BadRequestFailure({
     required super.requestOptions,
     super.response,
@@ -67,7 +61,6 @@ class BadRequestFailure extends ApiFailure {
 
 /// Represents a 401 Unauthorized failure
 class UnauthorizedFailure extends ApiFailure {
-  /// Creates an instance of [UnauthorizedFailure]
   UnauthorizedFailure({
     required super.requestOptions,
     super.response,
@@ -82,7 +75,6 @@ class UnauthorizedFailure extends ApiFailure {
 
 /// Represents a 404 Not Found failure
 class NotFoundFailure extends ApiFailure {
-  /// Creates an instance of [NotFoundFailure]
   NotFoundFailure({
     required super.requestOptions,
     super.response,
@@ -97,7 +89,6 @@ class NotFoundFailure extends ApiFailure {
 
 /// Represents a 500 Server Error failure
 class ServerFailure extends ApiFailure {
-  /// Creates an instance of [ServerFailure]
   ServerFailure({
     required super.requestOptions,
     super.response,

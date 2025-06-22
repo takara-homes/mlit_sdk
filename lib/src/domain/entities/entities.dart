@@ -5,8 +5,13 @@ export 'administrative/prefecture.dart';
 
 // Core
 export 'core/address.dart';
+export 'core/base_entity.dart';
 export 'core/coordinate.dart';
+export 'core/entity_constants.dart';
+export 'core/entity_factory.dart';
+export 'core/entity_validation.dart';
 export 'core/location.dart';
+export 'core/serializable_entity.dart';
 
 // Education
 export 'education/nursery.dart';

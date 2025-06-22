@@ -21,7 +21,6 @@ class HazardRemoteDataSource {
     : _dio = client,
       _apiKey = apiKey;
 
-  /// Fetches disaster risk areas from the API
   Future<List<DisasterRiskArea>> getDisasterRiskAreas({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
@@ -51,7 +50,6 @@ class HazardRemoteDataSource {
     }
   }
 
-  /// Fetches landslide areas from the API
   Future<List<LandslideArea>> getLandslideAreas({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
@@ -81,7 +79,6 @@ class HazardRemoteDataSource {
     }
   }
 
-  /// Fetches steep slope hazard areas from the API
   Future<List<SteepSlopeArea>> getSteepSlopeAreas({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,

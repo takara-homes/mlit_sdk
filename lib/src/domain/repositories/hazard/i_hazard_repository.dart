@@ -10,7 +10,6 @@ import 'package:mlit_sdk/src/domain/value_objects/common/zoom_level.dart';
 
 /// Repository interface for hazard-related data
 abstract class IHazardRepository {
-  /// Fetches disaster risk areas
   Future<Either<Failure, List<DisasterRiskArea>>> getDisasterRiskAreas({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
@@ -18,7 +17,6 @@ abstract class IHazardRepository {
     CityCode? cityCode,
   });
 
-  /// Fetches landslide areas
   Future<Either<Failure, List<LandslideArea>>> getLandslideAreas({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
@@ -26,7 +24,6 @@ abstract class IHazardRepository {
     CityCode? cityCode,
   });
 
-  /// Fetches steep slope hazard areas
   Future<Either<Failure, List<SteepSlopeArea>>> getSteepSlopeAreas({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,

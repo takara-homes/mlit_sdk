@@ -9,7 +9,6 @@ import 'package:mlit_sdk/src/domain/value_objects/transportation/station_code.da
 
 /// Repository interface for real estate transactions
 abstract class ITransactionRepository {
-  /// Fetches real estate transaction data based on specified parameters
   Future<Either<Failure, List<RealEstateTransaction>>> getTransactions({
     required TransactionPeriod period,
     PriceClassification? priceClassification,

@@ -12,7 +12,6 @@ class LandPriceService extends BaseService {
 
   LandPriceService(this._repository);
 
-  /// Fetches land price points for a specific area
   Future<Either<Failure, List<LandPricePoint>>> getLandPricePoints({
     required Coordinates coordinates,
     required ZoomLevel zoomLevel,

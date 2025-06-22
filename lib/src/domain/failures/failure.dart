@@ -2,13 +2,10 @@ import 'package:equatable/equatable.dart';
 
 /// Base failure class for the MLIT SDK
 abstract class Failure extends Equatable {
-  /// Error message describing what went wrong
   final String message;
 
-  /// Error code for categorizing the failure
   final String? code;
 
-  /// Original error object if available
   final dynamic error;
 
   const Failure({required this.message, this.code, this.error});
@@ -19,7 +16,6 @@ abstract class Failure extends Equatable {
   @override
   String toString() => '$runtimeType(code: $code, message: $message)';
 
-  // Factory methods for backwards compatibility
   static Failure network({required String message, dynamic error}) {
     return NetworkFailure(message: message, error: error);
   }

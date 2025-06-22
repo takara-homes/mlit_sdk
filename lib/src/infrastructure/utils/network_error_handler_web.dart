@@ -18,8 +18,6 @@ Either<Failure, T> handleNetworkError<T>(Object error, String message) {
   if (error is DioException) {
     return Left(ApiFailure.fromDioException(error));
   } else {
-    // Web platforms don't have SocketException, so we need to infer network errors
-    // from other exception types or properties
     final isNetworkError =
         error.toString().toLowerCase().contains('network') ||
         (error is DioException &&

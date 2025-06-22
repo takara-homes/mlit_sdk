@@ -4,37 +4,26 @@ import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 
 class WelfareFacility {
   const WelfareFacility({
-    /// Prefecture name
     required this.prefecture,
 
-    /// City/town/village name
     required this.cityName,
 
-    /// Administrative area code
     required this.administrativeAreaCode,
 
-    /// Facility location
     required this.coordinate,
 
-    /// Facility name in English
     required this.nameEn,
 
-    /// Facility classification hierarchy
     required this.classification,
 
-    /// Administrator code
     required this.administratorCode,
 
-    /// Location accuracy code
     required this.locationAccuracyCode,
 
-    /// Operating hours
     this.schedule,
 
-    /// Capacity information
     this.capacity,
 
-    /// Additional services offered
     this.services,
   });
 
@@ -50,10 +39,8 @@ class WelfareFacility {
   final FacilityCapacity? capacity;
   final List<String>? services;
 
-  /// Returns whether this is a public facility
   bool get isPublic => administratorCode.startsWith('1');
 
-  /// Returns the primary facility type
   WelfareFacilityType get type =>
       WelfareFacilityType.fromCode(classification.majorCode);
 }
@@ -88,6 +75,24 @@ class OperatingSchedule {
   final String? weekendHours;
   final String? holidayHours;
   final List<String>? closedDays;
+
+  factory OperatingSchedule.fromMap(Map<String, dynamic> map) {
+    return OperatingSchedule(
+      weekdayHours: map['weekdayHours'] as String? ?? 'Unknown',
+      weekendHours: map['weekendHours'] as String?,
+      holidayHours: map['holidayHours'] as String?,
+      closedDays: (map['closedDays'] as List<dynamic>?)?.cast<String>(),
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'weekdayHours': weekdayHours,
+      'weekendHours': weekendHours,
+      'holidayHours': holidayHours,
+      'closedDays': closedDays,
+    };
+  }
 }
 
 /// Represents capacity information of a facility
@@ -102,6 +107,24 @@ class FacilityCapacity {
   final int totalCapacity;
   final int? currentOccupancy;
   final Map<String, int>? capacityByType;
+
+  factory FacilityCapacity.fromMap(Map<String, dynamic> map) {
+    return FacilityCapacity(
+      totalCapacity: map['totalCapacity'] as int? ?? 0,
+      currentOccupancy: map['currentOccupancy'] as int?,
+      capacityByType: (map['capacityByType'] as Map<String, dynamic>?)?.map(
+        (key, value) => MapEntry(key, value as int),
+      ),
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'totalCapacity': totalCapacity,
+      'currentOccupancy': currentOccupancy,
+      'capacityByType': capacityByType,
+    };
+  }
 }
 
 /// Represents types of welfare facilities
@@ -112,7 +135,6 @@ enum WelfareFacilityType {
   generalWelfare,
   other;
 
-  /// Creates WelfareFacilityType from classification code
   static WelfareFacilityType fromCode(String code) {
     switch (code) {
       case '1':

@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 
 /// MLIT API client configuration
 final class DioConfig {
-  /// Creates a configured Dio instance for MLIT API
   static Dio createDio({
     required String apiKey,
     Duration timeout = const Duration(seconds: 30),
@@ -23,13 +22,11 @@ final class DioConfig {
       ),
     );
 
-    // Add logging interceptor for development
     dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
 
     return dio;
   }
 
-  /// Error handler for Dio requests
   static String handleError(DioException error) {
     switch (error.response?.statusCode) {
       case 400:

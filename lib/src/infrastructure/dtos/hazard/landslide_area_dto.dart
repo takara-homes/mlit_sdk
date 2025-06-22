@@ -32,7 +32,6 @@ class LandslideAreaDto extends Equatable {
 
   Map<String, dynamic> toJson() => _$LandslideAreaDtoToJson(this);
 
-  /// Converts this DTO to a domain entity
   LandslideArea toEntity() {
     return LandslideArea(
       hazard: HazardDto.fromJson(hazardData).toEntity(),
@@ -43,7 +42,6 @@ class LandslideAreaDto extends Equatable {
     );
   }
 
-  /// Creates a new LandslideAreaDto from a LandslideArea entity
   factory LandslideAreaDto.fromEntity(LandslideArea entity) {
     return LandslideAreaDto(
       hazardData: entity.hazard.toDto().toJson(),
@@ -53,8 +51,7 @@ class LandslideAreaDto extends Equatable {
       chargeMinistryName: entity.chargeMinistryName,
     );
   }
-  
-  /// Alias for toEntity for backward compatibility
+
   LandslideArea toDomain() => toEntity();
 
   @override

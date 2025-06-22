@@ -7,7 +7,7 @@ import 'package:mlit_sdk/src/infrastructure/dtos/hazard/hazard_dto.dart';
 part 'steep_slope_area_dto.g.dart';
 
 /// Data Transfer Object for Steep Slope Area information
-/// 
+///
 /// This class is used to transfer steep slope area data between the API and the application.
 /// It handles the JSON serialization/deserialization of steep slope area data.
 
@@ -37,7 +37,6 @@ class SteepSlopeAreaDto extends Equatable {
 
   Map<String, dynamic> toJson() => _$SteepSlopeAreaDtoToJson(this);
 
-  /// Converts this DTO to a domain entity
   SteepSlopeArea toEntity() {
     return SteepSlopeArea(
       hazard: HazardDto.fromJson(hazardData).toEntity(),
@@ -48,7 +47,6 @@ class SteepSlopeAreaDto extends Equatable {
     );
   }
 
-  /// Creates a new SteepSlopeAreaDto from a SteepSlopeArea entity
   factory SteepSlopeAreaDto.fromEntity(SteepSlopeArea entity) {
     return SteepSlopeAreaDto(
       hazardData: entity.hazard.toDto().toJson(),
@@ -58,8 +56,7 @@ class SteepSlopeAreaDto extends Equatable {
       publicNoticeNumber: entity.publicNoticeNumber,
     );
   }
-  
-  /// Converts this DTO to a domain entity
+
   SteepSlopeArea toDomain() => toEntity();
 
   @override

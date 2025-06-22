@@ -65,7 +65,7 @@ class _$BuildingCoverageRatioCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? percentage = null,}) {
   return _then(_self.copyWith(
-percentage: null == percentage ? _self.percentage : percentage // ignore: cast_nullable_to_non_nullable
+percentage: null == percentage ? _self.percentage : percentage
 as int,
   ));
 }
@@ -131,7 +131,7 @@ class __$BuildingCoverageRatioCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? percentage = null,}) {
   return _then(_BuildingCoverageRatio(
-null == percentage ? _self.percentage : percentage // ignore: cast_nullable_to_non_nullable
+null == percentage ? _self.percentage : percentage
 as int,
   ));
 }

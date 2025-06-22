@@ -65,8 +65,8 @@ class _$RailwayCodeCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? operatorCode = null,Object? lineCode = null,}) {
   return _then(_self.copyWith(
-operatorCode: null == operatorCode ? _self.operatorCode : operatorCode // ignore: cast_nullable_to_non_nullable
-as String,lineCode: null == lineCode ? _self.lineCode : lineCode // ignore: cast_nullable_to_non_nullable
+operatorCode: null == operatorCode ? _self.operatorCode : operatorCode
+as String,lineCode: null == lineCode ? _self.lineCode : lineCode
 as String,
   ));
 }
@@ -133,8 +133,8 @@ class __$RailwayCodeCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? operatorCode = null,Object? lineCode = null,}) {
   return _then(_RailwayCode(
-operatorCode: null == operatorCode ? _self.operatorCode : operatorCode // ignore: cast_nullable_to_non_nullable
-as String,lineCode: null == lineCode ? _self.lineCode : lineCode // ignore: cast_nullable_to_non_nullable
+operatorCode: null == operatorCode ? _self.operatorCode : operatorCode
+as String,lineCode: null == lineCode ? _self.lineCode : lineCode
 as String,
   ));
 }

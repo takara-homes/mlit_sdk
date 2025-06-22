@@ -11,7 +11,6 @@ class RealEstateRemoteDataSource {
 
   const RealEstateRemoteDataSource(this._dio);
 
-  /// Handles API errors with appropriate failure types
   Never _handleError(Object error, RequestOptions requestOptions) {
     if (error is DioException) {
       switch (error.response?.statusCode) {
@@ -52,7 +51,6 @@ class RealEstateRemoteDataSource {
     throw ApiFailure(requestOptions: requestOptions, message: error.toString());
   }
 
-  /// Fetches real estate transaction data
   Future<List<TransactionDto>> getTransactions({
     required String year,
     required String quarter,
@@ -72,7 +70,7 @@ class RealEstateRemoteDataSource {
             'priceClassification': priceClassification,
           if (area != null) 'area': area,
           if (city != null) 'city': city,
-          if (station != null) 'Station': station,
+          if (station != null) 'station': station,
           if (language != null) 'language': language,
         },
       );
@@ -99,7 +97,6 @@ class RealEstateRemoteDataSource {
     }
   }
 
-  /// Fetches land price point data
   Future<List<LandPricePointDto>> getLandPricePoints({
     required String responseFormat,
     required int zoom,
@@ -161,7 +158,6 @@ class RealEstateRemoteDataSource {
     }
   }
 
-  /// Fetches appraisal report data
   Future<List<AppraisalReportDto>> getAppraisalReports({
     required String year,
     required String area,
@@ -197,7 +193,6 @@ class RealEstateRemoteDataSource {
     }
   }
 
-  /// Fetches city list data
   Future<Map<String, dynamic>> getCityList({
     required String area,
     String? language,

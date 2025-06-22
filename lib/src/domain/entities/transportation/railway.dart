@@ -4,31 +4,22 @@ import 'package:mlit_sdk/src/domain/entities/transportation/station.dart';
 
 class Railway {
   const Railway({
-    /// Railway company code
     required this.companyCode,
 
-    /// Railway line code
     required this.lineCode,
 
-    /// Railway line name in Japanese
     required this.nameJa,
 
-    /// Railway line name in English
     required this.nameEn,
 
-    /// Operating company name
     required this.operatorName,
 
-    /// Railway type (e.g., JR, private, subway)
     required this.type,
 
-    /// List of stations on this line
     this.stations = const [],
 
-    /// Operating status
     this.isOperating = true,
 
-    /// Additional metadata
     this.metadata = const {},
   });
 

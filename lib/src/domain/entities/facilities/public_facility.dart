@@ -6,43 +6,30 @@ import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 
 class PublicFacility {
   const PublicFacility({
-    /// Administrative area code
     required this.administrativeAreaCode,
 
-    /// Facility classification code
     required this.facilityClassificationCode,
 
-    /// Facility classification name in Japanese
     required this.facilityClassificationNameJa,
 
-    /// Facility name in Japanese
     required this.nameJa,
 
-    /// Facility name in English
     required this.nameEn,
 
-    /// Facility location
     required this.coordinate,
 
-    /// Facility address
     required this.address,
 
-    /// Floor information
     this.floorInformation,
 
-    /// Operating hours
     this.operatingInformation,
 
-    /// Available services
     this.services,
 
-    /// Parking availability
     this.parkingInformation,
 
-    /// Accessibility features
     this.accessibilityFeatures,
 
-    /// Disaster response designation
     this.disasterResponseDesignation,
   });
 
@@ -60,7 +47,6 @@ class PublicFacility {
   final List<AccessibilityFeature>? accessibilityFeatures;
   final DisasterResponseDesignation? disasterResponseDesignation;
 
-  /// Returns the facility type based on classification code
   PublicFacilityType get type =>
       PublicFacilityType.fromCode(facilityClassificationCode);
 }
@@ -77,6 +63,26 @@ class FloorInformation {
   final int totalFloors;
   final int? basementFloors;
   final Map<int, String>? floorDirectory;
+
+  factory FloorInformation.fromMap(Map<String, dynamic> map) {
+    return FloorInformation(
+      totalFloors: map['totalFloors'] as int? ?? 0,
+      basementFloors: map['basementFloors'] as int?,
+      floorDirectory: (map['floorDirectory'] as Map<String, dynamic>?)?.map(
+        (key, value) => MapEntry(int.parse(key), value as String),
+      ),
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'totalFloors': totalFloors,
+      'basementFloors': basementFloors,
+      'floorDirectory': floorDirectory?.map(
+        (key, value) => MapEntry(key.toString(), value),
+      ),
+    };
+  }
 }
 
 /// Represents operating information of a public facility
@@ -95,6 +101,27 @@ class OperatingInformation {
   final List<String>? holidays;
   final String? lunchBreak;
   final Map<String, String>? specialHours;
+
+  factory OperatingInformation.fromMap(Map<String, dynamic> map) {
+    return OperatingInformation(
+      weekdayHours: map['weekdayHours'] as String? ?? 'Unknown',
+      weekendHours: map['weekendHours'] as String?,
+      holidays: (map['holidays'] as List<dynamic>?)?.cast<String>(),
+      lunchBreak: map['lunchBreak'] as String?,
+      specialHours: (map['specialHours'] as Map<String, dynamic>?)
+          ?.cast<String, String>(),
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'weekdayHours': weekdayHours,
+      'weekendHours': weekendHours,
+      'holidays': holidays,
+      'lunchBreak': lunchBreak,
+      'specialHours': specialHours,
+    };
+  }
 }
 
 /// Represents parking information of a public facility
@@ -113,6 +140,26 @@ class ParkingInformation {
   final int? disabledSpaces;
   final bool? isFree;
   final String? rates;
+
+  factory ParkingInformation.fromMap(Map<String, dynamic> map) {
+    return ParkingInformation(
+      isAvailable: map['isAvailable'] as bool? ?? false,
+      regularSpaces: map['regularSpaces'] as int?,
+      disabledSpaces: map['disabledSpaces'] as int?,
+      isFree: map['isFree'] as bool?,
+      rates: map['rates'] as String?,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'isAvailable': isAvailable,
+      'regularSpaces': regularSpaces,
+      'disabledSpaces': disabledSpaces,
+      'isFree': isFree,
+      'rates': rates,
+    };
+  }
 }
 
 /// Represents disaster response designation of a public facility
@@ -129,6 +176,25 @@ class DisasterResponseDesignation {
   final String? designationType;
   final int? capacity;
   final List<String>? supportedDisasterTypes;
+
+  factory DisasterResponseDesignation.fromMap(Map<String, dynamic> map) {
+    return DisasterResponseDesignation(
+      isEvacuationSite: map['isEvacuationSite'] as bool? ?? false,
+      designationType: map['designationType'] as String?,
+      capacity: map['capacity'] as int?,
+      supportedDisasterTypes: (map['supportedDisasterTypes'] as List<dynamic>?)
+          ?.cast<String>(),
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'isEvacuationSite': isEvacuationSite,
+      'designationType': designationType,
+      'capacity': capacity,
+      'supportedDisasterTypes': supportedDisasterTypes,
+    };
+  }
 }
 
 /// Represents types of public facilities
@@ -140,7 +206,6 @@ enum PublicFacilityType {
   fireStation,
   other;
 
-  /// Creates PublicFacilityType from classification code
   static PublicFacilityType fromCode(String code) {
     switch (code) {
       case '1':

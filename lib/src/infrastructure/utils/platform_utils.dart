@@ -9,6 +9,5 @@ library;
 /// This is used to conditionally execute code that depends on
 /// platform-specific APIs.
 bool get isWeb {
-  // This is replaced at compile time with the correct value
   return identical(0, 0.0);
 }

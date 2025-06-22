@@ -1,3 +1,9 @@
+## 1.2.0
+
+- Refactored entity classes to use json_serializable instead of freezed
+- Updated dependencies to their latest stable versions
+- Updated documentation to reflect changes
+
 ## 1.1.1
 
 - Updated dependencies to their latest stable versions

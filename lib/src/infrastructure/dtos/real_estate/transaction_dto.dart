@@ -157,6 +157,11 @@ class TransactionDto extends Equatable {
     return RealEstateTransaction(
       typeJa: typeJa,
       typeEn: typeEn,
+      regionJa: prefecture,
+      regionEn: prefectureEn,
+      municipalityCode: municipalityCode,
+      districtNameJa: districtName ?? '',
+      districtNameEn: districtNameEn ?? '',
       tradePrice: int.parse(tradePrice),
       pricePerUnit: double.tryParse(pricePerUnit ?? ''),
       unitPrice: double.tryParse(unitPrice ?? ''),

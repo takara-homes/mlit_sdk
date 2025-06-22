@@ -10,28 +10,24 @@ import 'package:mlit_sdk/src/domain/value_objects/common/zoom_level.dart';
 
 /// Repository interface for urban planning data from MLIT API
 abstract class IUrbanPlanningRepository {
-  /// Fetches urbanization area and area classification data
   Future<Either<ApiFailure, List<UrbanizationArea>>> getUrbanizationAreas({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
     ResponseFormat responseFormat = const GeoJson(),
   });
 
-  /// Fetches use zone data for a specific area
   Future<Either<ApiFailure, List<UseZone>>> getUseZones({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
     ResponseFormat responseFormat = const GeoJson(),
   });
 
-  /// Fetches fire prevention areas
   Future<Either<ApiFailure, List<FirePreventionArea>>> getFirePreventionAreas({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
     ResponseFormat responseFormat = const GeoJson(),
   });
 
-  /// Fetches district planning data
   Future<Either<ApiFailure, List<DistrictPlan>>> getDistrictPlans({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,

@@ -19,7 +19,7 @@ class WelfareFacilityDto extends Equatable {
   final double longitude;
   @JsonKey(name: 'P6_en')
   final String nameEn;
-  // Classification fields
+
   @JsonKey(name: 'P4')
   final String classificationMajorCode;
   @JsonKey(name: 'P4_name_ja')
@@ -34,7 +34,7 @@ class WelfareFacilityDto extends Equatable {
   final String administratorCode;
   @JsonKey(name: 'P8')
   final String locationAccuracyCode;
-  // Optional schedule and capacity data from extended API response
+
   @JsonKey(name: 'schedule')
   final Map<String, dynamic>? scheduleData;
   @JsonKey(name: 'capacity')

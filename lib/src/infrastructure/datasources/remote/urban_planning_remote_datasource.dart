@@ -22,7 +22,6 @@ class UrbanPlanningRemoteDataSource {
     : _dio = dio,
       _apiKey = apiKey;
 
-  /// Fetches urbanization area data from the API
   Future<List<UrbanizationArea>> getUrbanizationAreas({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
@@ -50,7 +49,6 @@ class UrbanPlanningRemoteDataSource {
     }
   }
 
-  /// Fetches use zone data from the API
   Future<List<UseZone>> getUseZones({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
@@ -78,7 +76,6 @@ class UrbanPlanningRemoteDataSource {
     }
   }
 
-  /// Fetches fire prevention area data from the API
   Future<List<FirePreventionArea>> getFirePreventionAreas({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
@@ -106,7 +103,6 @@ class UrbanPlanningRemoteDataSource {
     }
   }
 
-  /// Fetches district planning data from the API
   Future<List<DistrictPlan>> getDistrictPlans({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,

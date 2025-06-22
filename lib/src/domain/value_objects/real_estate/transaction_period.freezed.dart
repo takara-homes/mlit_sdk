@@ -23,7 +23,7 @@ mixin _$TransactionPeriod {
 @pragma('vm:prefer-inline')
 $TransactionPeriodCopyWith<TransactionPeriod> get copyWith => _$TransactionPeriodCopyWithImpl<TransactionPeriod>(this as TransactionPeriod, _$identity);
 
-  /// Serializes this TransactionPeriod to a JSON map.
+ 
   Map<String, dynamic> toJson();
 
 
@@ -68,8 +68,8 @@ class _$TransactionPeriodCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? year = null,Object? quarter = null,}) {
   return _then(_self.copyWith(
-year: null == year ? _self.year : year // ignore: cast_nullable_to_non_nullable
-as String,quarter: null == quarter ? _self.quarter : quarter // ignore: cast_nullable_to_non_nullable
+year: null == year ? _self.year : year
+as String,quarter: null == quarter ? _self.quarter : quarter
 as String,
   ));
 }
@@ -139,8 +139,8 @@ class __$TransactionPeriodCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? year = null,Object? quarter = null,}) {
   return _then(_TransactionPeriod(
-year: null == year ? _self.year : year // ignore: cast_nullable_to_non_nullable
-as String,quarter: null == quarter ? _self.quarter : quarter // ignore: cast_nullable_to_non_nullable
+year: null == year ? _self.year : year
+as String,quarter: null == quarter ? _self.quarter : quarter
 as String,
   ));
 }

@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:mlit_sdk/src/application/services/base_service.dart';
 import 'package:mlit_sdk/src/domain/entities/real_estate/real_estate_transaction.dart';
 import 'package:mlit_sdk/src/domain/failures/failure.dart';
+import 'package:mlit_sdk/src/domain/failures/validation_failures.dart';
 import 'package:mlit_sdk/src/domain/repositories/real_estate/i_transaction_repository.dart';
 import 'package:mlit_sdk/src/domain/value_objects/administrative/city_code.dart';
 import 'package:mlit_sdk/src/domain/value_objects/administrative/prefecture_code.dart';
@@ -15,7 +16,6 @@ class TransactionService extends BaseService {
 
   TransactionService(this._repository);
 
-  /// Fetches real estate transactions based on given parameters
   Future<Either<Failure, List<RealEstateTransaction>>> getTransactions({
     required TransactionPeriod period,
     PrefectureCode? prefecture,
@@ -23,6 +23,16 @@ class TransactionService extends BaseService {
     StationCode? station,
     PriceClassification? priceClassification,
   }) async {
+    if (prefecture == null && city == null && station == null) {
+      return left(
+        ValidationFailure.missingParameter(
+          message:
+              'At least one of prefecture, city, or station must be provided',
+          parameterName: 'location',
+        ).toFailure(),
+      );
+    }
+
     return _repository.getTransactions(
       period: period,
       prefectureCode: prefecture,

@@ -17,7 +17,6 @@ class UrbanPlanningService {
 
   UrbanPlanningService(this._repository);
 
-  /// Fetches urbanization area classification data
   Future<Either<ApiFailure, List<UrbanizationArea>>> getUrbanizationAreas({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
@@ -38,7 +37,6 @@ class UrbanPlanningService {
     );
   }
 
-  /// Fetches use zone data with specified parameters
   Future<Either<ApiFailure, List<UseZone>>> getUseZones({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
@@ -59,7 +57,6 @@ class UrbanPlanningService {
     );
   }
 
-  /// Fetches fire prevention areas with specified parameters
   Future<Either<ApiFailure, List<FirePreventionArea>>> getFirePreventionAreas({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
@@ -80,7 +77,6 @@ class UrbanPlanningService {
     );
   }
 
-  /// Fetches district planning data
   Future<Either<ApiFailure, List<DistrictPlan>>> getDistrictPlans({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
@@ -101,19 +97,15 @@ class UrbanPlanningService {
     );
   }
 
-  /// Validates zoom level for urban planning data
   bool _isValidZoomLevel(ZoomLevel zoomLevel) {
-    // Based on API documentation, zoom levels are typically between 8 (city) and 18 (detailed)
     return zoomLevel.value >= 8 && zoomLevel.value <= 18;
   }
 
-  /// Validates coordinates based on Japan's geographical boundaries
   bool _isValidCoordinates(Coordinates coordinates) {
-    // Approximate boundaries for Japan
-    const double minLat = 24.0; // Southernmost point
-    const double maxLat = 45.0; // Northernmost point
-    const double minLon = 123.0; // Westernmost point
-    const double maxLon = 154.0; // Easternmost point
+    const double minLat = 24.0;
+    const double maxLat = 45.0;
+    const double minLon = 123.0;
+    const double maxLon = 154.0;
 
     return coordinates.latitude >= minLat &&
         coordinates.latitude <= maxLat &&

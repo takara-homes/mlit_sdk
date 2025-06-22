@@ -2,31 +2,22 @@ import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 
 class Address {
   const Address({
-    /// Prefecture code
     required this.prefectureCode,
 
-    /// City code
     required this.cityCode,
 
-    /// Address in Japanese format
     required this.fullAddressJa,
 
-    /// Address in English format
     required this.fullAddressEn,
 
-    /// District code (optional)
     this.districtCode,
 
-    /// Block number (番地)
     this.blockNumber,
 
-    /// Building name (optional)
     this.buildingName,
 
-    /// Japanese postal code
     this.postalCode,
 
-    /// Geographic coordinates of the address
     this.coordinate,
   });
 
@@ -47,4 +38,34 @@ class Address {
   final String fullAddressEn;
 
   final Coordinate? coordinate;
+
+  factory Address.fromMap(Map<String, dynamic> map) {
+    return Address(
+      prefectureCode: map['prefectureCode'] as String? ?? '',
+      cityCode: map['cityCode'] as String? ?? '',
+      fullAddressJa: map['fullAddressJa'] as String? ?? '',
+      fullAddressEn: map['fullAddressEn'] as String? ?? '',
+      districtCode: map['districtCode'] as String?,
+      blockNumber: map['blockNumber'] as String?,
+      buildingName: map['buildingName'] as String?,
+      postalCode: map['postalCode'] as String?,
+      coordinate: map['coordinate'] != null
+          ? Coordinate.fromMap(map['coordinate'] as Map<String, dynamic>)
+          : null,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'prefectureCode': prefectureCode,
+      'cityCode': cityCode,
+      'fullAddressJa': fullAddressJa,
+      'fullAddressEn': fullAddressEn,
+      'districtCode': districtCode,
+      'blockNumber': blockNumber,
+      'buildingName': buildingName,
+      'postalCode': postalCode,
+      'coordinate': coordinate?.toMap(),
+    };
+  }
 }

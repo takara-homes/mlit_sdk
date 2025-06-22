@@ -78,17 +78,15 @@ class MedicalFacilityDto extends Equatable {
   List<String> _combineDepartments() {
     final departments = <String>[];
 
-    // Add individual departments if present
     if (department1 != null) departments.add(department1!);
     if (department2 != null) departments.add(department2!);
     if (department3 != null) departments.add(department3!);
 
-    // Add combined departments if present
     if (combinedDepartments != null) {
       departments.addAll(combinedDepartments!.split(',').map((d) => d.trim()));
     }
 
-    return departments.toSet().toList(); // Remove duplicates
+    return departments.toSet().toList();
   }
 
   @override

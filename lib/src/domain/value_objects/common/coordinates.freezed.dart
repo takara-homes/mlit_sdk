@@ -23,7 +23,7 @@ mixin _$Coordinates {
 @pragma('vm:prefer-inline')
 $CoordinatesCopyWith<Coordinates> get copyWith => _$CoordinatesCopyWithImpl<Coordinates>(this as Coordinates, _$identity);
 
-  /// Serializes this Coordinates to a JSON map.
+ 
   Map<String, dynamic> toJson();
 
 
@@ -68,8 +68,8 @@ class _$CoordinatesCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? latitude = null,Object? longitude = null,}) {
   return _then(_self.copyWith(
-latitude: null == latitude ? _self.latitude : latitude // ignore: cast_nullable_to_non_nullable
-as double,longitude: null == longitude ? _self.longitude : longitude // ignore: cast_nullable_to_non_nullable
+latitude: null == latitude ? _self.latitude : latitude
+as double,longitude: null == longitude ? _self.longitude : longitude
 as double,
   ));
 }
@@ -139,8 +139,8 @@ class __$CoordinatesCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? latitude = null,Object? longitude = null,}) {
   return _then(_Coordinates(
-latitude: null == latitude ? _self.latitude : latitude // ignore: cast_nullable_to_non_nullable
-as double,longitude: null == longitude ? _self.longitude : longitude // ignore: cast_nullable_to_non_nullable
+latitude: null == latitude ? _self.latitude : latitude
+as double,longitude: null == longitude ? _self.longitude : longitude
 as double,
   ));
 }

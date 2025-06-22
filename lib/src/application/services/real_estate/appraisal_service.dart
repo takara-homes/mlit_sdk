@@ -12,7 +12,6 @@ class AppraisalService extends BaseService {
 
   AppraisalService(this._repository);
 
-  /// Fetches appraisal reports based on parameters
   Future<Either<Failure, List<AppraisalReport>>> getAppraisalReports({
     required int year,
     required PrefectureCode prefecture,

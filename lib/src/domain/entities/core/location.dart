@@ -4,40 +4,29 @@ import 'package:mlit_sdk/src/domain/entities/core/coordinate.dart';
 /// Represents a comprehensive location with geographic and administrative information
 class Location {
   const Location({
-    /// Unique identifier for the location
     required this.id,
 
-    /// Geographic coordinate of the location
     required this.coordinate,
 
-    /// Address information
     required this.address,
 
-    /// Location type classification
     required this.type,
 
-    /// Name in Japanese
     required this.nameJa,
 
-    /// Name in English
     required this.nameEn,
 
-    /// Description in Japanese (optional)
     this.descriptionJa,
 
-    /// Description in English (optional)
     this.descriptionEn,
 
-    /// Reference points - nearby landmarks or stations
     List<ReferencePoint>? referencePoints,
 
-    /// Additional metadata as key-value pairs
     Map<String, dynamic>? metadata,
 
-    /// Last updated timestamp
     this.updatedAt,
-  })  : referencePoints = referencePoints ?? const [],
-        metadata = metadata ?? const {};
+  }) : referencePoints = referencePoints ?? const [],
+       metadata = metadata ?? const {};
 
   final String id;
   final Coordinate coordinate;
@@ -55,16 +44,12 @@ class Location {
 /// Represents a reference point near a location
 class ReferencePoint {
   const ReferencePoint({
-    /// Type of reference point
     required this.type,
 
-    /// Name of the reference point
     required this.name,
 
-    /// Geographic coordinate
     required this.coordinate,
 
-    /// Distance in meters from the main location (optional)
     this.distance,
   });
 

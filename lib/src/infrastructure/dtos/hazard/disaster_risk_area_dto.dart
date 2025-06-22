@@ -61,7 +61,6 @@ class DisasterRiskAreaDto extends Equatable {
     others,
   ];
 
-  /// Converts this DTO to a domain entity
   DisasterRiskArea toEntity() {
     return DisasterRiskArea(
       hazard: HazardDto.fromJson(hazardData).toEntity(),
@@ -76,7 +75,6 @@ class DisasterRiskAreaDto extends Equatable {
     );
   }
 
-  /// Creates a new DisasterRiskAreaDto from a DisasterRiskArea entity
   factory DisasterRiskAreaDto.fromEntity(DisasterRiskArea entity) {
     return DisasterRiskAreaDto(
       hazardData: entity.hazard.toDto().toJson(),
@@ -90,7 +88,6 @@ class DisasterRiskAreaDto extends Equatable {
       others: entity.others,
     );
   }
-  
-  /// Alias for toEntity for backward compatibility
+
   DisasterRiskArea toDomain() => toEntity();
 }

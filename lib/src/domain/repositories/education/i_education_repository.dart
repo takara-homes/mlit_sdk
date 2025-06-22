@@ -10,7 +10,6 @@ import 'package:mlit_sdk/src/domain/value_objects/common/zoom_level.dart';
 
 /// Repository interface for education-related facilities and districts
 abstract class IEducationRepository {
-  /// Fetches schools data based on location and filters
   Future<Either<Failure, List<School>>> getSchools({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
@@ -18,21 +17,18 @@ abstract class IEducationRepository {
     CityCode? cityCode,
   });
 
-  /// Fetches elementary school districts
   Future<Either<Failure, List<SchoolDistrict>>> getElementarySchoolDistricts({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
     CityCode? cityCode,
   });
 
-  /// Fetches junior high school districts
   Future<Either<Failure, List<SchoolDistrict>>> getJuniorHighSchoolDistricts({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,
     CityCode? cityCode,
   });
 
-  /// Fetches nursery schools and kindergartens
   Future<Either<Failure, List<Nursery>>> getNurserySchools({
     required ZoomLevel zoomLevel,
     required Coordinates coordinates,

@@ -3,18 +3,13 @@ import 'dart:developer';
 import 'package:mlit_sdk/mlit_sdk.dart';
 
 void main() async {
-  // Initialize the MLIT SDK with caching enabled
   final mlitSdk = await createMLITSdk(
-    MLITSdkConfig(
-      apiKey: 'your_api_key_here',
-      defaultCacheTtl: 3600, // Cache TTL in seconds (1 hour)
-    ),
+    MLITSdkConfig(apiKey: 'your_api_key_here', defaultCacheTtl: 3600),
   );
 
-  // Example 1: Get real estate transaction data
   final transactionResult = await mlitSdk.transactionService.getTransactions(
     period: const TransactionPeriod(year: '2024', quarter: '1'),
-    prefecture: const PrefectureCode('13'), // Tokyo
+    prefecture: const PrefectureCode('13'),
   );
 
   transactionResult.fold((failure) => log('Error: ${failure.message}'), (
@@ -30,7 +25,6 @@ void main() async {
     }
   });
 
-  // Example 2: Get land price points
   final landPriceResult = await mlitSdk.landPriceService.getLandPricePoints(
     zoomLevel: const ZoomLevel(14),
     coordinates: const Coordinates(latitude: 35.6812, longitude: 139.7671),
@@ -47,15 +41,11 @@ void main() async {
     }
   });
 
-  // Example 3: Caching control
-  // Toggle caching on/off at runtime
-  mlitSdk.setCaching(enabled: true, cacheTtl: 7200); // 2 hours cache
+  mlitSdk.setCaching(enabled: true, cacheTtl: 7200);
 
-  // Clear all cached data
   await mlitSdk.clearCache();
   log('Cache cleared');
 
-  // Example 4: Get medical facilities
   final facilitiesResult = await mlitSdk.facilitiesService.getMedicalFacilities(
     coordinates: const Coordinates(latitude: 35.6812, longitude: 139.7671),
     zoom: const ZoomLevel(14),

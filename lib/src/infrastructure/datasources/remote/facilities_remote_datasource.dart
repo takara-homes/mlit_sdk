@@ -21,7 +21,6 @@ class FacilitiesRemoteDataSource {
 
   FacilitiesRemoteDataSource({required Dio client}) : _dio = client;
 
-  /// Fetches medical facilities data from the API
   Future<List<MedicalFacility>> getMedicalFacilities({
     required ResponseFormat responseFormat,
     required ZoomLevel zoom,
@@ -48,7 +47,6 @@ class FacilitiesRemoteDataSource {
     }
   }
 
-  /// Fetches welfare facilities data from the API
   Future<List<WelfareFacility>> getWelfareFacilities({
     required ResponseFormat responseFormat,
     required ZoomLevel zoom,
@@ -89,7 +87,6 @@ class FacilitiesRemoteDataSource {
     }
   }
 
-  /// Fetches libraries data from the API
   Future<List<Library>> getLibraries({
     required ResponseFormat responseFormat,
     required ZoomLevel zoom,
@@ -119,7 +116,6 @@ class FacilitiesRemoteDataSource {
     }
   }
 
-  /// Fetches public offices data from the API
   Future<List<PublicFacility>> getPublicOffices({
     required ResponseFormat responseFormat,
     required ZoomLevel zoom,
